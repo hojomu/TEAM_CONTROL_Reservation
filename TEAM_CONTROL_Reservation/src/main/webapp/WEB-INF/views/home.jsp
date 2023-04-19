@@ -11,6 +11,17 @@
 	Hello world!  
 </h1>
 
-<P>  The time on the server is  </P>
+<form action="test1" method="post">
+	<input type="text" name="personalNumber">
+	<input type="text" name="email">
+	<input type="submit" value="제출">
+</form>
+
+<ul id="check">
+
+</ul>
+<ul>
+</ul>
+
 </body>
 </html>

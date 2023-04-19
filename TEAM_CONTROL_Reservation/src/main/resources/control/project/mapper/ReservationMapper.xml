@@ -7,4 +7,17 @@
   
 <mapper namespace="control.project.mapper.ReservationMapper">
  
+	<!-- 예약 정보 저장하기 insert -->
+	<insert id="reserve">
+		<selectKey keyProperty="rno" order="BEFORE" resultType="int">
+			select max(rno)+1 rno
+			from reservation
+		</selectKey>
+		
+		insert into reservation(rno, customerName, personalNumber, email, medicalDept, doctor, reservationTime, otherInfo)
+		values(#{rno}, #{customerName}, #{personalNumber}, #{email}, #{medicalDept}, #{doctor}, #{reservationTime}, #{otherInfo})
+	</insert>
+	
+	<!-- 예약 정보 불러오기 select -->
+ 
 </mapper>

@@ -26,14 +26,14 @@ public class ReservationVO {
 	public String getPersonalNumber() {
 		return personalNumber;
 	}
-	public void setPersonalNumber(String personalNumber1, String personalNumber2) {
-		this.personalNumber = personalNumber1+"-"+personalNumber2;
+	public void setPersonalNumber(String personalNumber) {
+		this.personalNumber = personalNumber;
 	}
 	public String getEmail() {
 		return email;
 	}
-	public void setEmail(String emailId, String emailAdress) {
-		this.email = emailId+"@"+emailAdress;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	public String getMedicalDept() {
 		return medicalDept;
