@@ -1,0 +1,86 @@
+@charset "UTF-8";
+
+* {
+  margin: 0 auto;
+  padding: 0;
+  font-family: "맑은 고딕";
+  list-style: none;
+  color: #000000;
+}
+
+.container {
+  overflow: hidden;
+  width: 602px;
+  text-align: center;
+  border: 1px solid #0e787c;
+  border-top: none;
+  border-radius: 10px;
+}
+
+.container .change {
+  overflow: hidden;
+}
+/* 기본세팅 */
+.container .change span {
+  float: left;
+  width: 300px;
+  display: block;
+  padding: 8px 0;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: #EEE;
+  color: #919191;
+  border: 1px solid #0e787c;
+/*   border: 1px solid #0e787c;
+  border-bottom: none; */
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+/* 클릭했을때 */
+.container .change span.active {
+  border-top: 3px solid #0e787c;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+  background-color: #FFF;
+  color: #000;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.container .client-change {
+  padding: 25px;
+  background-color: #FFF;
+}
+.container .client-change form {
+  overflow: hidden;
+  display: none;
+}
+.container .client-change form.active {
+  display: block;
+}
+/* .container .client-change form input:not([type="checkbox"]) {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #C2C7D0;
+  border-radius: 5px;
+  box-sizing: border-box
+}
+.container .client-change form input[type="submit"]{
+  margin-top: 10px;
+  background-color: #1f9a50;
+  color: #FFF;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: .3s
+}
+.container .client-change form input[type="submit"]:hover{
+  opacity: .7
+} */
+.medical_button_title{
+  font-size: 22px;
+  font-weight: bold;
+  
+}
