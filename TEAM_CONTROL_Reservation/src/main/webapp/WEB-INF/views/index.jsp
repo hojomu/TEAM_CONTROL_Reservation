@@ -39,10 +39,12 @@
 	        
 	        <!-- 비회원 진료 예약 조회 -->
 	        <form class="manager-form">
-	        <img alt="medical" src="/resources/icon/medical_icon.png" width="50" height="auto">
-	        <h3>비회원 진료 예약 조회</h3><br>
+			<img alt="medical" src="/resources/icon/medical_icon.png" width="auto" height="60">
+			<span class="medical_button_title">비회원 진료 예약 조회</span>
+	   		<div>
 	   		주민번호 입력
-	   		<input type="text">-<input type="text"><br>
+	   		<input type="text">-<input type="text">
+	   		</div>
 	   		<button onclick="location.href='http://localhost:8080/UserCheck'">비회원 진료 예약 조회</button>
 	        </form>
 	

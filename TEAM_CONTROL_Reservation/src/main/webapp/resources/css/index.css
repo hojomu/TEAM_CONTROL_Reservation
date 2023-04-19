@@ -15,11 +15,14 @@
 
 .appointment{
 	position: relative;
+	width:1200px;
+	height:800px;
 }
 
 .container {
   overflow: hidden;
   width: 602px;
+  height:300px;
   text-align: center;
   border: 1px solid #0e787c;
   border-top: none;
