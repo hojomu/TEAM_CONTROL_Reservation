@@ -29,24 +29,23 @@
 	<p>달력 날짜입력 ~ 달력 날짜입력</p>
 	
 	<table border="1">
+	
 		<tr>
 			<th>시간</th> <th>환자번호</th> <th>이름</th> <th>진료과</th> <th>의료진</th>
 		</tr>
+		
+		<!-- for문 시작 -->
+		<c:forEach items="${list}" var="manager_checklist">
 		<tr>
-			<td>09:00</td> <td>0123</td> <td>김환자</td> <td>내과</td> <td>박자바 교수</td>
+			<td>${manager_checklist.reservationTime}</td>
+			<td>${manager_checklist.rno}</td>
+			<td><a href="/ManagerChrckDetail?rno=${manager_checklist.rno}">${manager_checklist.customerName}</a></td>
+			<td>${manager_checklist.medicalDept}</td>
+			<td>${manager_checklist.doctor}</td>
 		</tr>
-		<tr>
-			<td>09:30</td> <td>0123</td> <td>김환자</td> <td>내과</td> <td>박자바 교수</td>
-		</tr>
-		<tr>
-			<td>10:00</td> <td>0123</td> <td>김환자</td> <td>내과</td> <td>박자바 교수</td>
-		</tr>
-		<tr>
-			<td>10:30</td> <td>0123</td> <td>김환자</td> <td>내과</td> <td>박자바 교수</td>
-		</tr>
-		<tr>
-			<td>11:00</td> <td>0123</td> <td>김환자</td> <td>내과</td> <td>박자바 교수</td>
-		</tr>
+		</c:forEach>
+		<!-- for문 끝 -->
+		
 	</table>
 	
 	<p>페이징</p>

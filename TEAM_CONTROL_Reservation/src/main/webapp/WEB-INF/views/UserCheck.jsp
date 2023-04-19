@@ -15,19 +15,19 @@
 	</tr>
 	
 	<tr>
-		<td>환자번호</td><td>0123</td>
+		<td>환자번호</td><td>${manager_checklist.rno}</td>
 	</tr>
 	<tr>
-		<td>환자명</td><td>김환자</td>
+		<td>환자명</td><td>${manager_checklist.customerName}</td>
 	</tr>
 	<tr>
-		<td>진료과</td><td>내과</td>
+		<td>진료과</td><td>${manager_checklist.medicalDept}</td>
 	</tr>
 	<tr>
-		<td>의료진</td><td>박자바</td>
+		<td>의료진</td><td>${manager_checklist.doctor}</td>
 	</tr>
 	<tr>
-		<td>예약시간</td><td>2023-04-19-15:30</td>
+		<td>예약시간</td><td>${manager_checklist.reservationTime}</td>
 	</tr>
 	
 </table>
