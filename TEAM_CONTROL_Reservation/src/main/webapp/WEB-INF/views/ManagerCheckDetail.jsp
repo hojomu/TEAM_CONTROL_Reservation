@@ -5,6 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
+	<!-- managercheckdetail css -->
+	<link rel="stylesheet" href="/resources/css/managercheckdetail.css">
+
 </head>
 <body>
 

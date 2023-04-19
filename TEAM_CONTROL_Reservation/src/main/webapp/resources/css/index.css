@@ -8,6 +8,11 @@
   color: #000000;
 }
 
+.ManagerCheck_view{
+	float: right;
+	margin: 20px;
+}
+
 .container {
   overflow: hidden;
   width: 602px;

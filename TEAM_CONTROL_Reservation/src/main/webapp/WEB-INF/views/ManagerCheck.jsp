@@ -5,6 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
+	<!-- managercheck css -->
+	<link rel="stylesheet" href="/resources/css/managercheck.css">
+
 </head>
 <body>
 
@@ -20,13 +24,17 @@
 	
 	<ul>
 	<li>예약환자 카운트 |</li>
-	<li>접수환자 카운트 |</li>
-	<li>접수대기 카운트 |</li>
-	<li>수납대기 카운트 |</li>
-	<li>수납완료 카운트 </li>
+	<li>접수환자 0 |</li>
+	<li>접수대기 0 |</li>
+	<li>수납대기 0 |</li>
+	<li>수납완료 0 </li>
 	</ul>
 	
-	<p>달력 날짜입력 ~ 달력 날짜입력</p>
+	<br>
+	
+	<input type="date" name="startday">
+	-
+	<input type="date" name="startday">
 	
 	<table border="1">
 	
@@ -37,11 +45,11 @@
 		<!-- for문 시작 -->
 		<c:forEach items="${list}" var="manager_checklist">
 		<tr>
-			<td>${manager_checklist.reservationTime}</td>
-			<td>${manager_checklist.rno}</td>
-			<td><a href="/ManagerChrckDetail?rno=${manager_checklist.rno}">${manager_checklist.customerName}</a></td>
-			<td>${manager_checklist.medicalDept}</td>
-			<td>${manager_checklist.doctor}</td>
+			<td>${manager_checklist.reservationTime} 9:00</td>
+			<td>${manager_checklist.rno} 0123</td>
+			<td><a href="/ManagerChrckDetail?rno=${manager_checklist.rno}">${manager_checklist.customerName} 김환자</a></td>
+			<td>${manager_checklist.medicalDept} 내과</td>
+			<td>${manager_checklist.doctor} 박자바</td>
 		</tr>
 		</c:forEach>
 		<!-- for문 끝 -->
