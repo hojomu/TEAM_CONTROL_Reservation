@@ -5,10 +5,15 @@ import java.util.Locale;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import control.project.model.CriteriaVO;
+import control.project.model.PageVO;
+import control.project.service.ReservationService;
 
 /**
  * Handles requests for the application home page.
@@ -16,6 +21,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class HomeController {
+	
+	@Autowired	
+	ReservationService rs;
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
@@ -40,9 +48,14 @@ public class HomeController {
 	public String goindex() {
 	return "index";
 	}
-	// ManagerCheck으로 이동하기
+	// ManagerCheck으로 이동하기 0419
 	@RequestMapping(value="/ManagerCheck", method = RequestMethod.GET)
-	public String goManagerCheck() {
+	public String goManagerCheck(Model model, CriteriaVO cri) {
+		System.out.println(cri);
+		model.addAttribute("list", rs.list(cri));		
+		int total = rs.total(cri);
+		System.out.println(total);
+		model.addAttribute("paging", new PageVO(cri, total));
 	return "ManagerCheck";
 	}
 	// ManagerCheckDetail으로 이동하기
