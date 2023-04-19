@@ -29,4 +29,30 @@ public class HomeController {
 		return "home";
 	}
 	
+	
+	// 달력으로 이동하기
+	@RequestMapping(value="/calendar", method = RequestMethod.GET)
+	public String goCalendar() {
+	return "Calendar1";
+	}
+	// index으로 이동하기
+	@RequestMapping(value="/index", method = RequestMethod.GET)
+	public String goindex() {
+	return "index";
+	}
+	// ManagerCheck으로 이동하기
+	@RequestMapping(value="/ManagerCheck", method = RequestMethod.GET)
+	public String goManagerCheck() {
+	return "ManagerCheck";
+	}
+	// ManagerCheckDetail으로 이동하기
+	@RequestMapping(value="/ManagerCheckDetail", method = RequestMethod.GET)
+	public String goManagerCheckDetail() {
+	return "ManagerCheckDetail";
+	}
+	// UserCheck으로 이동하기
+	@RequestMapping(value="/UserCheck", method = RequestMethod.GET)
+	public String goUserCheck() {
+	return "UserCheck";
+	}
 }
