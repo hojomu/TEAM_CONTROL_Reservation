@@ -13,6 +13,10 @@
 	margin: 20px;
 }
 
+.appointment{
+	position: relative;
+}
+
 .container {
   overflow: hidden;
   width: 602px;
@@ -20,6 +24,10 @@
   border: 1px solid #0e787c;
   border-top: none;
   border-radius: 10px;
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
 }
 
 .container .change {
@@ -37,8 +45,6 @@
   background-color: #EEE;
   color: #919191;
   border: 1px solid #0e787c;
-/*   border: 1px solid #0e787c;
-  border-bottom: none; */
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
