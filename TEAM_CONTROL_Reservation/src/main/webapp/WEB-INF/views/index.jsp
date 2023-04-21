@@ -8,15 +8,14 @@
 
 	<!-- index css -->
 	<link rel="stylesheet" href="/resources/css/index.css">
-
+	
 </head>
 <body>
 
-<a href="/ManagerCheck"><img alt="medical" class="ManagerCheck_view" src="/resources/icon/manager_view_icon.png" width="80" height="auto"></a>
+<a href="/ManagerCheck"><img alt="medical" class="ManagerCheck_view" src="/resources/icon/ManagerCheck_view_icon.png" width="80" height="auto"></a>
 
 <!-- appointment -->
 <div class="appointment">
-	
 	<!-- container -->
 	<div class="container">
 		<div class="change">
@@ -29,23 +28,30 @@
 	    	
 	        <!-- 비회원 진료 예약 -->
 	        <form class="user-form active">
-			<img alt="medical" src="/resources/icon/medical_icon.png" width="auto" height="60">
-			<span class="medical_button_title">비회원 진료 예약</span>
-	   		<p>비회원 진료 예약</p>
-	   		<p>간편하게 실시간 진료 예약하기</p>
-	   		<button onclick="location.href='http://localhost:8080/calendar'">비회원 진료 예약하기</button><br>
-	   		<p>예약 관련 안내사항</p>
+		        <div class="medical_user">
+					<img class="medical_button_icon"alt="medical" src="/resources/icon/medical_icon.png" width="auto" height="50">
+					<div class="medical_button_title">비회원 진료 예약</div>
+				</div>
+		   		<p>
+		   		회원가입을 하지 않아도 진료예약 및 조회가 가능합니다.<br>
+				단, 일부 서비스 이용이 제한될 수 있습니다.</p>
+		   		<button class="custom-btn btn-1" onclick="location.href='http://localhost:8080/calendar'">비회원 진료 예약하기</button>
+		   		<div class="medical_box_center">
+			   		<p class="medical_box">회원가입을 하실 경우 『나의차트』에서 진료 및 투약내역,<br>
+			   	 	복약상담, 진단검사결과, 증명서 출력 서비스 등<br>
+			   		개인화 서비스를 이용하실 수 있습니다.</p>
+		        </div>
 	        </form>
 	        
 	        <!-- 비회원 진료 예약 조회 -->
 	        <form class="manager-form">
-			<img alt="medical" src="/resources/icon/medical_icon.png" width="auto" height="60">
-			<span class="medical_button_title">비회원 진료 예약 조회</span>
-	   		<div>
-	   		주민번호 입력
-	   		<input type="text">-<input type="text">
-	   		</div>
-	   		<button onclick="location.href='http://localhost:8080/UserCheck'">비회원 진료 예약 조회</button>
+		        <div class="medical_user">
+					<img class="medical_button_icon"alt="medical" src="/resources/icon/medical_icon.png" width="auto" height="50">
+					<div class="medical_button_title">진료 예약 조회</div>
+				</div>
+		   			<h3>주민번호 입력</h3>
+		   			<span class="user_input"><input type="text">-<input type="password"><br></span>
+		   		<button class="custom-btn btn-1" onclick="location.href='http://localhost:8080/UserCheck'">비회원 진료 예약 조회</button>
 	        </form>
 	
 	

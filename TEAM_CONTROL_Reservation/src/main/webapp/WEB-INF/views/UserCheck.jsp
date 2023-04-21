@@ -11,36 +11,47 @@
 
 </head>
 <body>
-
-<table border="1">
-
-	<tr>
-		<th colspan="2">예약정보확인</th>
-	</tr>
-	
-	<tr>
-		<td>환자번호</td><td>0123</td>
-	</tr>
-	<tr>
-		<td>환자명</td><td>이환자</td>
-	</tr>
-	<tr>
-		<td>진료과</td><td>내과</td>
-	</tr>
-	<tr>
-		<td>의료진</td><td>박자바</td>
-	</tr>
-	<tr>
-		<td>예약시간</td><td>2023-04-19-15:30</td>
-	</tr>
-	<tr>
-		<td colspan="2">
-		<button onclick="location.href='http://localhost:8080/index'">예약취소</button>
-		<button onclick="location.href='http://localhost:8080/index'">확인</button>
-		</td>
-	</tr>
-	
+<main>
+  <div role="region" aria-label="data table" tabindex="0" class="primary">
+ <table>
+      <thead>
+        <tr>
+          <th class="pin" colspan="2"> 예약정보 확인 </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>환자번호</th>
+          <td>Cell Data</td>
+        </tr>
+        <tr>
+          <th>환자명</th>
+          <td>Cell Data</td>
+        </tr>
+        <tr>
+          <th>진료과</th>
+          <td>Cell Data</td>
+        </tr>
+        <tr>
+          <th>의료진</th>
+          <td>Cell Data</td>
+        </tr>
+        <tr>
+          <th>예약시간</th>
+          <td>Cell Data</td>
+        </tr>
+        </tbody>
+        
 </table>
+</div>
+
+   <div class="container">
+    <a href="/index" title="Button border lightblue" class="button button_left btnFloat btnLightBlue">예약취소</a>
+    <a href="/index" title="Button border lightblue" class="button button_right btnFloat btnLightBlue">확인</a>
+    <div class="clear"></div>
+  </div>
+  
+</main>
 
 </body>
 </html>
