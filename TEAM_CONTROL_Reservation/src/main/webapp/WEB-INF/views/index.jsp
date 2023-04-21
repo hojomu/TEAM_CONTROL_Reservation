@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
-	<!-- index css -->
+	<!-- index css --><!-- 수정 -->
 	<link rel="stylesheet" href="/resources/css/index.css">
 
 </head>
