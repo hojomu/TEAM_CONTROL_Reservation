@@ -8,6 +8,160 @@
 
 	<!-- index css --><!-- 수정 -->
 	<link rel="stylesheet" href="/resources/css/index.css">
+	
+	<style>
+	* {
+  margin: 0 auto;
+  padding: 0;
+  font-family: "맑은 고딕";
+  list-style: none;
+  color: #000000;
+}
+p {
+	font-size: 0.8em;
+}
+h3{
+	margin-top:30px;
+	margin-bottom:15px;
+}
+input{
+	width: 150px;
+	height: 30px;
+	border: 2px;
+	border-radius: 5px;
+	background: rgba(200,200,200,0.5);
+	padding-left:10px;
+}
+input:focus{
+	outline:none;
+}
+.ManagerCheck_view{
+	float: right;
+	margin: 20px;
+}
+.appointment{
+	width:100%;
+	height:100%;
+}
+.container {
+  overflow: hidden;
+  width: 602px;
+  height:350px;
+  text-align: center;
+  border: 1px solid rgb(6,14,131);
+  border-top: none;
+  border-radius: 10px;
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%); 
+}
+.container .change {
+  overflow: hidden;
+}
+/* 기본세팅 */
+.container .change span {
+  float: left;
+  width: 50%;
+  display: block;
+  padding: 8px 0;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: #EEE;
+  color: #919191;
+  border: 1px solid rgb(6,14,131);
+  border-left: none;
+  border-right: none;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+/* 클릭했을때 */
+.container .change span.active {
+  border-top: 3px solid rgb(6,14,131);
+  border-bottom: none;
+  background-color: #FFF;
+  color: #000;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.container .client-change {
+  padding: 25px;
+  background-color: #FFF;
+}
+.container .client-change form {
+  overflow: hidden;
+  display: none;
+}
+.container .client-change form.active {
+  display: block;
+}
+.user-form{
+	height: 300px;
+	position: relative;
+}
+.medical_user{
+	display:flex;
+    align-items: center;
+    margin: 10px
+}
+.medical_button_icon{
+ 	margin-right: 5px; 
+}
+.medical_button_title{
+  font-size: 22px;
+  font-weight: bold;
+  margin-left: 5px;
+}
+.medical_box_center{
+	position:relative;
+}
+.medical_box{
+	margin-top: 45px;
+	width: 400px;
+	height: 80px;
+	border-radius: 5px;
+	background-color: #e6e6e6;
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%); 
+}
+/* button css */
+button {
+  margin: 15px;
+}
+.custom-btn {
+  width: 200px;
+  height: 40px;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px 25px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+   7px 7px 20px 0px rgba(0,0,0,.1),
+   4px 4px 5px 0px rgba(0,0,0,.1);
+  outline: none;
+}
+.btn-1 {
+  background: rgb(6,14,131);
+  background: linear-gradient(0deg, rgba(6,14,131,1) 0%, rgba(12,25,180,1) 100%);
+  border: none;
+}
+.btn-1:hover {
+   background: rgb(0,3,255);
+   background: linear-gradient(0deg, rgba(0,3,255,1) 0%, rgba(2,126,251,1) 100%);
+}
+	</style>
 
 </head>
 <body>
