@@ -50,6 +50,7 @@ public class ReservationController {
 	@RequestMapping(value = "/UserCheck", method = RequestMethod.POST) 
 	public String reserve(ReservationVO data) {
 		rs.reserve(data);
+		System.out.println(data);
 		return "UserCheck"; // 예약 확인 페이지로 이동할 것
 	}
 	

@@ -18,7 +18,7 @@
 	<div class="impormation">
 	<h3 id="tablist-1"> 환자 정보 확인 </h3>
 	 성명: ${reserveData.customerName }
-	 예약번호: ${reserveData.personalNumber }
+	 주민등록번호: ${reserveData.personalNumber }
 	</div>
 	
 <div class="tabs">
@@ -31,9 +31,11 @@
             role="tab"
             aria-selected="true"
             aria-controls="tabpanel-1"
+            data-setting="가정의학과"
             >
       <span class="focus">
-           	<img class="iconCategory" src="resources/img/dental.png" alt="dental" title="dental">가정의학과
+           	<img class="iconCategory" src="resources/img/dental.png" alt="dental" title="dental">
+           	<span>가정의학과</span>
       </span>
     </button>
     <button id="tab-2"
@@ -41,9 +43,11 @@
             role="tab"
             aria-selected="false"
             aria-controls="tabpanel-2"
-            tabindex="-1">
+            tabindex="-1"
+            data-setting="내과">
       <span class="focus">
-      	   <img class="iconCategory" src="resources/img/dental.png" alt="dental" title="dental"> 내과
+      	   <img class="iconCategory" src="resources/img/dental.png" alt="dental" title="dental">
+      	   <span>내과</span>
       </span>
     </button>
     <button id="tab-3"
@@ -51,9 +55,11 @@
             role="tab"
             aria-selected="false"
             aria-controls="tabpanel-3"
-            tabindex="-1">
+            tabindex="-1"
+            data-setting="산부인과">
       <span class="focus">
-           <img class="iconCategory" src="resources/img/dental.png" alt="dental" title="dental"> 산부인과
+           <img class="iconCategory" src="resources/img/dental.png" alt="dental" title="dental">
+           <span>산부인과</span>
       </span>
     </button>
     <button id="tab-4"
@@ -61,9 +67,11 @@
             role="tab"
             aria-selected="false"
             aria-controls="tabpanel-4"
-            tabindex="-1">
+            tabindex="-1"
+            data-setting="신경과">
       <span class="focus">
-     	 <img class="iconCategory" src="resources/img/dental.png" alt="dental" title="dental"> 신경과 
+     	 <img class="iconCategory" src="resources/img/dental.png" alt="dental" title="dental">
+     	 <span>신경과</span> 
       </span>
     </button>
     <button id="tab-5"
@@ -71,9 +79,11 @@
             role="tab"
             aria-selected="false"
             aria-controls="tabpanel-5"
-            tabindex="-1">
+            tabindex="-1"
+            data-setting="안과">
       <span class="focus">
-     	 <img class="iconCategory" src="resources/img/dental.png" alt="dental" title="dental"> 안과 
+     	 <img class="iconCategory" src="resources/img/dental.png" alt="dental" title="dental">
+     	 <span>안과 </span>
       </span>
     </button>
     <button id="tab-6"
@@ -81,9 +91,11 @@
             role="tab"
             aria-selected="false"
             aria-controls="tabpanel-6"
-            tabindex="-1">
+            tabindex="-1"
+            data-setting="이비인후과">
       <span class="focus">
-     	 <img class="iconCategory" src="resources/img/dental.png" alt="dental" title="dental"> 이비인후과 
+     	 <img class="iconCategory" src="resources/img/dental.png" alt="dental" title="dental">
+     	 <span>이비인후과</span> 
       </span>
     </button>
     <button id="tab-7"
@@ -91,9 +103,11 @@
             role="tab"
             aria-selected="false"
             aria-controls="tabpanel-7"
-            tabindex="-1">
+            tabindex="-1"
+            data-setting="치과">
       <span class="focus">
-     	 <img class="iconCategory" src="resources/img/dental.png" alt="dental" title="dental"> 치과 
+     	 <img class="iconCategory" src="resources/img/dental.png" alt="dental" title="dental">
+     	 <span>치과</span> 
       </span>
     </button>
     <button id="tab-8"
@@ -101,9 +115,11 @@
             role="tab"
             aria-selected="false"
             aria-controls="tabpanel-8"
-            tabindex="-1">
+            tabindex="-1"
+            data-setting="피부과">
       <span class="focus">
-     	 <img class="iconCategory" src="resources/img/dental.png" alt="dental" title="dental"> 피부과
+     	 <img class="iconCategory" src="resources/img/dental.png" alt="dental" title="dental">
+     	 <span>피부과</span>
       </span>
     </button>
   </div>
@@ -139,7 +155,7 @@
 				</div>
 			</div>
 			<div class="select_button">
-				<a href="#">
+				<a href="#" class="doctor-submit" data-setting="박선영">
 					<span>진료예약하기</span>
 				</a>
 			</div>	
@@ -164,7 +180,7 @@
 				</div>
 			</div>
 			<div class="select_button">
-				<a href="#">
+				<a href="#" class="doctor-submit" data-setting="박선영">
 					<span>진료예약하기</span>
 				</a>
 			</div>	
@@ -179,7 +195,6 @@
        tabindex="0"
        aria-labelledby="tab-2"
        class="is-hidden">
-    <p>
           <h4 class="dept_title">
 	"<span>내과</span>" 의료진 목록입니다.</h4>
 	<div class="board">
@@ -204,7 +219,7 @@
 				</div>
 			</div>
 			<div class="select_button">
-				<a href="#">
+				<a href="#" class="doctor-submit" data-setting="박선영">
 					<span>진료예약하기</span>
 				</a>
 			</div>	
@@ -229,7 +244,7 @@
 				</div>
 			</div>
 			<div class="select_button">
-				<a href="#">
+				<a href="#" class="doctor-submit" data-setting="박선영">
 					<span>진료예약하기</span>
 				</a>
 			</div>	
@@ -244,7 +259,6 @@
        tabindex="0"
        aria-labelledby="tab-3"
        class="is-hidden">
-    <p>
           <h4 class="dept_title">
 	"<span>산부인과</span>" 의료진 목록입니다.</h4>
 	<div class="board">
@@ -270,7 +284,7 @@
 				</div>
 			</div>
 			<div class="select_button">
-				<a href="#">
+				<a href="#" class="doctor-submit" data-setting="박선영">
 					<span>진료예약하기</span>
 				</a>
 			</div>	
@@ -285,7 +299,6 @@
        tabindex="0"
        aria-labelledby="tab-4"
        class="is-hidden">
-    <p>
            <h4 class="dept_title">
 	"<span>신경과 </span>" 의료진 목록입니다.</h4>
 	<div class="board">
@@ -311,7 +324,7 @@
 				</div>
 			</div>
 			<div class="select_button">
-				<a href="#">
+				<a href="#" class="doctor-submit" data-setting="박선영">
 					<span>진료예약하기</span>
 				</a>
 			</div>	
@@ -326,7 +339,6 @@
        tabindex="0"
        aria-labelledby="tab-5"
        class="is-hidden">
-    <p>
            <h4 class="dept_title">
 	"<span>안과  </span>" 의료진 목록입니다.</h4>
 	<div class="board">
@@ -352,7 +364,7 @@
 				</div>
 			</div>
 			<div class="select_button">
-				<a href="#">
+				<a href="#" class="doctor-submit" data-setting="박선영">
 					<span>진료예약하기</span>
 				</a>
 			</div>	
@@ -367,7 +379,6 @@
        tabindex="0"
        aria-labelledby="tab-6"
        class="is-hidden">
-    <p>
            <h4 class="dept_title">
 	"<span>이비인후과 </span>" 의료진 목록입니다.</h4>
 	<div class="board">
@@ -393,7 +404,7 @@
 				</div>
 			</div>
 			<div class="select_button">
-				<a href="Calendar1.jsp">
+				<a href="#" class="doctor-submit" data-setting="박선영">
 					<span>진료예약하기</span>
 				</a>
 			</div>	
@@ -408,7 +419,6 @@
        tabindex="0"
        aria-labelledby="tab-7"
        class="is-hidden">
-    <p>
            <h4 class="dept_title">
 	"<span>치과  </span>" 의료진 목록입니다.</h4>
 	<div class="board">
@@ -434,7 +444,7 @@
 				</div>
 			</div>
 			<div class="select_button">
-				<a href="#">
+				<a href="#" class="doctor-submit" data-setting="박선영">
 					<span>진료예약하기</span>
 				</a>
 			</div>	
@@ -449,7 +459,6 @@
        tabindex="0"
        aria-labelledby="tab-8"
        class="is-hidden">
-    <p>
            <h4 class="dept_title">
 	"<span>피부과 </span>" 의료진 목록입니다.</h4>
 	<div class="board">
@@ -474,7 +483,7 @@
 				</div>
 			</div>
 			<div class="select_button">
-				<a href="#">
+				<a href="#" class="doctor-submit" data-setting="박선영">
 					<span>진료예약하기</span>
 				</a>
 			</div>	
@@ -482,15 +491,17 @@
 	</ul>
 </div>
 </div>
-<textarea name="otherInfo">추가정보 입력</textarea>
 </div>
-<form name="form" action="submit2" method="post">
-<input type="hidden" name="customerName" value="<c:out value='${reserveData.customerName }'/>"/>
-<input type="hidden" name="personalNumber" value="<c:out value='${reserveData.personalNumber }'/>"/>
-<input type="hidden" name="email" value="<c:out value='${reserveData.email }'/>"/>
+<form name="form" action="UserCheck" method="post">
+<input type="hidden" name="customerName" value="${reserveData.customerName }"/>
+<input type="hidden" name="personalNumber" value="${reserveData.personalNumber }"/>
+<input type="hidden" name="email" value="${reserveData.email }"/>
+<input type="hidden" id="medicalDept" name="medicalDept">
+<input type="hidden" id="doctor" name="doctor">
+<input type="hidden" id="reservationTime" name="reservationTime" value="2023-04-21">
+<textarea name="otherInfo" placeholder="특이사항을 입력하세요."></textarea>
 
-
-<button>Submit</button>
+<button type="submit">Submit</button>
 </form>
 </section>
 </body>
