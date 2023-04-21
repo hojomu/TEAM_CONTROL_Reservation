@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import control.project.model.CriteriaVO;
 import control.project.model.PageVO;
 import control.project.model.ReservationVO;
-import control.project.model.settedYearMonthVO;
+import control.project.model.SettedYearMonthVO;
 import control.project.service.ReservationService;
 
 @Controller
@@ -55,9 +55,8 @@ public class ReservationController {
 	
 	// 예약 불가능 시간 불러오기
 		@RequestMapping(value="/appointment1/{settedYearMonth}", method = RequestMethod.GET)
-		public ResponseEntity<settedYearMonthVO> getDate(@PathVariable("settedYearMonth") String settedYearMonth ){
+		public ResponseEntity<SettedYearMonthVO> getDate(@PathVariable("settedYearMonth") String settedYearMonth ){
 			System.out.println("controller:"+settedYearMonth);
 			return new ResponseEntity<>(rs.getDate(settedYearMonth),HttpStatus.OK);
 		}
-	
 }

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import control.project.model.CriteriaVO;
 import control.project.model.ReservationVO;
-import control.project.model.settedYearMonthVO;
+import control.project.model.SettedYearMonthVO;
 
 public interface ReservationService {
 	// 예약 정보 저장하기 insert
@@ -17,5 +17,5 @@ public interface ReservationService {
 	public int total(CriteriaVO cri);
 
 	// 예약 불가능 시간 불러오기
-	public settedYearMonthVO getDate(String settedYearMonth);
+	public SettedYearMonthVO getDate(String settedYearMonth);
 }
