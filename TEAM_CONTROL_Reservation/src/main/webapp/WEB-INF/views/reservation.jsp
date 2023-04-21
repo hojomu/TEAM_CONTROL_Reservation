@@ -32,7 +32,7 @@
 <p>진료받으실 분의 주민등록번호(외국인등록번호)정보를 입력해주세요</p>
 	<div class="insert_information">
 		<p>주민등록번호(외국인등록번호)로 예약하기</p>
-		성명: <input type="text" id="customerName"><br>
+		성명: <input type="text"  name="customerName" id="customerName"><br>
 		주민등록번호(외국인 등록번호):
 		 <input type="text" id="personal_num1" maxlength="6" size="8" required >
 		- <input type="password" id="personal_num2" maxlength="7" size="8" required onblur="sum_personalnum()">
