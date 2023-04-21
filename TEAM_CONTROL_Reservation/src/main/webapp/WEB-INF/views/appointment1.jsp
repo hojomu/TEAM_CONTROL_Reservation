@@ -6,8 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-	<link rel="stylesheet" href="css/appointment.css">
-	<script src="js/appointment.js" type="text/javascript"></script>
+	<link rel="stylesheet" href="resources/css/appointment.css">
+	<script src="resources/js/appointment.js" type="text/javascript"></script>
 </head>
 
 
@@ -33,7 +33,7 @@
             aria-controls="tabpanel-1"
             >
       <span class="focus">
-           	<img class="iconCategory" src="img/dental.png" alt="dental" title="dental">가정의학과
+           	<img class="iconCategory" src="resources/img/dental.png" alt="dental" title="dental">가정의학과
       </span>
     </button>
     <button id="tab-2"
@@ -43,7 +43,7 @@
             aria-controls="tabpanel-2"
             tabindex="-1">
       <span class="focus">
-      	   <img class="iconCategory" src="img/dental.png" alt="dental" title="dental"> 내과
+      	   <img class="iconCategory" src="resources/img/dental.png" alt="dental" title="dental"> 내과
       </span>
     </button>
     <button id="tab-3"
@@ -53,7 +53,7 @@
             aria-controls="tabpanel-3"
             tabindex="-1">
       <span class="focus">
-           <img class="iconCategory" src="img/dental.png" alt="dental" title="dental"> 산부인과
+           <img class="iconCategory" src="resources/img/dental.png" alt="dental" title="dental"> 산부인과
       </span>
     </button>
     <button id="tab-4"
@@ -63,7 +63,7 @@
             aria-controls="tabpanel-4"
             tabindex="-1">
       <span class="focus">
-     	 <img class="iconCategory" src="img/dental.png" alt="dental" title="dental"> 신경과 
+     	 <img class="iconCategory" src="resources/img/dental.png" alt="dental" title="dental"> 신경과 
       </span>
     </button>
     <button id="tab-5"
@@ -73,7 +73,7 @@
             aria-controls="tabpanel-5"
             tabindex="-1">
       <span class="focus">
-     	 <img class="iconCategory" src="img/dental.png" alt="dental" title="dental"> 안과 
+     	 <img class="iconCategory" src="resources/img/dental.png" alt="dental" title="dental"> 안과 
       </span>
     </button>
     <button id="tab-6"
@@ -83,7 +83,7 @@
             aria-controls="tabpanel-6"
             tabindex="-1">
       <span class="focus">
-     	 <img class="iconCategory" src="img/dental.png" alt="dental" title="dental"> 이비인후과 
+     	 <img class="iconCategory" src="resources/img/dental.png" alt="dental" title="dental"> 이비인후과 
       </span>
     </button>
     <button id="tab-7"
@@ -93,7 +93,7 @@
             aria-controls="tabpanel-7"
             tabindex="-1">
       <span class="focus">
-     	 <img class="iconCategory" src="img/dental.png" alt="dental" title="dental"> 치과 
+     	 <img class="iconCategory" src="resources/img/dental.png" alt="dental" title="dental"> 치과 
       </span>
     </button>
     <button id="tab-8"
@@ -103,7 +103,7 @@
             aria-controls="tabpanel-8"
             tabindex="-1">
       <span class="focus">
-     	 <img class="iconCategory" src="img/dental.png" alt="dental" title="dental"> 피부과
+     	 <img class="iconCategory" src="resources/img/dental.png" alt="dental" title="dental"> 피부과
       </span>
     </button>
   </div>
@@ -120,7 +120,7 @@
 	<div class="board">
 	<ul class="doctor_list">
 		<li>
-			<div class="doctor_photo"><img src="img/doctor1.jpg" style="width: 170px; height: 200px"></div>
+			<div class="doctor_photo"><img src="resources/img/doctor1.jpg" style="width: 170px; height: 200px"></div>
 			<div class="doctor_info">
 				<p class="doctor_name">박선영</p>
 				<div class="professionally_info" >
@@ -145,7 +145,7 @@
 			</div>	
 		</li>
 		<li>
-			<div class="doctor_photo"><img src="img/doctor1.jpg" style="width: 170px; height: 200px"></div>
+			<div class="doctor_photo"><img src="resources/img/doctor1.jpg" style="width: 170px; height: 200px"></div>
 			<div class="doctor_info">
 				<p class="doctor_name">박선영</p>
 				<div class="professionally_info" >
@@ -185,7 +185,7 @@
 	<div class="board">
 	<ul class="doctor_list">
 		<li>
-			<div class="doctor_photo"><img src="img/doctor1.jpg" style="width: 170px; height: 200px"></div>
+			<div class="doctor_photo"><img src="resources/img/doctor1.jpg" style="width: 170px; height: 200px"></div>
 			<div class="doctor_info">
 				<p class="doctor_name">박선영</p>
 				<div class="professionally_info" >
@@ -210,7 +210,7 @@
 			</div>	
 		</li>
 		<li>
-			<div class="doctor_photo"><img src="img/doctor1.jpg" style="width: 170px; height: 200px"></div>
+			<div class="doctor_photo"><img src="resources/img/doctor1.jpg" style="width: 170px; height: 200px"></div>
 			<div class="doctor_info">
 				<p class="doctor_name">박선영</p>
 				<div class="professionally_info" >
@@ -250,7 +250,7 @@
 	<div class="board">
 	<ul class="doctor_list">
 		<li>
-			<div class="doctor_photo"><img src="img/doctor1.jpg" style="width: 170px; height: 200px"></div>
+			<div class="doctor_photo"><img src="resources/img/doctor1.jpg" style="width: 170px; height: 200px"></div>
 			<div class="doctor_info">
 				<p class="doctor_name">박선영</p>
 				<div class="professionally_info" >
@@ -291,7 +291,7 @@
 	<div class="board">
 	<ul class="doctor_list">
 		<li>
-			<div class="doctor_photo"><img src="img/doctor1.jpg" style="width: 170px; height: 200px"></div>
+			<div class="doctor_photo"><img src="resources/img/doctor1.jpg" style="width: 170px; height: 200px"></div>
 			<div class="doctor_info">
 				<p class="doctor_name">박선영</p>
 				<div class="professionally_info" >
@@ -332,7 +332,7 @@
 	<div class="board">
 	<ul class="doctor_list">
 		<li>
-			<div class="doctor_photo"><img src="img/doctor1.jpg" style="width: 170px; height: 200px"></div>
+			<div class="doctor_photo"><img src="resources/img/doctor1.jpg" style="width: 170px; height: 200px"></div>
 			<div class="doctor_info">
 				<p class="doctor_name">박선영</p>
 				<div class="professionally_info" >
@@ -373,7 +373,7 @@
 	<div class="board">
 	<ul class="doctor_list">
 		<li>
-			<div class="doctor_photo"><img src="img/doctor1.jpg" style="width: 170px; height: 200px"></div>
+			<div class="doctor_photo"><img src="resources/img/doctor1.jpg" style="width: 170px; height: 200px"></div>
 			<div class="doctor_info">
 				<p class="doctor_name">박선영</p>
 				<div class="professionally_info" >
@@ -488,9 +488,8 @@
 <input type="hidden" name="customerName" value="<c:out value='${reserveData.customerName }'/>"/>
 <input type="hidden" name="personalNumber" value="<c:out value='${reserveData.personalNumber }'/>"/>
 <input type="hidden" name="email" value="<c:out value='${reserveData.email }'/>"/>
-<input type="hidden" name="medicalDept" value="<c:out value='${reserveData.medicalDept }'/>"/>
-<input type="hidden" name="doctor" value="<c:out value='${reserveData.doctor }'/>"/>
-<input type="hidden" name="otherInfo" value="<c:out value='${reserveData.otherInfo }'/>"/>
+
+
 <button>Submit</button>
 </form>
 </section>
