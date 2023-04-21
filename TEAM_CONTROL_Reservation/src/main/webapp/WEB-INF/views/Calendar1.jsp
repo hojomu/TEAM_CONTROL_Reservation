@@ -13,6 +13,7 @@
     .scriptCalendar > thead > tr:first-child > td { font-weight:bold; }
     .scriptCalendar > thead > tr:last-child > td { background-color:#90EE90; }
     .scriptCalendar > tbody > tr > td { width:50px;height:50px; }
+    .blockedDay {background-color : aqua;}
 </style>
 </head>
 
@@ -33,6 +34,9 @@
     </thead>
     <tbody></tbody>
 </table>
+
+<ul id="timeTable">
+</ul>
 
 	<!-- calendar js -->
 	<script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>

@@ -27,6 +27,7 @@ ul, li {
 </head>
 
 <body>
+<h1>${reserveData.personalNumber }</h1>
 <!-- 환자 정보 확인 -->
 <div class="impormation">
 	<h4> 환자 정보 확인 </h4>

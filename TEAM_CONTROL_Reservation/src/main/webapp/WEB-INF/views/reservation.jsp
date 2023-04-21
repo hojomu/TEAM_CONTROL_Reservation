@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<form name="form" action="submit1" method="post">
+<form name="form" action="appointment1" method="post">
 <p>예약하시는 분 이메일 인증하기</p>
 	<div class="insert_email">
 		<input type="text" id="first_email"/>
@@ -38,7 +38,7 @@
 		- <input type="password" id="personal_num2" maxlength="7" size="8" required onblur="sum_personalnum()">
 	
 	<!-- 주민등록번호 값을 하나로  --> 
-	<input type="hidden" name="personalNumber" value="personalNumber">
+	<input type="hidden" name="personalNumber" value="주민등록번호">
 	<P> *보건부 고시에 의서 '진료일에 본인 외 대리 진료가 제한'됨을 알려드립니다.</P>
 	</div>
 	
