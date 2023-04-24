@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import control.project.mapper.ReservationMapper;
 import control.project.model.CriteriaVO;
 import control.project.model.ReservationVO;
+import control.project.model.SettedYearMonthVO;
 
 @Service
 public class ReservationServiceImpl implements ReservationService {
@@ -28,6 +29,12 @@ public class ReservationServiceImpl implements ReservationService {
 	// reservation 테이블(예약) 전체 건수 불러오기  0419
 	public int total(CriteriaVO cri) {
 		return rm.total(cri);
+	}
+
+	// 예약 불가능 시간 불러오기
+	public SettedYearMonthVO getDate(String settedYearMonth) {
+		System.out.println(settedYearMonth);
+		return new SettedYearMonthVO(rm.getDate(settedYearMonth));
 	}
 	
 	

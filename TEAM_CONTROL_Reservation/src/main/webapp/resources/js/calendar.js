@@ -3,7 +3,15 @@
  */
 	document.addEventListener("DOMContentLoaded", function() {
         buildCalendar();
+        setWorkTime();
     });
+	
+	
+	// timeTable을 위한 배열 선언
+	const WorkTime = [];
+	var timeTable = document.querySelector("#timeTable"); // ul 불러오기
+	
+	
 
     var today = new Date(); // @param 전역 변수, 오늘 날짜 / 내 컴퓨터 로컬을 기준으로 today에 Date 객체를 넣어줌
     var date = new Date();  // @param 전역 변수, today의 Date를 세어주는 역할
@@ -68,13 +76,17 @@
 
 
                 // @param 평일 날짜 데이터 삽입
-
                 column.innerText = autoLeftPad(day, 2);
+                
+                // 날짜마다 각각의 아이디 부여
+                column.id = ("day-"+day);
+                
 
 
                 // @param 일요일인 경우
                 if(dom % 7 == 1) {
                     column.style.color = "#FF4D4D";
+                    column.dataset.setting = 'sunday';  // 일요일에 click event를 부여하지 않기 위함
                 }
 
                 // @param 토요일인 경우
@@ -105,14 +117,14 @@
                     }
 
                     // @details 현재일보다 이후이면서 현재월에 포함되는 일인경우
-                    else if(date.getDate() < day && lastDate.getDate() >= day) {
+                    else if(date.getDate() < day && lastDate.getDate() >= day && column.dataset.setting != 'sunday') {
                         column.style.backgroundColor = "#FFFFFF";
                         column.style.cursor = "pointer";
                         column.onclick = function(){ calendarChoiceDay(this); }
                     }
 
                     // @details 현재일인 경우
-                    else if(date.getDate() == day) {
+                    else if(date.getDate() == day && column.dataset.setting != 'sunday') {
                         column.style.backgroundColor = "#FFFFE6";
                         column.style.cursor = "pointer";
                         column.onclick = function(){ calendarChoiceDay(this); }
@@ -127,7 +139,7 @@
 
                 // @details 현재월보다 이후인경우
                 else {
-                    if(Math.sign(day) == 1 && day <= lastDate.getDate()) {
+                    if(Math.sign(day) == 1 && day <= lastDate.getDate() && column.dataset.setting != 'sunday') {
                         column.style.backgroundColor = "#FFFFFF";
                         column.style.cursor = "pointer";
                         column.onclick = function(){ calendarChoiceDay(this); }
@@ -144,7 +156,7 @@
 
             // @details 선택한년도가 현재년도보다 큰경우
             else {
-                if(Math.sign(day) == 1 && day <= lastDate.getDate()) {
+                if(Math.sign(day) == 1 && day <= lastDate.getDate() && column.dataset.setting != 'sunday') {
                     column.style.backgroundColor = "#FFFFFF";
                     column.style.cursor = "pointer";
                     column.onclick = function(){ calendarChoiceDay(this); }
@@ -156,6 +168,24 @@
 
         }
     }
+    
+    function setWorkTime(){
+		// 시작 시간 설정 (10:00 AM)
+		var startWorkTime = new Date();
+		startWorkTime.setHours(10);
+		startWorkTime.setMinutes(0);
+	
+		// 종료 시간 설정 (07:00 AM of the next day)
+		var endWorkTime = new Date();
+		endWorkTime.setHours(19);
+		endWorkTime.setMinutes(0);
+	
+		// 30분 간격으로 시간을 반복하여 배열에 추가
+		while (startWorkTime < endWorkTime) {
+			WorkTime.push(startWorkTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false }));
+		  startWorkTime.setMinutes(startWorkTime.getMinutes() + 30);
+		}
+	}
 
     /**
      * @brief   날짜 선택
@@ -172,9 +202,48 @@
         // @param 선택일 체크 표시
         column.style.backgroundColor = "#FF9999";
 
-
         // @param 선택일 클래스명 변경
         column.classList.add("choiceDay");
+        
+    // timeTable 생성 시작
+        // timeTable 초기화
+        while(timeTable.firstChild){
+        	timeTable.removeChild(timeTable.firstChild);
+        }						// timeTable.innerHTML = ''; 으로도 ul을 초기화 할 수 있다
+        
+        var settedYear = document.querySelector("#calYear").innerHTML;
+        var settedMonth = document.querySelector("#calMonth").innerHTML;
+        var settedDay = column.innerHTML;
+        
+        var settedYearMonth = settedYear + "-" + settedMonth + "-" + settedDay;
+        
+        $.ajax({
+        	type: "get",
+        	url: "/appointment1/"+settedYearMonth+".json", // GET 방식이라서 parameter에 담아서 보냈다
+        	//data: JSON.stringify(settedYearMonth), 만일, POST 방식을 사용할 경우 data를 직접 담아서 보내야한다. 이때, settedYearMonth처럼 String 타입을 보내면 return 값(result)이 xml 형태로 돌아온다.
+        								// return을 json 타입으로 받고싶다면, data를 보낼때도 json 형태로 보내야한다. ex) {board_no:reply.board_no,page:reply.page}
+        	contentType:"application/json; charset=utf-8",
+        	success:function(result){
+        		console.log(result);
+        		for(var i = 0; i < WorkTime.length; i++){
+        			var li = document.createElement("li");
+        			var a = document.createElement("a");
+        			a.innerText = WorkTime[i];
+        			a.href = "#";
+        			a.onclick = function(event){ ChoiceTime(event,this); }
+        			
+        			for(var j = 0; j < result.list.length; j++){
+        				if(WorkTime[i] == result.list[j].reservationTime){
+        					li.classList.add("blockedDay");
+        				}
+        			}
+        			
+        			li.appendChild(a);
+        			timeTable.appendChild(li);
+        		}
+        		
+        	}
+        })
     }
 
     /**
@@ -189,3 +258,8 @@
         }
         return num;
     }
+    
+    function ChoiceTime(event,aTag){
+    	event.preventDefault();
+    	console.log(aTag);
+    };

@@ -28,4 +28,11 @@
 		select count(*) from reservation 
 	</select>
 	 
+	<!-- 예약 불가능 시간 불러오기 -->
+	<select id="getDate" resultType="control.project.model.ReservationVO">
+		SELECT DATE_FORMAT(reservationTime, '%H:%i') AS reservationTime
+		FROM reservation
+		WHERE reservationTime LIKE CONCAT(#{settedYearMonth}, '%')
+	</select>
+	
 </mapper>

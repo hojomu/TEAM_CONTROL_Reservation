@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import control.project.model.CriteriaVO;
-import control.project.model.PageVO;
 import control.project.service.ReservationService;
 
 /**
@@ -32,40 +31,48 @@ public class HomeController {
 	 */
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-// 접근제어자  반환타입  메서드명(매개변수, 매개변수)
+	// 메인화면으로 이동
 	public String home(Locale locale, Model model) {
 		return "home";
 	}
 	
 	
+	
+	
+	// 이동용 태그 추후에 삭제 예정
 	// 달력으로 이동하기
-	@RequestMapping(value="/calendar", method = RequestMethod.GET)
+	@RequestMapping(value="/Acalendar", method = RequestMethod.GET)
 	public String goCalendar() {
 	return "Calendar1";
 	}
 	// index으로 이동하기
-	@RequestMapping(value="/index", method = RequestMethod.GET)
+	@RequestMapping(value="/Aindex", method = RequestMethod.GET)
 	public String goindex() {
 	return "index";
 	}
-	// ManagerCheck으로 이동하기 0419
-	@RequestMapping(value="/ManagerCheck", method = RequestMethod.GET)
-	public String goManagerCheck(Model model, CriteriaVO cri) {
-		System.out.println(cri);
-		model.addAttribute("list", rs.list(cri));		
-		int total = rs.total(cri);
-		System.out.println(total);
-		model.addAttribute("paging", new PageVO(cri, total));
-	return "ManagerCheck";
-	}
 	// ManagerCheckDetail으로 이동하기
-	@RequestMapping(value="/ManagerCheckDetail", method = RequestMethod.GET)
+	@RequestMapping(value="/AManagerCheckDetail", method = RequestMethod.GET)
 	public String goManagerCheckDetail() {
 	return "ManagerCheckDetail";
 	}
 	// UserCheck으로 이동하기
-	@RequestMapping(value="/UserCheck", method = RequestMethod.GET)
+	@RequestMapping(value="/AUserCheck", method = RequestMethod.GET)
 	public String goUserCheck() {
-	return "UserCheck";
+		return "UserCheck";
+	}
+	// reservation 으로 이동하기
+	@RequestMapping(value="/Areservation", method = RequestMethod.GET)
+	public String goreservation() {
+		return "reservation";
+	}
+	// appointment1 로 이동하기
+	@RequestMapping(value = "/Aappointment1", method = RequestMethod.GET) 
+	public String goappointment1() {
+		return "appointment1"; // 상세 예약 페이지로 이동할 것
+	}
+	// 예약정보 불러오기
+	@RequestMapping(value="/AManagerCheck", method = RequestMethod.GET)
+	public String goManagerCheck(Model model, CriteriaVO cri) {
+		return "ManagerCheck";
 	}
 }

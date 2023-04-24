@@ -2,6 +2,8 @@ package control.project.mapper;
 
 import java.util.ArrayList;
 
+import org.apache.ibatis.annotations.Param;
+
 import control.project.model.CriteriaVO;
 import control.project.model.ReservationVO;
 
@@ -15,5 +17,6 @@ public interface ReservationMapper {
 		// reservation 테이블(예약) 전체 건수 DB 설계 0419
 		public int total(CriteriaVO cri);
 		
-		
+		// 예약 불가능 시간 불러오기
+		public ArrayList<ReservationVO> getDate(@Param("settedYearMonth")String settedYearMonth);
 }
