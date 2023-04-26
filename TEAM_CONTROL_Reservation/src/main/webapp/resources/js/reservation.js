@@ -1,16 +1,20 @@
 
 //이메일 주소 하나로 합치기
-function sum_email(){
-	 first_email=document.form.first_email.value; 
-	/* second_email=document.form.second_email.value;*/
+/*function sum_email(){
+	 first_email = document.form.first_email.value; 
+	 second_email = document.form.second_email.value;
+	 email = first_email + second_email;
+	 alert(email);
+	 
 	
 	var second_email = document.getElementById("second_email");
 	var value=(second_email.options[second_email.selectedIndex].value);
 
 	email=first_email+second_email.options[second_email.selectedIndex].value; 
+ 	alert(email);
+}*/
 
- 	alert(email); 
-}
+
 	
 //주민등록번호 주소 하나로 합치기
 function sum_personalnum(){
@@ -22,7 +26,7 @@ function sum_personalnum(){
 }
 
 //이메일 인증번호 받기 버튼 클릭 시 
-function email_check(){
+/*function email_check(){
 	
 	 var value_str = document.getElementById('second_email_select');
 	 
@@ -42,7 +46,7 @@ function email_check(){
 	    document.getElementById("email_warn").innerHTML="이메일이 전송 되었습니다. 이메일을 확인해주세요."
 	  }
    
-}
+}*/
 
 
 

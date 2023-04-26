@@ -64,29 +64,28 @@
       
       <input type="radio" id="agree">동의합니다.
       <input type="radio" id="no_agree">동의하지않습니다.
-      
-        <form name="form" action="/test1" method="post">
- 		<p>예약하시는 분 이메일 인증하기</p>
-			<div class="insert_email">
-				<input type="text" id="first_email" />
-				<select id="second_email_select"  onblur="sum_email()">
-					<option id="second_email" value="0" >이메일 선택</option>
-					<option id="second_email" value="@naver.com" >@ naver.com</option>
-    				<option id="second_email" value="@google.com">@ google.com</option>
-    				<option id="second_email" value="@kakao.com">@ kakao.com</option>
-    				<option id="second_email" value="@nate.com">@ nate.com</option>
-    				<option id="second_email" value="@nate.com">@ daum.com</option>
-				</select> 
+     	    
+	    <form name="form" action="/reservation" method="post">
+	    	<p>예약하시는 분 이메일 인증하기</p>
+			<div class="email_auth">		
+			<input type="text" id="first_email" placeholder="이메일">
+ 			<select id="second_email" required onblur="sum_email()">
+ 				<option>이메일 선택</option>
+				<option>@naver.com</option>
+				<option>@daum.net</option>
+				<option>@gmail.com</option>
+				<option>@hanmail.com</option>
+				<option>@yahoo.co.kr</option>
+ 			</select>
+			<button type="button" class="email_auth_btn">인증번호 받기</button>
+			</div>
+			
+			<input type="text" placeholder="인증번호 입력" id="email_auth_key">
+			<button type="button" id="join">인증번호 확인</button>
+		</form>
+
 		
- 		이메일 값을 하나로  
-		<input type="hidden" name="email" />
-			<button type="button" onclick="email_check()" >인증번호 받기</button>
-			<div id="email_warn" ></div>
-			<input type="text" placeholder="인증번호를 입력해주세요."  >
-			<span class="email_num_warn"></span>
-			<button type="button" >인증번호 확인</button>
-		</div> 
-	
+ 	    <form name="form" action="/test1" method="post">  
 		<p>진료받으실 분의 주민등록번호(외국인등록번호)정보를 입력해주세요</p>
 			<div class="insert_information">
 				<p>주민등록번호(외국인등록번호)로 예약하기</p>
@@ -106,22 +105,8 @@
 	      <button type="button" class="button1" value="확인">확인</button>
 	    </div>
 	    
-	    </form>
-	    
-			<form id="join_frm" action="/reservation" method="post">
-				<div class="join_box">
-					<div class="email_auth">
-						<input type="text" placeholder="이메일" name="email" id="email" class="email">
-						<button type="button" id="email_auth_btn" class="email_auth_btn">인증번호 받기</button>
-					</div>
-					<input type="text" placeholder="인증번호 입력" id="email_auth_key">
-				</div>
-				<button type="button" id="join" class="join_btn">인증번호 확인</button>
-			</form>
-
-
-
-	    
+	    </form> 
+	   
 	     </section>
   </article>
 </div>

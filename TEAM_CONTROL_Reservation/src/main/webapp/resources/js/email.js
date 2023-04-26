@@ -13,8 +13,9 @@
 		fn_join();
 	});
 	
-	$(".email_auth_btn").click(function(){	     	 
-    	 var email = $('#email').val();
+	$(".email_auth_btn").click(function(){
+		//이메일 주소 하나로 합치기
+		var email = $('#first_email').val() + $('#second_email').val();
     	 
     	 if(email == ''){
     	 	alert("이메일을 입력해주세요.");
