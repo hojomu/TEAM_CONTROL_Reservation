@@ -20,7 +20,9 @@
 
 	<!-- 예약 정보 불러오기 select 0419 -->		
 	<select id="list" resultType="control.project.model.ReservationVO">
-		select * from reservation 
+		select * from (select reservationTime, rno, customerName, medicalDept, doctor
+						from reservation order by reservationTime) as T1
+						limit #{skip}, #{amount}		
 	</select>
 	
 	<!-- 예약 전체 건수 불러오기 select 0419 -->	
@@ -34,5 +36,26 @@
 		FROM reservation
 		WHERE reservationTime LIKE CONCAT(#{settedYearMonth}, '%')
 	</select>
+	
+	<!-- 예약 상세정보 불러오기 select 0424 -->
+    <select id="detail" resultType="control.project.model.ReservationVO">
+         select * from reservation
+         where rno = #{rno} 
+    </select>
+
+    <!-- 예약 상세정보 수정(저장)하기 update 0424 -->
+    <update id="modify">
+    	update reservation
+    	set customerName=#{customerName}, personalNumber=#{personalNumber}, 
+    	email=#{email}, medicalDept=#{medicalDept}, doctor=#{doctor}, 
+    	reservationTime=#{reservationTime}, otherInfo=#{otherInfo}
+    	where rno = #{rno} 
+    </update>
+
+    <!-- 예약 상세정보 삭제하기 delete 0424 -->
+    <delete id="remove">
+    	delete from reservation
+    	where rno = #{rno} 
+    </delete>
 	
 </mapper>

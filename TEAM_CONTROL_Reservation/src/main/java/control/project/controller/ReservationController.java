@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import control.project.model.CriteriaVO;
 import control.project.model.PageVO;
@@ -34,18 +35,7 @@ public class ReservationController {
 		model.addAttribute("reserveData",data);
 		return "appointment1"; // 상세 예약 페이지로 이동할 것
 	}
-
-	// 예약정보 불러오기 Select
-	@RequestMapping(value="/ManagerCheck", method = RequestMethod.GET)
-	public String getList(Model model, CriteriaVO cri) {
-		System.out.println(cri);
-		model.addAttribute("list", rs.list(cri));		
-		int total = rs.total(cri);
-		System.out.println(total);
-		model.addAttribute("paging", new PageVO(cri, total));
-		return "ManagerCheck";
-	}
-	
+		
 	// 예약 정보 저장하기 insert
 	@RequestMapping(value = "/UserCheck", method = RequestMethod.POST) 
 	public String reserve(ReservationVO data) {
@@ -60,4 +50,45 @@ public class ReservationController {
 			System.out.println("controller:"+settedYearMonth);
 			return new ResponseEntity<>(rs.getDate(settedYearMonth),HttpStatus.OK);
 		}
+		
+	// 예약정보 불러오기 Select 0419
+	@RequestMapping(value="/AManagerCheck", method = RequestMethod.GET)
+	public String getList(Model model, CriteriaVO cri) {
+		System.out.println(cri);
+		model.addAttribute("list", rs.list(cri));		
+		int total = rs.total(cri);
+		System.out.println(total);
+		model.addAttribute("paging", new PageVO(cri, total));
+		return "ManagerCheck";
+	}
+	
+	// 예약 상세정보 출력하기 (ManagerCheckDetail으로 이동하기) 0424
+	@RequestMapping(value="/AManagerCheckDetail", method = RequestMethod.GET)
+	public String goManagerCheckDetail(ReservationVO board, Model model) {
+		//	System.out.println(board);
+		model.addAttribute("detail", rs.detail(board));
+		//	System.out.println(board);
+		return "ManagerCheckDetail";
+	}
+	
+	// 예약 상세정보 수정하기  0424
+	@RequestMapping(value="/ManagerModify", method = RequestMethod.GET)
+	public String modify(ReservationVO board, RedirectAttributes rttr) {
+	//	System.out.println(board);
+		rs.modify(board);
+		System.out.println(board);
+		rttr.addAttribute("rno", board.getRno());
+		// 수정하고 난 뒤 확인을 위해 상세페이지로 화면이동
+		return "redirect:/AManagerCheckDetail";
+	}
+	
+	// 예약 상세정보 삭제하기  0424
+	@RequestMapping(value="/ManagerDelete", method = RequestMethod.GET)
+	public String remove(ReservationVO board) {
+	//	System.out.println(board);
+		rs.remove(board);
+		System.out.println(board);	
+		return "redirect:/AManagerCheck";
+	}
+	
 }

@@ -50,11 +50,7 @@ public class HomeController {
 	public String goindex() {
 	return "index";
 	}
-	// ManagerCheckDetail으로 이동하기
-	@RequestMapping(value="/AManagerCheckDetail", method = RequestMethod.GET)
-	public String goManagerCheckDetail() {
-	return "ManagerCheckDetail";
-	}
+	
 	// UserCheck으로 이동하기
 	@RequestMapping(value="/AUserCheck", method = RequestMethod.GET)
 	public String goUserCheck() {
@@ -70,9 +66,5 @@ public class HomeController {
 	public String goappointment1() {
 		return "appointment1"; // 상세 예약 페이지로 이동할 것
 	}
-	// 예약정보 불러오기
-	@RequestMapping(value="/AManagerCheck", method = RequestMethod.GET)
-	public String goManagerCheck(Model model, CriteriaVO cri) {
-		return "ManagerCheck";
-	}
+	
 }
