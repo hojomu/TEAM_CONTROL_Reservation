@@ -28,3 +28,23 @@ spanOption.forEach(function (span) {
        }
     })
 })
+
+
+// 주민등록번호 onblur로 합치기
+let personalNo1 = document.getElementById("personalNo1");
+let personalNo2 = document.getElementById("personalNo2");
+let personalNumber = document.getElementById("personalNumber");
+
+personalNo2.addEventListener("blur",function(){
+	let personalNumberValue = personalNo1.value + "-" + personalNo2.value;
+	personalNumber.value = personalNumberValue;
+	console.log(personalNumber.value);
+})
+
+
+
+
+
+
+
+

@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<a href="/ManagerCheck"><img alt="medical" class="ManagerCheck_view" src="/resources/icon/ManagerCheck_view_icon.png" width="80" height="auto"></a>
+<a href="/adminLogin"><img alt="medical" class="ManagerCheck_view" src="/resources/icon/ManagerCheck_view_icon.png" width="80" height="auto"></a>
 
 <!-- appointment -->
 <div class="appointment">
@@ -44,14 +44,15 @@
 	        </form>
 	        
 	        <!-- 비회원 진료 예약 조회 -->
-	        <form class="manager-form">
+	        <form class="manager-form" action="/userSelfCheck" method="post">
 		        <div class="medical_user">
 					<img class="medical_button_icon"alt="medical" src="/resources/icon/medical_icon.png" width="auto" height="50">
 					<div class="medical_button_title">진료 예약 조회</div>
 				</div>
 		   			<h3>주민번호 입력</h3>
-		   			<span class="user_input"><input type="text">-<input type="password"><br></span>
-		   		<button type="button"  class="custom-btn btn-1" onClick="location.href='http://localhost:8080/UserCheck'">비회원 진료 예약 조회</button>
+		   			<span class="user_input"><input id="personalNo1" type="text">-<input id="personalNo2" type="password"><br></span>
+		   		<button type="submit"  class="custom-btn btn-1">비회원 진료 예약 조회</button>
+		   		<input type="hidden" id="personalNumber" name="personalNumber">
 	        </form>
 	
 	

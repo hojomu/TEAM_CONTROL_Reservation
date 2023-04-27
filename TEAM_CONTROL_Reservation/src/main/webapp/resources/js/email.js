@@ -1,7 +1,8 @@
   $(function() { 
  	
  	var email_auth_cd = '';
- 
+ 	
+ 	// 인증번호 일치 유효성 검사
 	$('#join').click(function(){
 		
 		if($('#email_auth_key').val() != email_auth_cd){
@@ -9,13 +10,18 @@
 			return false;
 		}else{
 			alert("인증번호 일치");
+			// 이메일 인증이 끝나면, 
+			var email = $('#first_email').val() + "@" + $('#second_email').val();
+			$("input[name='email']").val(email); // jquery의 value 넣는 방법
+			console.log(email);
 		}
 		fn_join();
 	});
 	
+	// 이메일 보내기
 	$(".email_auth_btn").click(function(){
 		//이메일 주소 하나로 합치기
-		var email = $('#first_email').val() + $('#second_email').val();
+		var email = $('#first_email').val() + "@" + $('#second_email').val();
     	 
     	 if(email == ''){
     	 	alert("이메일을 입력해주세요.");

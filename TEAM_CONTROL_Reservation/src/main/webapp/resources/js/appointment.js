@@ -11,6 +11,8 @@
 
 'use strict';
 
+// 달력 삭제를 위해 전역 변수로 선언
+let allCalendar = document.querySelector(".scriptCalendar");
 
 // 탭 생성자
 class TabsAutomatic {
@@ -74,6 +76,9 @@ class TabsAutomatic {
     var medicalDept = document.getElementById("medicalDept");
     medicalDept.value = currentTab.dataset.setting;
     
+    // 달력 숨기기
+    allCalendar.classList.add("dis-none");
+    
   }
 
   // 키다운 이벤트에서 첫 탭과 마지막 탭의 이동을 이어지게 하는 함수
@@ -86,6 +91,10 @@ class TabsAutomatic {
 	      index = this.tabs.indexOf(currentTab);
 	      this.setSelectedTab(this.tabs[index - 1]);
 	    }
+	    
+	    // 달력 숨기기
+	    allCalendar.classList.add("dis-none");
+	    
 	  }
 	
 	  setSelectedToNextTab(currentTab) {
@@ -97,6 +106,8 @@ class TabsAutomatic {
 	      index = this.tabs.indexOf(currentTab);
 	      this.setSelectedTab(this.tabs[index + 1]);
 	    }
+	    // 달력 숨기기
+	    allCalendar.classList.add("dis-none");
 	  }
 
   /* EVENT HANDLERS */

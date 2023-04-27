@@ -22,36 +22,46 @@
       <tbody>
         <tr>
           <th>환자번호</th>
-          <td>Cell Data</td>
+          <td>${reserveData.rno }</td>
         </tr>
         <tr>
           <th>환자명</th>
-          <td>Cell Data</td>
+          <td>${reserveData.customerName }</td>
         </tr>
         <tr>
           <th>진료과</th>
-          <td>Cell Data</td>
+          <td>${reserveData.medicalDept }</td>
         </tr>
         <tr>
           <th>의료진</th>
-          <td>Cell Data</td>
+          <td>${reserveData.doctor }</td>
         </tr>
         <tr>
           <th>예약시간</th>
-          <td>Cell Data</td>
+          <td>${reserveData.reservationTime }</td>
         </tr>
         </tbody>
         
 </table>
 </div>
 
+<form action="/delete" method="post" id="frm">
+	<input type="hidden" name="rno" value="${reserveData.rno }">
+</form>
+
    <div class="container">
-    <a href="/index" title="Button border lightblue" class="button button_left btnFloat btnLightBlue">예약취소</a>
-    <a href="/index" title="Button border lightblue" class="button button_right btnFloat btnLightBlue">확인</a>
+    <a href="#" onclick="return chk_form()" title="Button border lightblue" class="button button_left btnFloat btnLightBlue">예약취소</a>
+    <a href="/" title="Button border lightblue" class="button button_right btnFloat btnLightBlue">확인</a>
     <div class="clear"></div>
   </div>
   
 </main>
+
+<script>
+	function chk_form(){
+		document.getElementById('frm').submit();
+	}
+</script>
 
 </body>
 </html>

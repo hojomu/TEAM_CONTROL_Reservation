@@ -6,10 +6,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
+<!-- css 링크 -->
 <link rel="stylesheet" href="/resources/css/reservation.css">
-<script src="resources/js/reservation.js" type="text/javascript"></script>
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script src="/resources/js/email.js"></script>
 
 </head>
 <body >
@@ -49,8 +48,12 @@
 		</ul>
       </div>
       
-      <input type="radio" id="agree">동의합니다.
-      <input type="radio" id="no_agree">동의하지않습니다.
+      <label>
+      <input type="radio" name="terms-agree1" value="agree">동의합니다.
+      </label>
+      <label>
+      <input type="radio" name="terms-agree1" value="disagree">동의하지않습니다.
+      </label>
       
       <div class="agree_area">
       	<p>[개인정보 수집 이용에 대한 안내]<p>
@@ -62,20 +65,25 @@
 		</ul>
       </div>
       
-      <input type="radio" id="agree">동의합니다.
-      <input type="radio" id="no_agree">동의하지않습니다.
-     	    
+      <label>
+      <input type="radio" name="terms-agree2" value="agree">동의합니다.
+      </label>
+      <label>
+      <input type="radio" name="terms-agree2" value="disagree">동의하지않습니다.
+      </label>
+     	
+     	<!-- EmailContoller 로 POST 방식 -->    
 	    <form name="form" action="/reservation" method="post">
 	    	<p>예약하시는 분 이메일 인증하기</p>
-			<div class="email_auth">		
+			<div class="email_auth">
 			<input type="text" id="first_email" placeholder="이메일">
- 			<select id="second_email" required onblur="sum_email()">
+ 			<select id="second_email" required>
  				<option>이메일 선택</option>
-				<option>@naver.com</option>
-				<option>@daum.net</option>
-				<option>@gmail.com</option>
-				<option>@hanmail.com</option>
-				<option>@yahoo.co.kr</option>
+				<option>naver.com</option>
+				<option>daum.net</option>
+				<option>gmail.com</option>
+				<option>hanmail.com</option>
+				<option>yahoo.co.kr</option>
  			</select>
 			<button type="button" class="email_auth_btn">인증번호 받기</button>
 			</div>
@@ -85,24 +93,24 @@
 		</form>
 
 		
- 	    <form name="form" action="/test1" method="post">  
+ 	    <form name="form" action="/appointment1" method="post">  
 		<p>진료받으실 분의 주민등록번호(외국인등록번호)정보를 입력해주세요</p>
 			<div class="insert_information">
 				<p>주민등록번호(외국인등록번호)로 예약하기</p>
 				성명: <input type="text" name="customerName" id="customerName"><br>
 				주민등록번호(외국인 등록번호):
 				 <input type="text" id="personal_num1" maxlength="6" size="8" required >
-				- <input type="password" id="personal_num2" maxlength="7" size="8" required onblur="sum_personalnum()">
+				- <input type="password" id="personal_num2" maxlength="7" size="8" required>
 			
-			주민등록번호 값을 하나로  
-			<input type="hidden" name="personalNumber" value="personalNumber">
+			<!-- 주민등록번호, 이메일을 조합해서 전송 -->
+			<input type="hidden" name="email" id="email">
+			<input type="hidden" name="personalNumber" id="personalNumber">
 			<P> *보건부 고시에 의서 '진료일에 본인 외 대리 진료가 제한'됨을 알려드립니다.</P>
 			</div>
 			    
-	    확인/취소 버튼
 	    <div class="modal-container-footer">
-	      <button type="submit" class="button1" value="취소" >취소</button>
-	      <button type="button" class="button1" value="확인">확인</button>
+	      <button type="submit" class="button1" value="확인">확인</button>
+	      <button type="button" class="button1" value="취소">취소</button>
 	    </div>
 	    
 	    </form> 
@@ -111,5 +119,11 @@
   </article>
 </div>
 </div>
+
+	<!-- script 링크 -->
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script src="resources/js/reservation.js" type="text/javascript"></script>
+	<script src="/resources/js/email.js"></script>
+
 </body>
 </html>
