@@ -61,10 +61,29 @@ public class ReservationController {
 	// 예약정보 불러오기 Select ( 로그인 기능 추가됨 )
 	@RequestMapping(value="/ManagerCheck", method = RequestMethod.POST)
 	public String getList(Model model, CriteriaVO cri , AdminLoginVO login , HttpSession session) {
-		if(rs.login(login)==null) {
-			model.addAttribute("failMessage","로그인에 실패했습니다.");
-			return "adminLogin";
-		} else {
+		
+		// 로그인이 되어있지 않다면
+		if(session.getAttribute("login") == null) {
+			if(rs.login(login)==null) {
+				model.addAttribute("failMessage","로그인에 실패했습니다.");
+				return "adminLogin";
+			} else {
+				// 예약 정보 리스트 불러오기
+				System.out.println(cri);
+				model.addAttribute("list", rs.list(cri));		
+				// 페이지 총 수 불러오기
+				int total = rs.total(cri);
+				System.out.println(total);
+				// 페이지네이션 데이터 불러오기
+				model.addAttribute("paging", new PageVO(cri, total));
+				
+				// 세션에 로그인 정보 저장하기
+				session.setAttribute("login", rs.login(login));
+				System.out.println(session.getAttribute("login"));
+				
+				return "ManagerCheck";			
+			}
+		} else {	// 로그인이 되어있다면
 			// 예약 정보 리스트 불러오기
 			System.out.println(cri);
 			model.addAttribute("list", rs.list(cri));		
@@ -74,16 +93,26 @@ public class ReservationController {
 			// 페이지네이션 데이터 불러오기
 			model.addAttribute("paging", new PageVO(cri, total));
 			
-			// 세션에 로그인 정보 저장하기
-			session.setAttribute("login", rs.login(login));
-			System.out.println(session.getAttribute("login"));
-			
-			return "ManagerCheck";			
+			return "ManagerCheck";		
 		}
 	}
 	
+	// 페이지네이션 클릭 시 리스트 불러오기
+	@RequestMapping(value="/ManagerCheck", method = RequestMethod.GET)
+	public String listSet(Model model, CriteriaVO cri) {
+		// 예약 정보 리스트 불러오기
+		System.out.println(cri);
+		model.addAttribute("list", rs.list(cri));		
+		// 페이지 총 수 불러오기
+		int total = rs.total(cri);
+		System.out.println(total);
+		// 페이지네이션 데이터 불러오기
+		model.addAttribute("paging", new PageVO(cri, total));
+		return "ManagerCheck";
+	}
+	
 	// 예약 상세정보 출력하기 (ManagerCheckDetail으로 이동하기) 0424
-	@RequestMapping(value="/AManagerCheckDetail", method = RequestMethod.GET)
+	@RequestMapping(value="/ManagerCheckDetail", method = RequestMethod.GET)
 	public String goManagerCheckDetail(ReservationVO board, Model model) {
 		//	System.out.println(board);
 		model.addAttribute("detail", rs.detail(board));
@@ -108,7 +137,7 @@ public class ReservationController {
 	//	System.out.println(board);
 		rs.remove(board);
 		System.out.println(board);	
-		return "redirect:/AManagerCheck";
+		return "redirect:/ManagerCheck";
 	}
 	
 	// 비회원 진료 예약 조회 페이지로 이동 0426

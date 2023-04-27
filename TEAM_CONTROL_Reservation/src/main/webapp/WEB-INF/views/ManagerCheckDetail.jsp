@@ -54,7 +54,7 @@
 	</table>
 	<input type="submit" value="수정" id="modifyOk" formaction="ManagerModify">
 	<input type="submit" value="삭제" id="delOk" formaction="ManagerDelete">
-	<input type="submit" value="확인" formaction="AManagerCheck">
+	<input type="submit" value="확인" formaction="ManagerCheck">
 </form>
 
 
