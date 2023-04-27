@@ -49,7 +49,7 @@
       </div>
       
       <label>
-      <input type="radio" name="terms-agree1" value="agree">동의합니다.
+      <input type="radio" name="terms-agree1" value="agree" required>동의합니다.
       </label>
       <label>
       <input type="radio" name="terms-agree1" value="disagree">동의하지않습니다.
@@ -66,7 +66,7 @@
       </div>
       
       <label>
-      <input type="radio" name="terms-agree2" value="agree">동의합니다.
+      <input type="radio" name="terms-agree2" value="agree" required>동의합니다.
       </label>
       <label>
       <input type="radio" name="terms-agree2" value="disagree">동의하지않습니다.
@@ -93,7 +93,7 @@
 		</form>
 
 		
- 	    <form name="form" action="/appointment1" method="post">  
+ 	    <form action="/appointment1" method="post" id="appointmentForm">  
 		<p>진료받으실 분의 주민등록번호(외국인등록번호)정보를 입력해주세요</p>
 			<div class="insert_information">
 				<p>주민등록번호(외국인등록번호)로 예약하기</p>
@@ -109,7 +109,7 @@
 			</div>
 			    
 	    <div class="modal-container-footer">
-	      <button type="submit" class="button1" value="확인">확인</button>
+	      <button type="submit" class="button1" id="submit" value="확인">확인</button>
 	       <!-- 취소 버튼에 이동기능 넣고 이 주석 삭제 것 (Home or Index로 ) -->
 	      <button type="button" class="button1" value="취소">취소</button>
 	    </div>
