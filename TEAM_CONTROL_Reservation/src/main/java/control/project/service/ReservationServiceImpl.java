@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import control.project.mapper.ReservationMapper;
+import control.project.model.AdminLoginVO;
 import control.project.model.CriteriaVO;
 import control.project.model.ReservationVO;
 import control.project.model.SettedYearMonthVO;
@@ -71,4 +72,10 @@ public class ReservationServiceImpl implements ReservationService {
 	public void remove(ReservationVO board) {
 		rm.remove(board);
 	}
+	
+	// 관리자 로그인 기능 0427
+	public AdminLoginVO login(AdminLoginVO login) {
+		return rm.login(login);
+	}
+	
 }

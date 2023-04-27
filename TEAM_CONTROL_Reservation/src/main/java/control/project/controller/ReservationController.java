@@ -1,5 +1,7 @@
 package control.project.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import control.project.model.AdminLoginVO;
 import control.project.model.CriteriaVO;
 import control.project.model.PageVO;
 import control.project.model.ReservationVO;
@@ -55,15 +58,28 @@ public class ReservationController {
 		return new ResponseEntity<>(rs.getDate(settedYearMonth,medicalDept,doctor),HttpStatus.OK);
 	}
 		
-	// 예약정보 불러오기 Select ( 게시판 코밋 후 관리자 로그인 기능 추가 할 것 !!)
+	// 예약정보 불러오기 Select ( 로그인 기능 추가됨 )
 	@RequestMapping(value="/ManagerCheck", method = RequestMethod.POST)
-	public String getList(Model model, CriteriaVO cri) {
-		System.out.println(cri);
-		model.addAttribute("list", rs.list(cri));		
-		int total = rs.total(cri);
-		System.out.println(total);
-		model.addAttribute("paging", new PageVO(cri, total));
-		return "ManagerCheck";
+	public String getList(Model model, CriteriaVO cri , AdminLoginVO login , HttpSession session) {
+		if(rs.login(login)==null) {
+			model.addAttribute("failMessage","로그인에 실패했습니다.");
+			return "adminLogin";
+		} else {
+			// 예약 정보 리스트 불러오기
+			System.out.println(cri);
+			model.addAttribute("list", rs.list(cri));		
+			// 페이지 총 수 불러오기
+			int total = rs.total(cri);
+			System.out.println(total);
+			// 페이지네이션 데이터 불러오기
+			model.addAttribute("paging", new PageVO(cri, total));
+			
+			// 세션에 로그인 정보 저장하기
+			session.setAttribute("login", rs.login(login));
+			System.out.println(session.getAttribute("login"));
+			
+			return "ManagerCheck";			
+		}
 	}
 	
 	// 예약 상세정보 출력하기 (ManagerCheckDetail으로 이동하기) 0424

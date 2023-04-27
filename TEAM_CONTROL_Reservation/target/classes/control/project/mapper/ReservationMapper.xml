@@ -58,4 +58,11 @@
     	where rno = #{rno} 
     </delete>
 	
+	<!-- 관리자 로그인 기능 0427 -->
+	<select id="login" resultType="control.project.model.AdminLoginVO">
+		select *
+		from admin
+		where adminId=#{adminId} and adminPass=#{adminPass}
+	</select>
+	
 </mapper>

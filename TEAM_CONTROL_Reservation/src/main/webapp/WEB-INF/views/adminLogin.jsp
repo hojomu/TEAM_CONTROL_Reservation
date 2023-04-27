@@ -28,6 +28,7 @@
 				<div><span>비밀번호</span><input type="password" name="adminPass"></div>
 			</div>
 	   		<button type="submit"  class="custom-btn btn-1">관리자 계정 로그인</button>
+	   		<div>${failMessage }</div>
 	       </form>
 	
 	</div><!-- container 끝 -->

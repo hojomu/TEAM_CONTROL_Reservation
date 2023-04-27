@@ -3,6 +3,8 @@ package control.project.mapper;
 import java.util.ArrayList;
 
 import org.apache.ibatis.annotations.Param;
+
+import control.project.model.AdminLoginVO;
 import control.project.model.CriteriaVO;
 import control.project.model.ReservationVO;
 
@@ -39,4 +41,7 @@ public interface ReservationMapper {
 	
 	// 예약 상세정보 삭제하기 0424
 	public void remove(ReservationVO board);
+	
+	// 관리자 로그인 기능 0427
+	public AdminLoginVO login(AdminLoginVO login);
 }

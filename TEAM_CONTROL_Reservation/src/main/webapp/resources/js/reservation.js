@@ -24,4 +24,21 @@
 	var chk_agree2 = false;
 	var chk_email = false;
 	var chk_name = false;
-	var chk_
+	var chk_personalNumber = false;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

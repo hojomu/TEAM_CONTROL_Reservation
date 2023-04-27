@@ -110,6 +110,7 @@
 			    
 	    <div class="modal-container-footer">
 	      <button type="submit" class="button1" value="확인">확인</button>
+	       <!-- 취소 버튼에 이동기능 넣고 이 주석 삭제 것 (Home or Index로 ) -->
 	      <button type="button" class="button1" value="취소">취소</button>
 	    </div>
 	    
