@@ -66,5 +66,10 @@ public class HomeController {
 	public String goappointment1() {
 		return "appointment1"; // 상세 예약 페이지로 이동할 것
 	}
+	// appointment1 로 이동하기
+	@RequestMapping(value = "/medicalhome", method = RequestMethod.GET) 
+	public String medical() {
+		return "medicalhome"; // 상세 예약 페이지로 이동할 것
+	}
 	
 }

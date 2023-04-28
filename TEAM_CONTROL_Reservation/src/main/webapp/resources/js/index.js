@@ -4,27 +4,27 @@ spanOption.forEach(function (span) {
     span.addEventListener("click", function (e) {
         
         //Remove class active
-        e.target.parentElement.querySelectorAll(".active").forEach(function (element) {
-            element.classList.remove("active");
+        e.target.parentElement.querySelectorAll(".modal_active").forEach(function (element) {
+            element.classList.remove("modal_active");
         });
         //Add class active
-        e.target.classList.add("active");
+        e.target.classList.add("modal_active");
       
        if (e.target.classList.contains("user")) {
          
         document.querySelectorAll(".client-change form").forEach(function (element) {
-            element.classList.remove("active");
+            element.classList.remove("modal_active");
         });
          
-        document.querySelector(".user-form").classList.add("active");
+        document.querySelector(".user-form").classList.add("modal_active");
         
        } else {
          
         document.querySelectorAll(".client-change form").forEach(function (element) {
-            element.classList.remove("active");
+            element.classList.remove("modal_active");
         });
          
-        document.querySelector(".manager-form").classList.add("active");
+        document.querySelector(".manager-form").classList.add("modal_active");
        }
     })
 })
