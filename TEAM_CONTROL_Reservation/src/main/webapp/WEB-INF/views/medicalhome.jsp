@@ -46,15 +46,11 @@
 <div class="modal_background">
 	<div class="modal_wrap">
 					
-		<div class="modal_close">
-			<!-- <img class="closeImg" src="" alt="x버튼"> -->
-			<button class="modal_close_button">x</button>
-		</div>
-					
 		<!-- appointment -->
 		<div class="modal_appointment">
 			<!-- container -->
 			<div class="modal_container">
+				<div class="modal_close"><img class="closeImg" src="" alt="x버튼"></div>
 				<div class="change">
 			        <span class="modal_active user">진료 예약</span>
 			        <span class="manager">진료 예약 조회</span>
@@ -183,7 +179,7 @@
             <button type='button' id="modal_btn" class="btn-get-started scrollto">진료 예약하기</button>
 				<div class="modal_background"></div>
 				<div class="modal_wrap">
-	   				<div class="modal_close"><img class="closeImg" src="" alt="x버튼"></div>
+	   				
 	    			<div class="text">
 	        			스틱코드에서 개발에 필요한 모든 코드를 쉽게 사용하세요.
 	        			https://stickode.com/mainlogin.html
