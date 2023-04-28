@@ -42,6 +42,72 @@
 
 <body>
 
+<!-- ======= modal ======= -->
+<div class="modal_background">
+	<div class="modal_wrap">
+					
+		<div class="modal_close">
+			<!-- <img class="closeImg" src="" alt="x버튼"> -->
+			<button class="modal_close_button">x</button>
+		</div>
+					
+		<!-- appointment -->
+		<div class="modal_appointment">
+			<!-- container -->
+			<div class="modal_container">
+				<div class="change">
+			        <span class="modal_active user">진료 예약</span>
+			        <span class="manager">진료 예약 조회</span>
+				</div>
+			      
+			    <!-- client-change -->
+			    <div class="client-change">
+			    	
+			        <!-- 비회원 진료 예약 -->
+			        <form class="user-form modal_active">
+				        <div class="medical_user">
+							<img class="medical_button_icon"alt="medical" src="/resources/img/medical_icon.png" width="auto" height="50">
+							<div class="medical_button_title">비회원 진료 예약</div>
+						</div>
+				   		<p class="medical_p">
+				   		회원가입을 하지 않아도 진료예약 및 조회가 가능합니다.<br>
+						단, 일부 서비스 이용이 제한될 수 있습니다.</p>
+				   		<button type="button" class="custom-btn btn-1" onClick="location.href='http://localhost:8080/reservation'">비회원 진료 예약하기</button>
+				   		<div class="medical_box_center">
+					   		<p class="medical_box medical_p">회원가입을 하실 경우 『나의차트』에서 진료 및 투약내역,<br>
+					   	 	복약상담, 진단검사결과, 증명서 출력 서비스 등<br>
+					   		개인화 서비스를 이용하실 수 있습니다.</p>
+				        </div>
+			        </form>
+			        
+			        <!-- 비회원 진료 예약 조회 -->
+			        <form class="manager-form">
+				        <div class="medical_user">
+							<img class="medical_button_icon"alt="medical" src="/resources/img/medical_icon.png" width="auto" height="50">
+							<div class="medical_button_title">진료 예약 조회</div>
+						</div>
+				   			<h3>주민번호 입력</h3>
+				   			<span class="user_input"><input type="text">-<input type="password"><br></span>
+				   		<button type="button"  class="custom-btn btn-1" onClick="location.href='http://localhost:8080/UserCheck'">비회원 진료 예약 조회</button>
+			        </form>
+				
+			    </div><!-- client-change 끝 -->
+			</div><!-- container 끝 -->
+		</div><!-- appointment 끝 -->
+	</div>
+</div>
+<!-- ======= modal ======= -->
+
+<!-- container modal style -->
+<div id="modal_st_container_wrap">
+	<div class="modal_st_container">
+	    <h2>Welcome to <span>Medicio</span></h2>
+	    <p>Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel.</p>
+	    <button type='button' id="modal_btn" class="btn-get-started scrollto">진료 예약하기</button>	
+	</div>
+</div>
+<!-- container modal style -->
+
   <!-- ======= Top Bar ======= -->
   <div id="topbar" class="d-flex align-items-center fixed-top">
     <div class="container d-flex align-items-center justify-content-center justify-content-md-between">
@@ -106,66 +172,7 @@
 
         <!-- Slide 1 -->
         <div class="carousel-item active" style="background-image: url(/resources/img/slide/slide-4.jpg)">
-          <div class="container">
-            <h2>Welcome to <span>Medicio</span></h2>
-            <p>Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel.</p>
-            <button type='button' id="modal_btn" class="btn-get-started scrollto">진료 예약하기</button>
-				<div class="modal_background"></div>
-				
-				<div class="modal_wrap">
-				
-					<div class="modal_close">
-	   				<!-- <img class="closeImg" src="" alt="x버튼"> -->
-	   				<button class="modal_close_button">x</button>
-	   				</div>
-				
-					<!-- appointment -->
-					<div class="modal_appointment">
-						<!-- container -->
-						<div class="modal_container">
-							<div class="change">
-						        <span class="modal_active user">진료 예약</span>
-						        <span class="manager">진료 예약 조회</span>
-							</div>
-						      
-						    <!-- client-change -->
-						    <div class="client-change">
-						    	
-						        <!-- 비회원 진료 예약 -->
-						        <form class="user-form modal_active">
-							        <div class="medical_user">
-										<img class="medical_button_icon"alt="medical" src="/resources/img/medical_icon.png" width="auto" height="50">
-										<div class="medical_button_title">비회원 진료 예약</div>
-									</div>
-							   		<p class="medical_p">
-							   		회원가입을 하지 않아도 진료예약 및 조회가 가능합니다.<br>
-									단, 일부 서비스 이용이 제한될 수 있습니다.</p>
-							   		<button type="button" class="custom-btn btn-1" onClick="location.href='http://localhost:8080/reservation'">비회원 진료 예약하기</button>
-							   		<div class="medical_box_center">
-								   		<p class="medical_box medical_p">회원가입을 하실 경우 『나의차트』에서 진료 및 투약내역,<br>
-								   	 	복약상담, 진단검사결과, 증명서 출력 서비스 등<br>
-								   		개인화 서비스를 이용하실 수 있습니다.</p>
-							        </div>
-						        </form>
-						        
-						        <!-- 비회원 진료 예약 조회 -->
-						        <form class="manager-form">
-							        <div class="medical_user">
-										<img class="medical_button_icon"alt="medical" src="/resources/img/medical_icon.png" width="auto" height="50">
-										<div class="medical_button_title">진료 예약 조회</div>
-									</div>
-							   			<h3>주민번호 입력</h3>
-							   			<span class="user_input"><input type="text">-<input type="password"><br></span>
-							   		<button type="button"  class="custom-btn btn-1" onClick="location.href='http://localhost:8080/UserCheck'">비회원 진료 예약 조회</button>
-						        </form>
-						
-						
-						    </div><!-- client-change 끝 -->
-						</div><!-- container 끝 -->
-					</div><!-- appointment 끝 -->
-	
-				</div>
-          </div>
+          
         </div>
 
         <!-- Slide 2 -->

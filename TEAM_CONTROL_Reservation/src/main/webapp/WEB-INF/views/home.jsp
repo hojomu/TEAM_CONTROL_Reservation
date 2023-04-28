@@ -32,6 +32,8 @@
 <hr>
 <a href="http://localhost:8080/Areservation">reservation으로 이동</a>
 <hr>
+<a href="http://localhost:8080/Amedicalhome">medicalhome으로 이동</a>
+<hr>
 
 </body>
 </html>
