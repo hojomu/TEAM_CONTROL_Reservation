@@ -177,3 +177,40 @@ window.addEventListener('load', function () {
 	  });
   }
 });
+
+//데이터를 가져와서 li형태로 출력
+$(document).ready(function(){
+	
+	$("#dept").on("click",function(){
+
+		var doctorlist = $("click[name='medicalDept']").val();
+		alert(doctorlist);	
+		console.log(doctorlist);
+		list({dept:doctorlist});
+	})
+	
+
+//데이터 값 불러오기
+function list(param){// list함수 선언 시작
+	
+	var dept = param.dept;
+	
+	console.log(dept)
+	
+	$.getJSON("/appointment1/"+ dept + ".json",function(data){
+		console.log(data)
+		
+		var str=""; 
+		
+		for(var i=0; i<data.length; i++){
+			str += "<li>"+data[i].doctorImg+"</li>"
+			str += "<li>"+data[i].medicalDept+"</li>"
+			str += "<li>"+data[i].doctor+"</li>"
+			str += "<li>"+data[i].specialty+"</li>"
+			
+		}
+		
+		$(".doctorList").html(str);		
+      })
+	}
+})

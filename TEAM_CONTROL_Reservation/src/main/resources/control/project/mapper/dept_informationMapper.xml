@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="control.project.mapper.dept_informationMapper">
+ 
+		
+	<select id="medicalDept" resultType="control.project.model.dept_informationVO">
+	    SELECT 	doctorImg, medicalDept, doctor, specialty
+	    FROM dept_information
+	</select>
+	
+	<select id="list" resultType="control.project.model.dept_informationVO">
+		select 	doctorImg, medicalDept, doctor, specialty
+		FROM dept_information
+		
+		<if test="medicalDept !=null">
+			<choose>
+				<when test ="medicalDept=='a'.toString()">
+				   where medicalDept='가정의학과'
+				</when>
+				<when test ="medicalDept=='b'.toString()">
+				   where medicalDept='내과'
+				</when>
+				<when test ="medicalDept=='c'.toString()">
+				   where medicalDept='산부인과'
+				</when>
+				<when test ="medicalDept=='d'.toString()">
+				   where medicalDept='신경과'
+				</when>
+				<when test ="medicalDept=='e'.toString()">
+				   where medicalDept='안과'
+				</when>
+				<when test ="medicalDept=='f'.toString()">
+				   where medicalDept='이비인후과'
+				</when>
+				<when test ="medicalDept=='g'.toString()">
+				   where medicalDept='치과'
+				</when>
+				<otherwise>
+				   where medicalDept='피부과'
+				</otherwise>
+		  </choose>
+		</if>
+	</select>
+	 
+	
+ 
+</mapper>

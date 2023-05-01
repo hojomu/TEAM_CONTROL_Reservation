@@ -38,10 +38,11 @@ public class dept_informationVO {
 		this.specialty = specialty;
 	}
 	
-
 	@Override
 	public String toString() {
-		return "dept_informationVO > medicalDept="+medicalDept+", doctor="+doctor+", doctorImg="+doctorImg+", specialty="+specialty;
+		return "dept_informationVO [medicalDept=" + medicalDept + ", doctor=" + doctor + ", doctorImg=" + doctorImg + ", specialty=" + specialty + "]";
 	}
+
+	
 	
 }
