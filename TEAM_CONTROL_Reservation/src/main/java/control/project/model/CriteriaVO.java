@@ -8,6 +8,11 @@ public class CriteriaVO {
 	private String keyword;	// 키워드를 통해 검색.
 	private String type;	// 키워드 기준
 	
+	private String dept;    // 진료과
+	private String doctor;  // 의료진
+	private String date1;   // 검색일자1
+	private String date2;   // 검색일자2
+	
 	// 생성자
 	public CriteriaVO() {
 		this(1,10);
@@ -54,9 +59,37 @@ public class CriteriaVO {
 	public void setType(String type) {
 		this.type = type;
 	}
+	
+	// 추가 0428
+	public String getDept() {
+		return dept;
+	}
+	public void setDept(String dept) {
+		this.dept = dept;
+	}
+	public String getDoctor() {
+		return doctor;
+	}
+	public void setDoctor(String doctor) {
+		this.doctor = doctor;
+	}
+	public String getDate1() {
+		return date1;
+	}
+	public void setDate1(String date1) {
+		this.date1 = date1;
+	}
+	public String getDate2() {
+		return date2;
+	}
+	public void setDate2(String date2) {
+		this.date2 = date2;
+	}
+	
+	
 	@Override
 	public String toString() {
 		return "CriteriaVO [pageNum=" + pageNum + ", amount=" + amount + ", keyword=" + keyword + ", type=" + type
-				+ ", skip=" + skip + "]";
+				+ ", skip=" + skip + ", doctor=" + doctor +  ", date1=" + date1 +  ", date2=" + date2 + "]";
 	}	
 }

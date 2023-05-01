@@ -24,6 +24,7 @@ public class ReservationServiceImpl implements ReservationService {
 	
 	// 예약 정보 불러오기 select 0419
 	public ArrayList<ReservationVO> list(CriteriaVO cri){
+		System.out.println(cri);
 		return rm.list(cri);
 	}
 	

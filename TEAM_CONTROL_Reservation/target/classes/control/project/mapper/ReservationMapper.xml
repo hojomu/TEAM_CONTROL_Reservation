@@ -20,14 +20,37 @@
 
 	<!-- 예약 정보 불러오기 select 0419 -->		
 	<select id="list" resultType="control.project.model.ReservationVO">
-		select * from (select reservationTime, rno, customerName, medicalDept, doctor
-						from reservation order by reservationTime) as T1
-						limit #{skip}, #{amount}		
+		select * from reservation 
+		      <if test="doctor != null">
+                   where doctor = #{doctor} 
+                  <choose>
+                     <when test="date1 != date2"> 
+                         and reservationTime between #{date1} and #{date2} 
+                     </when>
+                     <otherwise>
+                         and date(reservationTime) = #{date2} 
+                     </otherwise>
+                   </choose>
+                </if>												
+		   	order by reservationTime
+		  	limit #{skip}, #{amount}		
 	</select>
 	
 	<!-- 예약 전체 건수 불러오기 select 0419 -->	
 	<select id="total" resultType="int">
 		select count(*) from reservation 
+		   <if test="doctor != null">
+                   where doctor = #{doctor} 
+                  <choose>
+                     <when test="date1 != date2"> 
+                         and reservationTime between #{date1} and #{date2} 
+                     </when>
+                     <otherwise>
+                         and date(reservationTime) = #{date2} 
+                     </otherwise>
+                   </choose>
+            </if>												
+		   	order by reservationTime
 	</select>
 	 
 	<!-- 예약 불가능 시간 불러오기 -->

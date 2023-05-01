@@ -1,5 +1,6 @@
 package control.project.controller;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,7 +61,7 @@ public class ReservationController {
 		
 	// 예약정보 불러오기 Select ( 로그인 기능 추가됨 )
 	@RequestMapping(value="/ManagerCheck", method = RequestMethod.POST)
-	public String getList(Model model, CriteriaVO cri , AdminLoginVO login , HttpSession session) {
+	public String getList(Model model, CriteriaVO cri , AdminLoginVO login , HttpSession session, HttpServletRequest request) {
 		
 		// 로그인이 되어있지 않다면
 		if(session.getAttribute("login") == null) {
@@ -72,8 +73,10 @@ public class ReservationController {
 				System.out.println(cri);
 				model.addAttribute("list", rs.list(cri));		
 				// 페이지 총 수 불러오기
-				int total = rs.total(cri);
+				int total = rs.total(cri);				
+				request.setAttribute("total1", total);
 				System.out.println(total);
+				
 				// 페이지네이션 데이터 불러오기
 				model.addAttribute("paging", new PageVO(cri, total));
 				
@@ -89,6 +92,8 @@ public class ReservationController {
 			model.addAttribute("list", rs.list(cri));		
 			// 페이지 총 수 불러오기
 			int total = rs.total(cri);
+			System.out.println(cri);
+			request.setAttribute("total1", total);
 			System.out.println(total);
 			// 페이지네이션 데이터 불러오기
 			model.addAttribute("paging", new PageVO(cri, total));
@@ -99,12 +104,14 @@ public class ReservationController {
 	
 	// 페이지네이션 클릭 시 리스트 불러오기
 	@RequestMapping(value="/ManagerCheck", method = RequestMethod.GET)
-	public String listSet(Model model, CriteriaVO cri) {
+	public String listSet(Model model, CriteriaVO cri, HttpServletRequest request) {
 		// 예약 정보 리스트 불러오기
 		System.out.println(cri);
 		model.addAttribute("list", rs.list(cri));		
 		// 페이지 총 수 불러오기
 		int total = rs.total(cri);
+		System.out.println(cri);
+		request.setAttribute("total1", total);
 		System.out.println(total);
 		// 페이지네이션 데이터 불러오기
 		model.addAttribute("paging", new PageVO(cri, total));
