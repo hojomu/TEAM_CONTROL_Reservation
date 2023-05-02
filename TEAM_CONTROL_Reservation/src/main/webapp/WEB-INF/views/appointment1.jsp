@@ -35,7 +35,7 @@
             data-setting="가정의학과"
             >
       <span class="focus">
-           	<img class="iconCategory" src="/resources/img/family.png" alt="dental" title="dental">가정의학과
+           	<img class="iconCategory" src="/resources/img/family.png" alt="dental" title="dental"><a>가정의학과</a>
       </span>
     </button>
     <button id="tab-2"
@@ -47,7 +47,7 @@
             data-setting="내과"
             >
       <span class="focus">
-      	   <img class="iconCategory" src="/resources/img/stethoscope.png" alt="dental" title="dental"> 내과
+      	   <img class="iconCategory" src="/resources/img/stethoscope.png" alt="dental" title="dental"> <a>내과</a>
       </span>
     </button>
     <button id="tab-3"
@@ -59,7 +59,7 @@
             data-setting="산부인과"
             >
       <span class="focus">
-           <img class="iconCategory" src="/resources/img/heart.png" alt="dental" title="dental"> 산부인과
+           <img class="iconCategory" src="/resources/img/heart.png" alt="dental" title="dental"> <a>산부인과</a>
       </span>
     </button>
     <button id="tab-4"
@@ -70,7 +70,7 @@
             tabindex="-1"
             data-setting="신경과">
       <span class="focus">
-     	 <img class="iconCategory" src="/resources/img/neuroimaging.png" alt="dental" title="dental"> 신경과 
+     	 <img class="iconCategory" src="/resources/img/neuroimaging.png" alt="dental" title="dental"> <a>신경과 </a>
       </span>
     </button>
     <button id="tab-5"
@@ -81,7 +81,7 @@
             tabindex="-1"
             data-setting="안과">
       <span class="focus">
-     	 <img class="iconCategory" src="/resources/img/ophtalmology.png" alt="dental" title="dental"> 안과 
+     	 <img class="iconCategory" src="/resources/img/ophtalmology.png" alt="dental" title="dental"> <a>안과</a> 
       </span>
     </button>
     <button id="tab-6"
@@ -92,7 +92,7 @@
             tabindex="-1"
             data-setting="이비인후과">
       <span class="focus">
-     	 <img class="iconCategory" src="/resources/img/otorhinolaryngology.png" alt="dental" title="dental"> 이비인후과 
+     	 <img class="iconCategory" src="/resources/img/otorhinolaryngology.png" alt="dental" title="dental"> <a>이비인후과</a> 
       </span>
     </button>
     <button id="tab-7"
@@ -103,7 +103,7 @@
             tabindex="-1"
             data-setting="치과">
       <span class="focus">
-     	 <img class="iconCategory" src="/resources/img/dental.png" alt="dental" title="dental"> 치과 
+     	 <img class="iconCategory" src="/resources/img/dental.png" alt="dental" title="dental"><a> 치과</a> 
       </span>
     </button>
     <button id="tab-8"
@@ -114,7 +114,7 @@
             tabindex="-1"
             data-setting="피부과">
       <span class="focus">
-     	 <img class="iconCategory" src="/resources/img/dermatology.png" alt="dental" title="dental"> 피부과
+     	 <img class="iconCategory" src="/resources/img/dermatology.png" alt="dental" title="dental"> <a>피부과</a>
       </span>
     </button>
   </div>

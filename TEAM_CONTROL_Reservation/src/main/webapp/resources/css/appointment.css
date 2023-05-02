@@ -35,7 +35,7 @@
   margin-top: 0;
   border-width: 2px;
   border-top-width: 6px;
-/*   border-top-color: rgb(36 116 214); */
+  border-top-color: rgb(68 146 255); 
 /*   border-bottom-color: hsl(220deg 43% 99%); */
   background: hsl(220deg 43% 99%);
 }
@@ -59,12 +59,13 @@
 }
 
 [role="tabpanel"] {
-  padding: 5px;
+  margin: 10px;
+  margin-left:0px;
   border: 2px solid hsl(219deg 1% 72%);
-  border-radius: 0 5px 5px;
+  border-radius: 5px;
   background: hsl(220deg 43% 99%);
   min-height: 10em;
-  width: 100%;
+  width: 1050px;
   overflow: auto;
 }
 
@@ -74,4 +75,19 @@
 
 [role="tabpanel"] p {
   margin: 0;
+}
+
+.impormation {
+  width:1050px;
+  border: 1px solid gray;
+	
+}
+ .impormation> h3{
+  margin: 10px;
+ }
+ 
+ .focus > a {
+   display: block;
+   margin: 5px;
+   text-align: center;
 }
