@@ -19,14 +19,14 @@ public class dept_informationController {
 	dept_informationService di;
 	
 
-	@RequestMapping(value = "/relies/{medicalDept}", method = RequestMethod.GET)
+	@RequestMapping(value = "/appointment1/{medicalDept}", method = RequestMethod.GET)
 	public ResponseEntity<ArrayList<dept_informationVO>> getList(@PathVariable("medicalDept") String medicalDept) {
-		dept_informationVO mvo = new dept_informationVO();
-		mvo.setMedicalDept(medicalDept);
-		System.out.println(mvo);
-		return new ResponseEntity<>(di.list(mvo), HttpStatus.OK);
+		System.out.println("medicalDept="+medicalDept);
+	    dept_informationVO mvo = new dept_informationVO();
+	    mvo.setMedicalDept(medicalDept);
+	    System.out.println(mvo);
+	    return new ResponseEntity<>(di.list(mvo), HttpStatus.OK);
 	}
 	
-	//userCheck로 이동
 
 }

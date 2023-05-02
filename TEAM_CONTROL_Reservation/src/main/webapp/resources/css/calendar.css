@@ -1,22 +1,65 @@
 @charset "UTF-8";
-a 
-{ color:#000000;text-decoration:none; }
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Lato, sans-serif;
+}
+a {
+  color:#000000;
+  text-decoration:none;
+}
 
-.scriptCalendar 
-{ text-align:center; }
+.scriptCalendar { 
+  text-align:center;
+  width: 100%;
+  padding: 0.75em;
+  margin: auto;
+  font-size: 4vw;
+  background-color: #fff;
+  border-radius: 1.5em;
+  user-select: none;
+  box-shadow:
+    0 0.0625em 0.25em rgba(0,20,50,0.2),
+    0 0.5em 0.5em 0.125em rgba(0,20,50,0.1);
+}
 
-.scriptCalendar > thead > tr > td 
-{ width:50px;height:50px; }
+@media (min-width: 500px) {
+  .scriptCalendar {
+    width: 450px; /* 여기서 달력의 width를 지정한다 */
+    font-size: 1.25rem;
+  }
+}
 
-.scriptCalendar > thead > tr:first-child > td 
-{ font-weight:bold; }
+.scriptCalendar > thead > tr:last-Child > td {
+  width: 4em;
+  height: 3.3em;
+  vertical-align: top;
+  font-weight: bold;
+  font-size: 0.75em;
+  text-transform: uppercase;
+  letter-spacing: 0.0625em;
+  box-shadow:
+    inset 0 -0.875em #fff,
+    inset 0 -1em rgba(0,20,50,0.1);
+}
 
-.scriptCalendar > thead > tr:last-child > td 
-{ background-color:#90EE90; }
+.scriptCalendar > thead > tr > td {
+  height:2.7em;
+}
 
-.scriptCalendar > tbody > tr > td 
-{ width:50px;height:50px; }
 
-.blockedDay 
-{background-color : aqua;}
+.scriptCalendar > tbody > tr > td {
+  height:2.7em;
+}
+
+.blockedDay {
+  background-color : aqua;
+}
+
+.dis-none {
+	display:none;
+}
 

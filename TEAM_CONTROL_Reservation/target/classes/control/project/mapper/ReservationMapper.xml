@@ -88,4 +88,15 @@
 		where adminId=#{adminId} and adminPass=#{adminPass}
 	</select>
 	
+		<!-- 예약 완료 후 확인페이지 정보 불러오기 0501 -->		
+	<select id="userCheck" resultType="control.project.model.ReservationVO">
+		select * from reservation where personalNumber = #{personalNumber}
+	</select>
+	
+	<!-- 예약 완료 후 정보 삭제 -->
+	<delete id="delete">
+		delete from reservation
+		where rno = #{rno}
+	</delete>
+	
 </mapper>

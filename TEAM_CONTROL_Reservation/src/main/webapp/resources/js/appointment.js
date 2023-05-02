@@ -12,7 +12,12 @@
 'use strict';
 
 // 달력 삭제를 위해 전역 변수로 선언
-let allCalendar = document.querySelector(".scriptCalendar");
+const allCalendar = document.querySelector(".scriptCalendar");
+
+// appointment1 페이지 form input 가져오기
+const medicalDeptInput = document.getElementById("medicalDept");
+const doctorInput = document.querySelector("#doctor");
+const timeInput = document.querySelector("#reservationTime");
 
 // 탭 생성자
 class TabsAutomatic {
@@ -32,12 +37,9 @@ class TabsAutomatic {
     // 각 탭에 탭 이동하기 위한 index 설정 및 이벤트 부여
     for (var i = 0; i < this.tabs.length; i += 1) {
       var tab = this.tabs[i];
-      var tabpanel = document.getElementById(tab.getAttribute('aria-controls'));
       
       tab.tabIndex = -1;
       tab.setAttribute('aria-selected', 'false');
-      this.tabpanels.push(tabpanel);
-      
 
       tab.addEventListener('keydown', this.onKeydown.bind(this));
       tab.addEventListener('click', this.onClick.bind(this));
@@ -53,6 +55,8 @@ class TabsAutomatic {
 
   //선택한 탭 활성화 , 해당 탭에 focus() 를 줘서 사용자가 접근할 수 있게 해준다.
   setSelectedTab(currentTab, setFocus) {
+	  console.log(currentTab);
+	  while(timeTable.firstChild){timeTable.removeChild(timeTable.firstChild);}
     if (typeof setFocus !== 'boolean') {
       setFocus = true;
     }
@@ -61,20 +65,22 @@ class TabsAutomatic {
       if (currentTab === tab) {
         tab.setAttribute('aria-selected', 'true');
         tab.removeAttribute('tabindex');
-        this.tabpanels[i].classList.remove('is-hidden');
         if (setFocus) {
           tab.focus();
         }
       } else {
         tab.setAttribute('aria-selected', 'false');
         tab.tabIndex = -1;
-        this.tabpanels[i].classList.add('is-hidden');
       }
     }
     
     // form 태그로 value 보내기
-    var medicalDept = document.getElementById("medicalDept");
-    medicalDept.value = currentTab.dataset.setting;
+    medicalDeptInput.value = currentTab.dataset.setting;
+    doctorInput.value="";
+    timeInput.value="";
+    
+    // 의사 리스트 호출
+    list(currentTab);
     
     // 달력 숨기기
     allCalendar.classList.add("dis-none");
@@ -83,6 +89,8 @@ class TabsAutomatic {
 
   // 키다운 이벤트에서 첫 탭과 마지막 탭의 이동을 이어지게 하는 함수
 	  setSelectedToPreviousTab(currentTab) {
+		while(timeTable.firstChild){timeTable.removeChild(timeTable.firstChild);}
+		  
 	    var index;
 	
 	    if (currentTab === this.firstTab) {
@@ -96,8 +104,9 @@ class TabsAutomatic {
 	    allCalendar.classList.add("dis-none");
 	    
 	  }
-	
+  // 키다운 이벤트에서 첫 탭과 마지막 탭의 이동을 이어지게 하는 함수
 	  setSelectedToNextTab(currentTab) {
+		while(timeTable.firstChild){timeTable.removeChild(timeTable.firstChild);}
 	    var index;
 	
 	    if (currentTab === this.lastTab) {
@@ -111,7 +120,6 @@ class TabsAutomatic {
 	  }
 
   /* EVENT HANDLERS */
-
   onKeydown(event) {
     var tgt = event.currentTarget,
       flag = false;
@@ -152,65 +160,56 @@ class TabsAutomatic {
   }
 }
 
-// 진료예약 클릭 이벤트
-function clickDoctorSubmit(eachATag,event){
-    var doctor = document.getElementById("doctor");
-    doctor.value = eachATag.dataset.setting;
+//진료예약 클릭 이벤트
+function clickDoctorSubmit(event, doctor){
+	 event.preventDefault()
+	 while(timeTable.firstChild){timeTable.removeChild(timeTable.firstChild);}
+	 var doctorInput = document.getElementById("doctor");
+	 doctorInput.value = doctor.dataset.setting;
+	 // 캘린더 호출
+	 buildCalendar();
+	 allCalendar.classList.remove("dis-none");
+	 timeInput.value="";
 }
-
-// Initialize tablist
-
-window.addEventListener('load', function () {
-  var tablists = document.querySelectorAll('[role=tablist].automatic');
-  for (var i = 0; i < tablists.length; i++) {
-    new TabsAutomatic(tablists[i]);
-  }
-  var dtSubmit = document.querySelectorAll(".doctor-submit");
-  var dtSubmitArray = Array.from(dtSubmit);
-  console.log(dtSubmitArray.length);
-  
-  for (var i = 0; i < dtSubmitArray.length; i++){
-	  var eachATag = dtSubmitArray[i];
-	  eachATag.addEventListener('click', function(event){
-		  event.preventDefault();
-		  clickDoctorSubmit(eachATag,event);
-	  });
-  }
-});
-
-//데이터를 가져와서 li형태로 출력
-$(document).ready(function(){
-	
-	$("#dept").on("click",function(){
-
-		var doctorlist = $("click[name='medicalDept']").val();
-		alert(doctorlist);	
-		console.log(doctorlist);
-		list({dept:doctorlist});
-	})
-	
 
 //데이터 값 불러오기
 function list(param){// list함수 선언 시작
 	
-	var dept = param.dept;
+	var medicalDept = param.dataset.setting;
 	
-	console.log(dept)
+	console.log("list 함수 진료과 : "+medicalDept)
 	
-	$.getJSON("/appointment1/"+ dept + ".json",function(data){
+	$.getJSON("/appointment1/"+ medicalDept + ".json",function(data){
 		console.log(data)
 		
 		var str=""; 
 		
 		for(var i=0; i<data.length; i++){
-			str += "<li>"+data[i].doctorImg+"</li>"
+			str += "<li><img src='"+data[i].doctorImg+"'></li>"
 			str += "<li>"+data[i].medicalDept+"</li>"
 			str += "<li>"+data[i].doctor+"</li>"
 			str += "<li>"+data[i].specialty+"</li>"
+			str += "<li><a href='javascript:void(0)' class='doctor-submit' onclick='clickDoctorSubmit(event,this)' data-setting='"+data[i].doctor+"'><span>진료예약하기</span></a></li>"
 			
 		}
 		
-		$(".doctorList").html(str);		
+		$("#doctorInfo").html(str);		
       })
-	}
-})
+      
+}
+
+
+// 페이지 렌더링 시
+window.addEventListener('load', function () {
+	  var tablists = document.querySelectorAll('[role=tablist].automatic');
+	  for (var i = 0; i < tablists.length; i++) {
+	    new TabsAutomatic(tablists[i]);
+	  }
+	  setWorkTime();
+});
+
+
+// calendar =========================================
+
+
+

@@ -8,8 +8,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 	<link rel="stylesheet" href="/resources/css/appointment.css">
-	<script src="/resources/js/appointment.js" type="text/javascript"></script>
-	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+	<link rel="stylesheet" href="/resources/css/calendar.css">
 </head>
 
     
@@ -33,9 +32,7 @@
             role="tab"
             aria-selected="true"
             aria-controls="tabpanel-1"
-            class="dept"
-            value="a"
-            onclick="tab()"
+            data-setting="가정의학과"
             >
       <span class="focus">
            	<img class="iconCategory" src="/resources/img/family.png" alt="dental" title="dental">가정의학과
@@ -47,9 +44,7 @@
             aria-selected="false"
             aria-controls="tabpanel-2"
             tabindex="-1"
-            class="dept"
-            value="b"
-            onclick="tab()"
+            data-setting="내과"
             >
       <span class="focus">
       	   <img class="iconCategory" src="/resources/img/stethoscope.png" alt="dental" title="dental"> 내과
@@ -61,9 +56,7 @@
             aria-selected="false"
             aria-controls="tabpanel-3"
             tabindex="-1"
-            class="dept"
-            value="c"
-            onclick="tab()"
+            data-setting="산부인과"
             >
       <span class="focus">
            <img class="iconCategory" src="/resources/img/heart.png" alt="dental" title="dental"> 산부인과
@@ -75,9 +68,7 @@
             aria-selected="false"
             aria-controls="tabpanel-4"
             tabindex="-1"
-            class="dept"
-            value="d"
-            onclick="tab()">
+            data-setting="신경과">
       <span class="focus">
      	 <img class="iconCategory" src="/resources/img/neuroimaging.png" alt="dental" title="dental"> 신경과 
       </span>
@@ -88,9 +79,7 @@
             aria-selected="false"
             aria-controls="tabpanel-5"
             tabindex="-1"
-            class="dept"
-             value="e"
-            onclick="tab()">
+            data-setting="안과">
       <span class="focus">
      	 <img class="iconCategory" src="/resources/img/ophtalmology.png" alt="dental" title="dental"> 안과 
       </span>
@@ -101,9 +90,7 @@
             aria-selected="false"
             aria-controls="tabpanel-6"
             tabindex="-1"
-            class="dept"
-             value="f"
-            onclick="tab()">
+            data-setting="이비인후과">
       <span class="focus">
      	 <img class="iconCategory" src="/resources/img/otorhinolaryngology.png" alt="dental" title="dental"> 이비인후과 
       </span>
@@ -114,9 +101,7 @@
             aria-selected="false"
             aria-controls="tabpanel-7"
             tabindex="-1"
-            class="dept"
-            value="g"
-            onclick="tab()">
+            data-setting="치과">
       <span class="focus">
      	 <img class="iconCategory" src="/resources/img/dental.png" alt="dental" title="dental"> 치과 
       </span>
@@ -127,9 +112,7 @@
             aria-selected="false"
             aria-controls="tabpanel-8"
             tabindex="-1"
-            class="dept"
-            value="h"
-            onclick="tab()">
+            data-setting="피부과">
       <span class="focus">
      	 <img class="iconCategory" src="/resources/img/dermatology.png" alt="dental" title="dental"> 피부과
       </span>
@@ -138,102 +121,52 @@
   
 
   
-  <!-- 가정의학과 의료진-->
-  <div id="tabpanel-1"
-       role="tabpanel"
-       tabindex="0"
-       aria-labelledby="tab-1">
-    
-	<ul id="doctorList"></ul>
- 
- </div>
- 
-   <!-- 내과 의료진-->
-  <div id="tabpanel-2"
-       role="tabpanel"
-       tabindex="0"
-       aria-labelledby="tab-2"
-       class="is-hidden">
-       
-       	<ul id="doctorList"></ul>
-	
-  </div>
-  
-   <!-- 산부인과 의료진-->
-  <div id="tabpanel-3"
-       role="tabpanel"
-       tabindex="0"
-       aria-labelledby="tab-3"
-       class="is-hidden">
-    
-      	<ul id="doctorList"></ul>
-      	
-  </div>
-     
-<!-- 신경과  의료진-->
-  <div id="tabpanel-4"
-       role="tabpanel"
-       tabindex="0"
-       aria-labelledby="tab-4"
-       class="is-hidden">
-    
-      	<ul id="doctorList"></ul>
+	<!-- 의료진 불러오기 -->
+	<div id="deptWarp">
+		<ul id="doctorInfo">
+		</ul>
+	</div>
+
+<table class="scriptCalendar dis-none">
+    <thead>
+        <tr>
+            <td onClick="prevCalendar();" style="cursor:pointer;">&#60;&#60;</td>
+            <td colspan="5">
+                <span id="calYear">YYYY</span>년
+                <span id="calMonth">MM</span>월
+            </td>
+            <td onClick="nextCalendar();" style="cursor:pointer;">&#62;&#62;</td>
+        </tr>
+        <tr>
+            <td>SUN</td><td>MON</td><td>TUE</td><td>WED</td><td>THU</td><td>FRI</td><td>SAT</td>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+<ul id="timeTable">
+</ul>
+
+
 </div>
 
-<!-- 안과   의료진-->
-  <div id="tabpanel-5"
-       role="tabpanel"
-       tabindex="0"
-       aria-labelledby="tab-5"
-       class="is-hidden">
-   
-      	<ul id="doctorList"></ul>
-</div>
-
-<!-- 이비인후과   의료진-->
-  <div id="tabpanel-6"
-       role="tabpanel"
-       tabindex="0"
-       aria-labelledby="tab-6"
-       class="is-hidden">
-    
-      	<ul id="doctorList"></ul>
-</div>
-
-<!-- 치과   의료진-->
-  <div id="tabpanel-7"
-       role="tabpanel"
-       tabindex="0"
-       aria-labelledby="tab-7"
-       class="is-hidden">
-     
-      	<ul id="doctorList"></ul>
-</div>
-
-<!-- 피부과  의료진-->
-  <div id="tabpanel-8"
-       role="tabpanel"
-       tabindex="0"
-       aria-labelledby="tab-8"
-       class="is-hidden">
-     
-      	<ul id="doctorList"></ul>
- </div>
-
-
-
-<textarea name="otherInfo">추가정보 입력</textarea>
-</div>
-
-<form name="form" action="submit2" method="post">
-<input type="hidden" name="customerName" value="<c:out value='${reserveData.customerName }'/>"/>
-<input type="hidden" name="personalNumber" value="<c:out value='${reserveData.personalNumber }'/>"/>
-<input type="hidden" name="email" value="<c:out value='${reserveData.email }'/>"/>
-<input type="hidden" name="medicalDept" value="<c:out value='${reserveData.medicalDept }'/>"/>
-<input type="hidden" name="doctor" value="<c:out value='${reserveData.doctor }'/>"/>
-<input type="hidden" name="otherInfo" value="<c:out value='${reserveData.otherInfo }'/>"/>
+<form name="form" action="UserCheck" method="post">
+<input type="hidden" name="customerName" value=${reserveData.customerName }>
+<input type="hidden" name="personalNumber" value=${reserveData.personalNumber }>
+<input type="hidden" name="email" value=${reserveData.email }>
+<input type="hidden" id="medicalDept" name="medicalDept">
+<input type="hidden" id="doctor" name="doctor">
+<input type="hidden" id="reservationTime" name="reservationTime">
+<textarea  id="otherInfo" name="otherInfo" placeholder="추가 사항을 적어주세요."></textarea>
 <button>Submit</button>
 </form>
 </section>
+
+	<!-- js 모음 -->
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+	<script src="/resources/js/appointment.js" type="text/javascript"></script>
+	<script src="/resources/js/calendar.js" type="text/javascript"></script>
+	
 </body>
+
 </html>

@@ -186,4 +186,12 @@ public class ReservationController {
 		return "adminLogin";
 	}
 	
+	// usercheck에서 예약 취소하기 0502
+	@RequestMapping(value="/delete", method = RequestMethod.POST)
+	public String delete (ReservationVO data) {
+		rs.delete(data);
+		return "home";
+	}
+	
+	
 }

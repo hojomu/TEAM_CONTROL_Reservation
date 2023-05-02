@@ -1,16 +1,13 @@
 /**
  * 
  */
-	document.addEventListener("DOMContentLoaded", function() {
-        buildCalendar();
-        setWorkTime();
-    });
-	
-	
+
 	// timeTable을 위한 배열 선언
 	const WorkTime = [];
 	var timeTable = document.querySelector("#timeTable"); // ul 불러오기
 	
+	// reservationTime value를 넣기 위한 선언
+	var timeInputValue = "";
 	
 
     var today = new Date(); // @param 전역 변수, 오늘 날짜 / 내 컴퓨터 로컬을 기준으로 today에 Date 객체를 넣어줌
@@ -52,11 +49,8 @@
             tbCalendar.deleteRow(tbCalendar.rows.length - 1);
         }
 
-
         // @param 첫번째 개행
         let row = tbCalendar.insertRow();
-
-
 
         // @param 날짜가 표기될 열의 증가값
         let dom = 1;
@@ -142,6 +136,7 @@
                     if(Math.sign(day) == 1 && day <= lastDate.getDate() && column.dataset.setting != 'sunday') {
                         column.style.backgroundColor = "#FFFFFF";
                         column.style.cursor = "pointer";
+                        alert("cccc")
                         column.onclick = function(){ calendarChoiceDay(this); }
                     }
                 }
@@ -200,16 +195,15 @@
         }
 
         // @param 선택일 체크 표시
-        column.style.backgroundColor = "#FF9999";
+        column.style.backgroundColor = "#4492FF";
 
         // @param 선택일 클래스명 변경
         column.classList.add("choiceDay");
         
     // timeTable 생성 시작
         // timeTable 초기화
-        while(timeTable.firstChild){
-        	timeTable.removeChild(timeTable.firstChild);
-        }						// timeTable.innerHTML = ''; 으로도 ul을 초기화 할 수 있다
+        while(timeTable.firstChild){timeTable.removeChild(timeTable.firstChild);}	
+        timeTable.innerHTML = ''; // 이 방법도 위와 동일하게 timeTable을 초기화한다
         
         var settedYear = document.querySelector("#calYear").innerHTML;
         var settedMonth = document.querySelector("#calMonth").innerHTML;
@@ -217,14 +211,21 @@
         
         var settedYearMonth = settedYear + "-" + settedMonth + "-" + settedDay;
         
+        timeInputValue = settedYearMonth;
+        
+        var medicalDept = medicalDeptInput.value;
+        
+        var doctor = doctorInput.value;
+        
         $.ajax({
         	type: "get",
-        	url: "/appointment1/"+settedYearMonth+".json", // GET 방식이라서 parameter에 담아서 보냈다
+        	url: "/appointment1/"+settedYearMonth+"/"+medicalDept+"/"+doctor+".json", // GET 방식이라서 parameter에 담아서 보냈다
         	//data: JSON.stringify(settedYearMonth), 만일, POST 방식을 사용할 경우 data를 직접 담아서 보내야한다. 이때, settedYearMonth처럼 String 타입을 보내면 return 값(result)이 xml 형태로 돌아온다.
         								// return을 json 타입으로 받고싶다면, data를 보낼때도 json 형태로 보내야한다. ex) {board_no:reply.board_no,page:reply.page}
         	contentType:"application/json; charset=utf-8",
         	success:function(result){
         		console.log(result);
+        		console.log(WorkTime);
         		for(var i = 0; i < WorkTime.length; i++){
         			var li = document.createElement("li");
         			var a = document.createElement("a");
@@ -262,4 +263,7 @@
     function ChoiceTime(event,aTag){
     	event.preventDefault();
     	console.log(aTag);
+    	console.log(timeInputValue);
+    	var rTimeFinal = timeInputValue+" "+aTag.innerText+":00";
+    	timeInput.value = rTimeFinal;
     };
