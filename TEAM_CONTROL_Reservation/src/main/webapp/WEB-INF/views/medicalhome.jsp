@@ -42,7 +42,7 @@
 
 <body>
 
-<!-- ======= modal ======= -->
+<!-- ======= modal 1 ======= -->
 <div class="modal_background">
 	<div class="modal_wrap">
 					
@@ -50,7 +50,7 @@
 		<div class="modal_appointment">
 			<!-- container -->
 			<div class="modal_container">
-				<div class="modal_close"><img class="closeImg" src="" alt="x버튼"></div>
+				<div class="modal_close">&times;</div>
 				<div class="change">
 			        <span class="modal_active user">진료 예약</span>
 			        <span class="manager">진료 예약 조회</span>
@@ -94,6 +94,8 @@
 </div>
 <!-- ======= modal ======= -->
 
+
+
 <!-- container modal style -->
 <div id="modal_st_container_wrap">
 	<div class="modal_st_container">
@@ -103,6 +105,37 @@
 	</div>
 </div>
 <!-- container modal style -->
+
+		<!-- 모달창 -->
+		<div id="modal_manager" class="modal_manager">
+		  <div class="modal-content_manager">
+		    
+	       <form class="manager-form" action="/ManagerCheck" method="post">
+
+				<div class="medical_manager_title">관리자 로그인</div>
+				
+				<h3 class="medical_manager_title2">관리번호 입력</h3>
+
+			<div class="manager_login">
+				<div class="manager_loginId">
+				<span>아이디</span>
+				<input type="text" name="adminId">
+				</div>
+				<div class="manager_loginPw">
+				<span>비밀번호</span>
+				<input type="password" name="adminPass">
+				</div>
+			</div>
+			
+	   		<button type="submit"  class="custom-btn btn-1">관리자 계정 로그인</button>
+	   		<div>${failMessage }</div>
+	   		
+	       </form>
+	       
+	       <div class="manager_close">&times;</div>
+
+		  </div>
+		</div>
 
   <!-- ======= Top Bar ======= -->
   <div id="topbar" class="d-flex align-items-center fixed-top">
@@ -153,8 +186,12 @@
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
 
-      <a href="#appointment" class="appointment-btn scrollto"><span class="d-none d-md-inline">관리자</span> 차트보기</a>
-
+      <!-- <a href="#appointment" class="appointment-btn scrollto"><span class="d-none d-md-inline">관리자</span> 차트보기</a> -->
+	
+		<!-- 모달창을 열기 위한 버튼 -->
+		<button id="modal-btn" class="appointment-btn scrollto"><span class="d-none d-md-inline">관리자</span> 차트보기</button>
+		
+		
     </div>
   </header><!-- End Header -->
 

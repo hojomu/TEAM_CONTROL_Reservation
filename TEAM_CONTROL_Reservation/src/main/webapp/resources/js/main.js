@@ -18,10 +18,34 @@ function modalClose() {
     document.querySelector('.modal_background').style.display = 'none';
 }
 
-
 //버튼 클릭리스너 달기
 document.querySelector('#modal_btn').addEventListener('click', modalOpen);
 document.querySelector('.modal_close').addEventListener('click', modalClose);
+
+// 관리자 차트
+//모달창 열기 버튼과 모달창 요소 가져오기
+var modalBtn = document.getElementById("modal-btn");
+var modal = document.getElementById("modal_manager");
+
+// 모달창 열기 버튼 클릭 시 모달창 보이기
+modalBtn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// 모달창 닫기 버튼 가져오기
+var closeBtn = document.getElementsByClassName("manager_close")[0];
+
+// 모달창 닫기 버튼 클릭 시 모달창 숨기기
+closeBtn.onclick = function() {
+  modal.style.display = "none";
+}
+
+// 모달창 외부 클릭 시 모달창 숨기기
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
 
 
 (function() {

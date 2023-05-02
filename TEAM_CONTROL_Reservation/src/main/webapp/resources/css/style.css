@@ -53,6 +53,81 @@ input:focus{
 	outline:none;
 }
 
+/* 관리자 차트 */
+/* 모달창 스타일 */
+.modal_manager {
+  display: none; /* 초기에는 화면에 보이지 않도록 함 */
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4); /* 배경을 어둡게 함 */
+}
+
+/* 모달창 내부 컨텐츠 스타일 */
+.modal-content_manager {
+  background-color: #fefefe;
+  margin: 0 auto;
+  padding: 20px;
+  z-index: 9999;
+  width: 450px;
+  height:300px;
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  border: 1px solid rgb(6,14,131);
+  border-radius: 10px;
+  display:flex;
+  justify-content: center;
+}
+
+.medical_manager_title{
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.medical_manager_title2{
+  text-align: center;
+  font-size: 20px;
+}
+
+.manager_login{
+	text-align: center;
+}
+
+.manager_loginId{
+	margin: 5px;
+}
+
+.manager_loginPw{
+	margin: 5px;
+}
+
+/* 모달창 내부 닫기 버튼 스타일 */
+.manager_close {
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+  bottom: 0px;
+  right: 10px;
+  margin-rigth: 5px;
+}
+
+.manager_close:hover,
+.manager_close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 진료예약 모달 */
+
 /* .modal_wrap {
     display: none;
     width: 800px;
@@ -65,6 +140,7 @@ input:focus{
     z-index: 9999;
     transform: translate(-50%,-50%);
 } */
+
 .modal_wrap {
 	display: none;
 	position: absolute;
@@ -83,27 +159,22 @@ input:focus{
     left: 0;
     z-index: 5000;
 }
+
 .modal_close {
-    width: 26px;
-    height: 26px;
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+  bottom: 0px;
+  right: 10px;
+  margin-rigth: 5px;
 }
 
-/* .modal_wrap .text {
-    margin-top: 45px;
-    margin-left: 5px;
-} */
-
-.modal_close .closeImg {
-    display: block;
-    width: 100%;
-    height: 100%;
-}
-
-.modal_close_button{
-	background-color:rgba(255, 255, 255, 0.5);
+.modal_close:hover,
+.modal_close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 /* 진료예약 모달 */
@@ -335,6 +406,7 @@ input:focus{
   transition: 0.3s;
   font-size: 14px;
   display: inline-block;
+  border: none;
 }
 
 .appointment-btn:hover {
