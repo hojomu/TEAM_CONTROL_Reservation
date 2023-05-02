@@ -20,35 +20,41 @@
 		
 		<tr>
 			<td>환자번호</td>
-			<td><input type="text" value="${detail.rno }" name="rno">${detail.rno }</td>
+			<td>
+			   <input type="text" value="${detail.rno}" name="rno">${detail.rno}
+			   <input type="hidden" value="${cri.dept1}" name="dept1">
+			   <input type="hidden" value="${cri.doctor1}" name="doctor1">
+			   <input type="hidden" value="${cri.date1}" name="date1">
+			   <input type="hidden" value="${cri.date2}" name="date2">
+			</td>
 		</tr>
 		<tr>
 			<td>환자명</td>
-			<td><input type="text" value="${detail.customerName }" name="customerName"></td>
+			<td><input type="text" value="${detail.customerName}" name="customerName"></td>
 		</tr>
 		<tr>
 			<td>주민번호</td>
-			<td><input type="text" value="${detail.personalNumber }" name="personalNumber"></td>		
+			<td><input type="text" value="${detail.personalNumber}" name="personalNumber"></td>		
 		</tr>
 		<tr>
 			<td>이메일</td>
-			<td><input type="text" value="${detail.email }" name="email"></td>		
+			<td><input type="text" value="${detail.email}" name="email"></td>		
 		</tr>
 		<tr>
 			<td>진료과</td>
-			<td><input type="text" value="${detail.medicalDept }" name="medicalDept"></td>			
+			<td><input type="text" value="${detail.medicalDept}" name="medicalDept"></td>			
 		</tr>
 		<tr>
 			<td>의료진</td>
-			<td><input type="text" value="${detail.doctor }" name="doctor"></td>		
+			<td><input type="text" value="${detail.doctor}" name="doctor"></td>		
 		</tr>
 		<tr>
 			<td>예약시간</td>
-			<td><input type="text" value="${detail.reservationTime }" name="reservationTime"></td>		
+			<td><input type="text" value="${detail.reservationTime}" name="reservationTime"></td>		
 		</tr>
 		<tr>
 			<td>특이사항</td>
-			<td><textarea rows="" cols="" name="otherInfo">${detail.otherInfo }</textarea> </td>
+			<td><textarea rows="" cols="" name="otherInfo">${detail.otherInfo}</textarea> </td>
 		</tr>
 		
 	</table>

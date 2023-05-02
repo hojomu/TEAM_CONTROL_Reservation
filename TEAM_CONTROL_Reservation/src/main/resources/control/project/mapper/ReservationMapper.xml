@@ -21,8 +21,8 @@
 	<!-- 예약 정보 불러오기 select 0419 -->		
 	<select id="list" resultType="control.project.model.ReservationVO">
 		select * from reservation 
-		      <if test="doctor != null">
-                   where doctor = #{doctor} 
+		      <if test="doctor1 != null"> 
+                   where doctor = #{doctor1} <!-- doctor1:검색용 화면에서 설정한 의료진 doctor:DB에 있는 의료진 -->
                   <choose>
                      <when test="date1 != date2"> 
                          and reservationTime between #{date1} and #{date2} 
@@ -33,14 +33,14 @@
                    </choose>
                 </if>												
 		   	order by reservationTime
-		  	limit #{skip}, #{amount}		
+	<!--   	limit #{skip}, #{amount}		-->
 	</select>
 	
 	<!-- 예약 전체 건수 불러오기 select 0419 -->	
 	<select id="total" resultType="int">
 		select count(*) from reservation 
-		   <if test="doctor != null">
-                   where doctor = #{doctor} 
+		   <if test="doctor1 != null">
+                   where doctor = #{doctor1} 
                   <choose>
                      <when test="date1 != date2"> 
                          and reservationTime between #{date1} and #{date2} 
