@@ -239,7 +239,7 @@
 				<div class="modal_wrap">
 	   				
 	    			<div class="text">
-	        			스틱코드에서 개발에 필요한 모든 코드를 쉽게 사용하세요.
+	        			스틱코드에서 개발에 필요한 모든 코드를 쉽게 사용하세요
 	        			https://stickode.com/mainlogin.html
 	    			</div>
 				</div>
