@@ -77,7 +77,7 @@
 							} */
 							
 							function openPopup() {
-								  var popup = window.open("modal_reservation", "popup", "width=1200,height=800");
+								  var popup = window.open("modal_reservation", "popup", "width=1200, height=800");
 								  popup.onload = function() {
 								    var screenWidth = window.innerWidth;
 								    var screenHeight = window.innerHeight;
