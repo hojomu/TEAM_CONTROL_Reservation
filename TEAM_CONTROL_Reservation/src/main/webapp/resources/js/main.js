@@ -6,7 +6,7 @@
 * License: https://bootstrapmade.com/license/
 */
 
-//비회원 예약 모달창
+//비회원 모달창
 // 모달 열기
 function modalOpen() {
     document.querySelector('.modal_wrap').style.display = 'block';

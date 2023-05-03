@@ -70,7 +70,7 @@
 </head>
 <body>
 
-		<!-- 예약 section -->
+		<!-- 예약 medical_section -->
 		<div class="medical_section">
 		  <input type="radio" id="tab-1" name="medical_show" checked/>
 		  <input type="radio" id="tab-2" name="medical_show" />
