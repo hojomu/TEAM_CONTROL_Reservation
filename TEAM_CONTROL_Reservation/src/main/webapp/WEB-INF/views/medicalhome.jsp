@@ -68,7 +68,28 @@
 				   		<p class="medical_p">
 				   		회원가입을 하지 않아도 진료예약 및 조회가 가능합니다.<br>
 						단, 일부 서비스 이용이 제한될 수 있습니다.</p>
-				   		<button type="button" class="custom-btn btn-1" onClick="location.href='http://localhost:8080/reservation'">비회원 진료 예약하기</button>
+				   		<!-- <button type="button" class="custom-btn btn-1" onClick="location.href='http://localhost:8080/reservation'">비회원 진료 예약하기</button> -->
+				   		<button type="button" class="custom-btn btn-1" onclick="openPopup()">비회원 진료 예약하기</button>
+
+						<script>
+/* 							function openPopup() {
+								window.open("modal_reservation", "Popup", "width=1200, height=800");
+							} */
+							
+							function openPopup() {
+								  var popup = window.open("modal_reservation", "popup", "width=1200,height=800");
+								  popup.onload = function() {
+								    var screenWidth = window.innerWidth;
+								    var screenHeight = window.innerHeight;
+								    var popupWidth = popup.innerWidth;
+								    var popupHeight = popup.innerHeight;
+								    var left = (screenWidth - popupWidth) / 2;
+								    var top = (screenHeight - popupHeight) / 2;
+								    popup.moveTo(left, top);
+								  };
+								}
+						</script>
+						
 				   		<div class="medical_box_center">
 					   		<p class="medical_box medical_p">회원가입을 하실 경우 『나의차트』에서 진료 및 투약내역,<br>
 					   	 	복약상담, 진단검사결과, 증명서 출력 서비스 등<br>
