@@ -84,12 +84,15 @@ public class ReservationController {
 	}
 	
 	// 페이지네이션 - 현재 사용하지 않음
-	/*@RequestMapping(value="/ManagerCheck", method = RequestMethod.GET)
-	public String listSet(Model model, CriteriaVO cri, HttpServletRequest request) {
+	@RequestMapping(value="/ManagerCheck", method = RequestMethod.GET)
+	public String listSet(Model model, CriteriaVO cri, HttpServletRequest request, HttpSession session) {
 		
-		// 세션 체크 if문을 추가해야 할 지 고민.
-		
-		// 예약 정보 리스트 불러오기
+		// 로그인이 되어있지 않다면
+		if(session.getAttribute("login") == null) {
+			return "Security";
+					
+		} else {	// 로그인이 되어있다면
+				// 예약 정보 리스트 불러오기
 		System.out.println(cri);
 		model.addAttribute("list", rs.list(cri));		
 		// 페이지 총 수 불러오기
@@ -100,7 +103,8 @@ public class ReservationController {
 		// 페이지네이션 데이터 불러오기
 		model.addAttribute("paging", new PageVO(cri, total));
 		return "ManagerCheck";
-	}*/
+		}
+	}
 	
 	// 예약 상세정보 출력하기 (ManagerCheckDetail으로 이동하기) 0424
 	@RequestMapping(value="/ManagerCheckDetail", method = RequestMethod.GET)

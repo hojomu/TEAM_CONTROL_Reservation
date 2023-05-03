@@ -21,36 +21,42 @@
 	<!-- 예약 정보 불러오기 select 0419 -->		
 	<select id="list" resultType="control.project.model.ReservationVO">
 		select * from reservation 
-		      <if test="doctor1 != null"> 
-                   where doctor = #{doctor1} <!-- doctor1:검색용 화면에서 설정한 의료진 doctor:DB에 있는 의료진 -->
-                  <choose>
-                     <when test="date1 != date2"> 
-                         and reservationTime between #{date1} and #{date2} 
-                     </when>
-                     <otherwise>
-                         and date(reservationTime) = #{date2} 
-                     </otherwise>
-                   </choose>
-                </if>												
-		   	order by reservationTime
-	<!--   	limit #{skip}, #{amount}		-->
+		    <choose>
+               <when test="doctor1 != '' and doctor1 != null"> <!-- doctor1:검색용 화면에서 설정한 의료진 -->
+                   where doctor = #{doctor1}and date(reservationTime) between #{date1} and #{date2}order by reservationTime
+               </when>
+               <when test="doctor1 = ''"> 
+                   order by reservationTime 
+               </when>
+               <when test="doctor1 = null"> 
+                   order by reservationTime 
+               </when>
+               <otherwise>
+                   order by reservationTime 
+               </otherwise>
+
+            </choose>
+	   <!--   	limit #{skip}, #{amount}		-->
 	</select>
 	
 	<!-- 예약 전체 건수 불러오기 select 0419 -->	
 	<select id="total" resultType="int">
-		select count(*) from reservation 
-		   <if test="doctor1 != null">
-                   where doctor = #{doctor1} 
-                  <choose>
-                     <when test="date1 != date2"> 
-                         and reservationTime between #{date1} and #{date2} 
-                     </when>
-                     <otherwise>
-                         and date(reservationTime) = #{date2} 
-                     </otherwise>
-                   </choose>
-            </if>												
-		   	order by reservationTime
+		select count(*) from reservation
+            <choose>
+               <when test="doctor1 != '' and doctor1 != null"> <!-- doctor1:검색용 화면에서 설정한 의료진 -->
+                   where doctor = #{doctor1}and date(reservationTime) between #{date1} and #{date2}order by reservationTime
+               </when>
+               <when test="doctor1 = ''"> 
+                   order by reservationTime 
+               </when>
+               <when test="doctor1 = null"> 
+                   order by reservationTime 
+               </when>
+               <otherwise>
+                   order by reservationTime 
+               </otherwise>
+
+            </choose>
 	</select>
 	 
 	<!-- 예약 불가능 시간 불러오기 -->
