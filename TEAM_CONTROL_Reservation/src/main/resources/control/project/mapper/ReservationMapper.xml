@@ -88,9 +88,10 @@
 		where adminId=#{adminId} and adminPass=#{adminPass}
 	</select>
 	
-		<!-- 예약 완료 후 확인페이지 정보 불러오기 0501 -->		
+	<!-- 예약 완료 후 확인페이지 정보 불러오기 0501 -->		
 	<select id="userCheck" resultType="control.project.model.ReservationVO">
-		select * from reservation where personalNumber = #{personalNumber}
+		select * from reservation
+		where personalNumber = #{personalNumber} and rno = #{rno}
 	</select>
 	
 	<!-- 예약 완료 후 정보 삭제 -->
@@ -98,5 +99,10 @@
 		delete from reservation
 		where rno = #{rno}
 	</delete>
+	
+	<!-- 회원정보 입력 후 예약 정보 불러오기 0503 -->		
+	<select id="selfCheckList" resultType="control.project.model.ReservationVO">
+		select * from reservation where personalNumber = #{personalNumber}
+	</select>
 	
 </mapper>

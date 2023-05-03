@@ -28,7 +28,7 @@ public interface ReservationMapper {
 	public ArrayList<ReservationVO> getDate(@Param("settedYearMonth")String settedYearMonth,@Param("medicalDept")String medicalDept,@Param("doctor")String doctor);
 	
 	// 비회원 진료 예약 조회
-	public ArrayList<ReservationVO> selfCheckList(@Param("personalNumber")String personalNumber);
+	public ArrayList<ReservationVO> selfCheckList(ReservationVO data);
 	
 	// 비회원 진료 예약 조회 페이지에서 예약 정보 삭제
 	public int removeReservation(ReservationVO reservation);

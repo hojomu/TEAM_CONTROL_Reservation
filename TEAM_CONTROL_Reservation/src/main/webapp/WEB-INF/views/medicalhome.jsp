@@ -69,27 +69,7 @@
 				   		회원가입을 하지 않아도 진료예약 및 조회가 가능합니다.<br>
 						단, 일부 서비스 이용이 제한될 수 있습니다.</p>
 				   		<!-- <button type="button" class="custom-btn btn-1" onClick="location.href='http://localhost:8080/reservation'">비회원 진료 예약하기</button> -->
-				   		<button type="button" class="custom-btn btn-1" onclick="openPopup()">비회원 진료 예약하기</button>
-
-						<script>
-/* 							function openPopup() {
-								window.open("modal_reservation", "Popup", "width=1200, height=800");
-							} */
-							
-							function openPopup() {
-								  var popup = window.open("modal_reservation", "popup", "width=1200, height=800");
-								  popup.onload = function() {
-								    var screenWidth = window.innerWidth;
-								    var screenHeight = window.innerHeight;
-								    var popupWidth = popup.innerWidth;
-								    var popupHeight = popup.innerHeight;
-								    var left = (screenWidth - popupWidth) / 2;
-								    var top = (screenHeight - popupHeight) / 2;
-								    popup.moveTo(left, top);
-								  };
-								}
-						</script>
-						
+				   		<button type="button" class="custom-btn btn-1" id="openPopupBtn">비회원 진료 예약하기</button>
 				   		<div class="medical_box_center">
 					   		<p class="medical_box medical_p">회원가입을 하실 경우 『나의차트』에서 진료 및 투약내역,<br>
 					   	 	복약상담, 진단검사결과, 증명서 출력 서비스 등<br>
@@ -98,14 +78,15 @@
 			        </form>
 			        
 			        <!-- 비회원 진료 예약 조회 -->
-			        <form class="manager-form">
+			        <form class="manager-form" action="/userSelfCheck" method="post">
 				        <div class="medical_user">
-							<img class="medical_button_icon"alt="medical" src="/resources/img/medical_icon.png" width="auto" height="50">
+							<img class="medical_button_icon"alt="medical" src="/resources/icon/medical_icon.png" width="auto" height="50">
 							<div class="medical_button_title">진료 예약 조회</div>
 						</div>
 				   			<h3>주민번호 입력</h3>
-				   			<span class="user_input"><input type="text">-<input type="password"><br></span>
-				   		<button type="button"  class="custom-btn btn-1" onClick="location.href='http://localhost:8080/UserCheck'">비회원 진료 예약 조회</button>
+				   			<span class="user_input"><input id="personalNo1" type="text">-<input id="personalNo2" type="password"><br></span>
+				   		<button type="submit"  class="custom-btn btn-1">비회원 진료 예약 조회</button>
+				   		<input type="hidden" id="personalNumber" name="personalNumber">
 			        </form>
 				
 			    </div><!-- client-change 끝 -->
@@ -131,7 +112,7 @@
 		<div id="modal_manager" class="modal_manager">
 		  <div class="modal-content_manager">
 		    
-	       <form class="manager-form" action="/ManagerCheck" method="post">
+	       <form class="manager-form" id="manager-form" action="/ManagerCheck" method="post">
 
 				<div class="medical_manager_title">관리자 로그인</div>
 				
@@ -140,16 +121,16 @@
 			<div class="manager_login">
 				<div class="manager_loginId">
 				<span>아이디</span>
-				<input type="text" name="adminId">
+				<input type="text" id="adminId" name="adminId">
 				</div>
 				<div class="manager_loginPw">
 				<span>비밀번호</span>
-				<input type="password" name="adminPass">
+				<input type="password" id="adminPass" name="adminPass">
 				</div>
 			</div>
 			
-	   		<button type="submit"  class="custom-btn btn-1">관리자 계정 로그인</button>
-	   		<div>${failMessage }</div>
+	   		<button id="adminLoginBtn" type="button"  class="custom-btn btn-1">관리자 계정 로그인</button>
+	   		<div id="loginFailMessage"></div>
 	   		
 	       </form>
 	       
@@ -185,16 +166,19 @@
           <li><a class="nav-link scrollto" href="#services">Services</a></li>
           <li><a class="nav-link scrollto" href="#departments">Departments</a></li>
           <li><a class="nav-link scrollto" href="#doctors">Doctors</a></li>
-          <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
+          <li class="dropdown"><a href="#"><span>moveToRink</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="#">Drop Down 1</a></li>
               <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
                 <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
+                  <li><a href="http://localhost:8080/Acalendar">달력으로 이동</a></li>
+                  <li><a href="http://localhost:8080/Aindex">index으로 이동</a></li>
+                  <li><a href="http://localhost:8080/AManagerCheck">ManagerCheck으로 이동</a></li>
+                  <li><a href="http://localhost:8080/AManagerCheckDetail">ManagerCheckDetail으로 이동</a></li>
+                  <li><a href="http://localhost:8080/AUserCheck">UserCheck으로 이동</a></li>
+                  <li><a href="http://localhost:8080/Aappointment1">appointment1으로 이동</a></li>
+                  <li><a href="http://localhost:8080/Areservation">reservation으로 이동</a></li>
+                  <li><a href="http://localhost:8080/Amedicalhome">medicalhome으로 이동</a></li>
                 </ul>
               </li>
               <li><a href="#">Drop Down 2</a></li>
@@ -281,8 +265,10 @@
   <script src="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Template Main JS File -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="/resources/js/main.js"></script>
   <script src="/resources/js/index.js"></script>
+  <script src="/resources/js/adminLogin.js"></script>
 
 
 </body>

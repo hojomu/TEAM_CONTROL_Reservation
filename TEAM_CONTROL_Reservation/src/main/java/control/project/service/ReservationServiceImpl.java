@@ -50,8 +50,8 @@ public class ReservationServiceImpl implements ReservationService {
 	}
 	
 	// 비회원 진료 예약 조회 0426
-	public SettedYearMonthVO selfCheckList(String personalNumber) {
-		return new SettedYearMonthVO(rm.selfCheckList(personalNumber));
+	public SettedYearMonthVO selfCheckList(ReservationVO data) {
+		return new SettedYearMonthVO(rm.selfCheckList(data));
 	}
 	
 	// 비회원 진료 예약 조회 페이지에서 예약 정보 삭제 0426

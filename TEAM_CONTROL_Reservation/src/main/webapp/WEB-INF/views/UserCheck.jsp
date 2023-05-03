@@ -51,17 +51,14 @@
 
    <div class="container">
     <a href="#" onclick="return chk_form()" title="Button border lightblue" class="button button_left btnFloat btnLightBlue">예약취소</a>
-    <a href="/" title="Button border lightblue" class="button button_right btnFloat btnLightBlue">확인</a>
+    <a href="#" onclick="return reservationEnd()" title="Button border lightblue" class="button button_right btnFloat btnLightBlue">확인</a>
     <div class="clear"></div>
   </div>
   
 </main>
 
-<script>
-	function chk_form(){
-		document.getElementById('frm').submit();
-	}
-</script>
+	<script src="/resources/js/UserCheck.js" type="text/javascript"></script>
+
 
 </body>
 </html>

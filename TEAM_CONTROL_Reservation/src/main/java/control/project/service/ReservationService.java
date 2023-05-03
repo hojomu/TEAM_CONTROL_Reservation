@@ -27,7 +27,7 @@ public interface ReservationService {
 	public SettedYearMonthVO getDate(String settedYearMonth, String medicalDept, String doctor);
 	
 	// 비회원 진료 예약 조회 0426
-	public SettedYearMonthVO selfCheckList(String personalNumber );
+	public SettedYearMonthVO selfCheckList(ReservationVO data);
 	
 	// 비회원 진료 예약 조회 페이지에서 예약 정보 삭제 0426
 	public int removeReservation(ReservationVO reservation);
