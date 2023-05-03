@@ -14,11 +14,6 @@
 // 달력 삭제를 위해 전역 변수로 선언
 const allCalendar = document.querySelector(".scriptCalendar");
 
-// appointment1 페이지 form input 가져오기
-const medicalDeptInput = document.getElementById("medicalDept");
-const doctorInput = document.querySelector("#doctor");
-const timeInput = document.querySelector("#reservationTime");
-
 // 탭 생성자
 class TabsAutomatic {
 	// 탭 구성
@@ -77,7 +72,7 @@ class TabsAutomatic {
     // form 태그로 value 보내기
     medicalDeptInput.value = currentTab.dataset.setting;
     doctorInput.value="";
-    timeInput.value="";
+    reservationTimeInput.value="";
     
     // 의사 리스트 호출
     list(currentTab);
@@ -163,13 +158,19 @@ class TabsAutomatic {
 //진료예약 클릭 이벤트
 function clickDoctorSubmit(event, doctor){
 	 event.preventDefault()
+	 // 이전 테이블 지우기, 의사 정보 넣기
 	 while(timeTable.firstChild){timeTable.removeChild(timeTable.firstChild);}
 	 var doctorInput = document.getElementById("doctor");
 	 doctorInput.value = doctor.dataset.setting;
+	 
+	 // 탭 변경
+	 document.getElementById('tab-2').checked = false;
+	 document.getElementById('tab-3').checked = true;
+	 
 	 // 캘린더 호출
 	 buildCalendar();
 	 allCalendar.classList.remove("dis-none");
-	 timeInput.value="";
+	 reservationTimeInput.value="";
 }
 
 //데이터 값 불러오기

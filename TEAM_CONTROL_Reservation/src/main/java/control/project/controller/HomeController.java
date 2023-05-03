@@ -33,7 +33,7 @@ public class HomeController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	// 메인화면으로 이동
 	public String home(Locale locale, Model model) {
-		return "home";
+		return "medicalhome";
 	}
 	
 	

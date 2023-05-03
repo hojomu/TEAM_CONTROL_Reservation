@@ -8,7 +8,6 @@
 
 	<!-- css 링크 -->
 	<link rel="stylesheet" href="/resources/css/reservation.css">
-	
 	<link rel="stylesheet" href="/resources/css/appointment.css">
 	<link rel="stylesheet" href="/resources/css/calendar.css">
 	
@@ -17,22 +16,31 @@
 		/*div변경과 관련된 코드
 		색 등의 디자인은 보이기 위해서 표시해놨음
 		스타일 추가 및 변경이 가능*/
-		.medical_section input[type=radio] {
-			display: none;
+		.medical_section input[name=medical_show] {
+		  display: none;
+		}
+		.medical_tab label {
+		  cursor: pointer;
+		}
+		.medical_tab label:hover {
+		  background-color: rgba(0, 0, 0, 0.1);
+		}
+		.medical_tab label:focus {
+		  outline: none;
 		}
 		#tab-1:checked ~ .medical_tab label:nth-child(1),
 		#tab-2:checked ~ .medical_tab label:nth-child(2),
 		#tab-3:checked ~ .medical_tab label:nth-child(3) {
-			background-color: rgba(0, 0, 0, 0.2);
+		  background-color: rgba(0, 0, 0, 0.2);
 		  box-shadow: none;
 		}
 		.medical_content > div {
-			display: none;
+		  display: none;
 		}
 		#tab-1:checked ~ .medical_content div:nth-child(1),
 		#tab-2:checked ~ .medical_content div:nth-child(2),
 		#tab-3:checked ~ .medical_content div:nth-child(3) {
-			display: block;
+		  display: block;
 		}
 		.medical_section {
 		  margin: 0 auto;
@@ -76,9 +84,9 @@
 		  <input type="radio" id="tab-2" name="medical_show" />
 		  <input type="radio" id="tab-3" name="medical_show" />
 		  <div class="medical_tab">
-		    <label for="tab-1">동의서</label>
-		    <label for="tab-2">진료과/의료진</label>
-		    <label for="tab-3">날짜/시간</label>
+		    <label>동의서</label>
+		    <label>진료과/의료진</label>
+		    <label>날짜/시간</label>
 		  </div>
 		  
 		  <div class="medical_content">
@@ -155,28 +163,26 @@
 					</form>
 			
 					
-			 	    <form action="/appointment1" method="post" id="appointmentForm">  
-					<p>진료받으실 분의 주민등록번호(외국인등록번호)정보를 입력해주세요</p>
-						<div class="insert_information">
-							<p>주민등록번호(외국인등록번호)로 예약하기</p>
-							성명: <input type="text" name="customerName" id="customerName"><br>
-							주민등록번호(외국인 등록번호):
-							 <input type="text" id="personal_num1" maxlength="6" size="8" required >
-							- <input type="password" id="personal_num2" maxlength="7" size="8" required>
-						
-						<!-- 주민등록번호, 이메일을 조합해서 전송 -->
-						<input type="hidden" name="email" id="email">
-						<input type="hidden" name="personalNumber" id="personalNumber">
-						<P> *보건부 고시에 의서 '진료일에 본인 외 대리 진료가 제한'됨을 알려드립니다.</P>
-						</div>
-						    
-				    <div class="modal-container-footer">
-				      <button type="submit" class="button1" id="submit" value="확인">확인</button>
-				       <!-- 취소 버튼에 이동기능 넣고 이 주석 삭제 것 (Home or Index로 ) -->
-				      <button type="button" class="button1" value="취소">취소</button>
-				    </div>
+			 	    <div>  
+						<p>진료받으실 분의 주민등록번호(외국인등록번호)정보를 입력해주세요</p>
+							<div class="insert_information">
+								<p>주민등록번호(외국인등록번호)로 예약하기</p>
+								성명: <input type="text" id="customerNameset"><br>
+								주민등록번호(외국인 등록번호):
+								 <input type="text" id="personal_num1" maxlength="6" size="8" required >
+								- <input type="password" id="personal_num2" maxlength="7" size="8" required>
+							
+							<P> *보건부 고시에 의서 '진료일에 본인 외 대리 진료가 제한'됨을 알려드립니다.</P>
+							</div>
+							    
+					    <div class="modal-container-footer">
+					       <!-- 확인 클릭 시 새로운 div를 불러오고 form 태그에 정보 넘길 것 -->
+					      <button type="button" class="button1" id="firstInfoCheckBtn" value="확인">확인</button>
+					       <!-- 취소 버튼에 이동기능 넣고 이 주석 삭제 것 (Home or Index로 ) -->
+					      <button type="button" class="button1" value="취소">취소</button>
+					    </div>
 				 
-				    </form> 
+				    </div> 
 
 		    </div><!-- 동의서 구간 끝 -->
 		    
@@ -315,37 +321,28 @@
 				
 				<ul id="timeTable">
 				</ul>
-
+				
+				<form name="form" action="UserCheck" method="post">
+					<input type="hidden" id="customerName" name="customerName">
+					<input type="hidden" id="personalNumber" name="personalNumber">
+					<input type="hidden" id="email" name="email">
+					<input type="hidden" id="medicalDept" name="medicalDept">
+					<input type="hidden" id="doctor" name="doctor">
+					<input type="hidden" id="reservationTime" name="reservationTime">
+					<textarea  id="otherInfo" name="otherInfo" placeholder="추가 사항을 적어주세요."></textarea>
+					<button type="submit">Submit</button>
+				</form>
+				
 		    </div><!-- 예약 날짜 시간 선택구간 끝 -->
 		    
 		  </div><!-- medical_content 끝 -->
 		</div><!-- medical_section -->
 	   
-	<form name="form" action="UserCheck" method="post">
-	<input type="hidden" name="customerName" value=${reserveData.customerName }>
-	<input type="hidden" name="personalNumber" value=${reserveData.personalNumber }>
-	<input type="hidden" name="email" value=${reserveData.email }>
-	<input type="hidden" id="medicalDept" name="medicalDept">
-	<input type="hidden" id="doctor" name="doctor">
-	<input type="hidden" id="reservationTime" name="reservationTime">
-	<textarea  id="otherInfo" name="otherInfo" placeholder="추가 사항을 적어주세요."></textarea>
-	<button onclick="Close()">Submit</button>
-	</form>
-	
-	<script>
-		function Close(){
-		opener.parent.location.reload();
-		window.close();
-		}
-	</script>
 	   
 	<!-- script 링크 -->
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 	<script src="resources/js/reservation.js" type="text/javascript"></script>
 	<script src="/resources/js/email.js"></script>
-	
-	<!-- js 모음 -->
-	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 	<script src="/resources/js/appointment.js" type="text/javascript"></script>
 	<script src="/resources/js/calendar.js" type="text/javascript"></script>
 

@@ -41,7 +41,22 @@ personalNo2.addEventListener("blur",function(){
 	console.log(personalNumber.value);
 })
 
-
+// 팝업 기능
+const openPopupBtn = document.getElementById("openPopupBtn");
+openPopupBtn.addEventListener("click",openPopup);
+function openPopup() {
+	console.log("팝업");
+	var popup = window.open("modal_reservation", "popup", "width=1200, height=800");
+	popup.onload = function() {
+	var screenWidth = window.innerWidth;
+	var screenHeight = window.innerHeight;
+	var popupWidth = popup.innerWidth;
+	var popupHeight = popup.innerHeight;
+	var left = (screenWidth - popupWidth) / 2;
+	var top = (screenHeight - popupHeight) / 2;
+	popup.moveTo(left, top);
+	};
+}
 
 
 

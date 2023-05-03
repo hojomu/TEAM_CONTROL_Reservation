@@ -7,7 +7,7 @@
 	var timeTable = document.querySelector("#timeTable"); // ul 불러오기
 	
 	// reservationTime value를 넣기 위한 선언
-	var timeInputValue = "";
+	var reservstionTimeInputValue = "";
 	
 
     var today = new Date(); // @param 전역 변수, 오늘 날짜 / 내 컴퓨터 로컬을 기준으로 today에 Date 객체를 넣어줌
@@ -211,7 +211,7 @@
         
         var settedYearMonth = settedYear + "-" + settedMonth + "-" + settedDay;
         
-        timeInputValue = settedYearMonth;
+        reservationTimeInputValue = settedYearMonth;
         
         var medicalDept = medicalDeptInput.value;
         
@@ -263,7 +263,7 @@
     function ChoiceTime(event,aTag){
     	event.preventDefault();
     	console.log(aTag);
-    	console.log(timeInputValue);
-    	var rTimeFinal = timeInputValue+" "+aTag.innerText+":00";
-    	timeInput.value = rTimeFinal;
+    	console.log(reservationTimeInputValue);
+    	var rTimeFinal = reservationTimeInputValue+" "+aTag.innerText+":00";
+    	reservationTimeInput.value = rTimeFinal;
     };

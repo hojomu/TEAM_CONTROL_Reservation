@@ -65,27 +65,8 @@ public class ReservationController {
 		
 		// 로그인이 되어있지 않다면
 		if(session.getAttribute("login") == null) {
-			if(rs.login(login)==null) {
-				model.addAttribute("failMessage","로그인에 실패했습니다.");
-				return "adminLogin";
-			} else {
-				// 예약 정보 리스트 불러오기
-				System.out.println(cri);
-				model.addAttribute("list", rs.list(cri));		
-				// 페이지 총 수 불러오기
-				int total = rs.total(cri);				
-				request.setAttribute("total1", total);
-				System.out.println(total);
-				
-				// 페이지네이션 데이터 불러오기
-				model.addAttribute("paging", new PageVO(cri, total));
-				
-				// 세션에 로그인 정보 저장하기
-				session.setAttribute("login", rs.login(login));
-				System.out.println(session.getAttribute("login"));
-				
-				return "ManagerCheck";			
-			}
+			return "Security";
+			
 		} else {	// 로그인이 되어있다면
 			// 예약 정보 리스트 불러오기
 			System.out.println(cri);
@@ -102,10 +83,16 @@ public class ReservationController {
 		}
 	}
 	
-	// 페이지네이션 클릭 시 리스트 불러오기
+	// 페이지네이션 - 현재 사용하지 않음
 	@RequestMapping(value="/ManagerCheck", method = RequestMethod.GET)
-	public String listSet(Model model, CriteriaVO cri, HttpServletRequest request) {
-		// 예약 정보 리스트 불러오기
+	public String listSet(Model model, CriteriaVO cri, HttpServletRequest request, HttpSession session) {
+		
+		// 로그인이 되어있지 않다면
+		if(session.getAttribute("login") == null) {
+			return "Security";
+					
+		} else {	// 로그인이 되어있다면
+				// 예약 정보 리스트 불러오기
 		System.out.println(cri);
 		model.addAttribute("list", rs.list(cri));		
 		// 페이지 총 수 불러오기
@@ -116,6 +103,7 @@ public class ReservationController {
 		// 페이지네이션 데이터 불러오기
 		model.addAttribute("paging", new PageVO(cri, total));
 		return "ManagerCheck";
+		}
 	}
 	
 	// 예약 상세정보 출력하기 (ManagerCheckDetail으로 이동하기) 0424
@@ -168,7 +156,11 @@ public class ReservationController {
 	// 비회원 진료 예약 조회 0426
 	@RequestMapping(value="/selfcheck/{personalNumber}", method = RequestMethod.GET)
 	public ResponseEntity <SettedYearMonthVO> selfCheckList(@PathVariable("personalNumber") String personalNumber){
-		return new ResponseEntity<>(rs.selfCheckList(personalNumber),HttpStatus.OK);
+		System.out.println(personalNumber);
+		ReservationVO data = new ReservationVO();
+		data.setPersonalNumber(personalNumber);
+		System.out.println(data);
+		return new ResponseEntity<>(rs.selfCheckList(data),HttpStatus.OK);
 	}
 	
 	// 비회원 진료 예약 조회 페이지에서 예약 정보 삭제 0426
@@ -189,6 +181,7 @@ public class ReservationController {
 	// usercheck에서 예약 취소하기 0502
 	@RequestMapping(value="/delete", method = RequestMethod.POST)
 	public String delete (ReservationVO data) {
+		System.out.println("데이터 삭제"+data);
 		rs.delete(data);
 		return "home";
 	}
