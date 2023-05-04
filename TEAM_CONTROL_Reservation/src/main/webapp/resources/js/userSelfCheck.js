@@ -52,25 +52,17 @@ function list(param){
 		var str = "";
 		
 		for(var i = 0; i < data.list.length; i++){
-			str+="<div role='region' aria-label='data table' tabindex='0' class='primary'>"
-			str+="<table><thead>"
-			str+="<thead>"
-			str+="<tr><th class='pin' colspan='2'>예약정보 확인</th></tr>"
-			str+="</thead>"
-			str+="<tbody>"
-			str+="<tr><th>환자번호</th><td>"+data.list[i].rno+"</td></tr>"
-			str+="<tr><th>환자명</th><td>"+data.list[i].customerName+"</td></tr>"
-			str+="<tr><th>진료과</th><td>"+data.list[i].medicalDept+"</td></tr>"
-			str+="<tr><th>의료진</th><td>"+data.list[i].doctor+"</td></tr>"
-			str+="<tr><th>예약시간</th><td>"+data.list[i].reservationTime+"</td></tr>"
-			str+="</tbody>"
-			str+="</table>"
+			str+="<li class='information-item'>"
+			str+="<div class='info-card-body'>"
+			str+="<div class='info-time-card'><div class='info-time-area'><span>"+data.list[i].reservationTime+"</span></div></div>"
+			str+="<div class='info-detail-card'><div class='info-detail'>"
+			str+="<span>"+data.list[i].medicalDept+"</span>"
+			str+="<span>"+data.list[i].doctor+"</span>"
+			str+="<span>"+data.list[i].otherInfo+"</span>"
 			str+="</div>"
-			str+="<div class='container'>"
-			str+="<a href='#' class='removeReservation button button_left btnFloat btnLightBlue' title='Button border lightblue' data-rno="+data.list[i].rno+">예약취소</a>"
-			str+="<a href='/' title='Button border lightblue' class='button button_right btnFloat btnLightBlue'>확인</a>"
-			str+="<div class='clear'></div>"
+			str+="<div class='removeBtnWrap'><a href='#' class='removeReservation button button_left btnFloat btnLightBlue' title='Button border lightblue' data-rno="+data.list[i].rno+">예약취소</a></div>"
 			str+="</div>"
+			str+="</li>"
 		
 		}
 		
