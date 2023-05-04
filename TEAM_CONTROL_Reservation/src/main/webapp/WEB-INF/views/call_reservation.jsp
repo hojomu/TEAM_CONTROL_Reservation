@@ -136,19 +136,6 @@
 				      </span>
 				    </button>
 				  </div>
-			
-<!-- 				<select name="medicalDept">
-				<option value="진료과 선택">진료과 선택</option>
-				<option value="a">가정의학과</option>
-				<option value="b">내과</option>
-				<option value="c">산부인과</option>
-				<option value="d">신경과</option>
-				<option value="e">안과</option>
-				<option value="f">이비인후과</option>
-				<option value="g">치과</option>
-				<option value="h">피부과</option>
-				</select> -->
-			<!-- <input type="hidden" id="medicalDept" name="medicalDept"> -->
 			</div>
 			<div class="call_insert">
 			의료진 
@@ -156,14 +143,6 @@
 					  <ul id="doctorinfor">
 					  </ul>
 				  </div>
-<!-- 				<select name="">
-				<option value="의료진 선택">의료진 선택</option>
-				<option value="홍종무">홍종무</option>
-				<option value="권대희">권대희</option>
-				<option value="박선영">박선영</option>
-				<option value="김수민">김수민</option>
-				</select> -->
-			<!-- <input type="hidden" id="doctor" name="doctor"> -->
 			</div>
 			<div class="call_insert">
 			특이사항
@@ -200,14 +179,6 @@
 		</div>
 		
 		<div class="call_hour">
-		시간자리<br>
-<!-- 		<span class="call_hour_box">box1</span>
-		<span class="call_hour_box">box2</span>
-		<span class="call_hour_box">box3</span>
-		<span class="call_hour_box">box4</span>
-		<span class="call_hour_box">box5</span>
-		<span class="call_hour_box">box6</span> -->
-		
 				<ul id="timeTable">
 				</ul>
 		</div>
@@ -224,7 +195,6 @@
 		<div class="call_button_right">
 		<!-- <button>취소</button> -->
 		<button type="submit">접수</button>
-		<!-- <button type="submit" onclick="window.location.href='http://localhost:8080/ManagerCheck'">접수</button> -->
 		</div>
 	</div>
 	

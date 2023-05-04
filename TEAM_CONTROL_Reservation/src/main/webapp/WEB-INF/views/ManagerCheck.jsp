@@ -77,6 +77,8 @@
 	<div class="Manager_search">
 	<input type="text">
 	<input type="submit" value=" 검 색 " id="quiry" >
+	<a href="/medicalhome">홈페이지 이동</a>
+	<a href="/call_reservation">전화예약 접수</a>
 	</div>
 	
 </form>

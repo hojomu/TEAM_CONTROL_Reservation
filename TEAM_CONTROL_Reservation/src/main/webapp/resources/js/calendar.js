@@ -6,13 +6,14 @@
 	const WorkTime = [];
 	var timeTable = document.querySelector("#timeTable"); // ul 불러오기
 	
+	
 	// reservationTime value를 넣기 위한 선언
 	var reservstionTimeInputValue = "";
 	
 
     var today = new Date(); // @param 전역 변수, 오늘 날짜 / 내 컴퓨터 로컬을 기준으로 today에 Date 객체를 넣어줌
     var date = new Date();  // @param 전역 변수, today의 Date를 세어주는 역할
-
+    
     /**
      * @brief   이전달 버튼 클릭
      */
@@ -157,10 +158,7 @@
                     column.onclick = function(){ calendarChoiceDay(this); }
                 }
             }
-
-
             dom++;
-
         }
     }
     
@@ -181,6 +179,8 @@
 		  startWorkTime.setMinutes(startWorkTime.getMinutes() + 30);
 		}
 	}
+ 
+
 
     /**
      * @brief   날짜 선택
@@ -235,7 +235,7 @@
         			
         			for(var j = 0; j < result.list.length; j++){
         				if(WorkTime[i] == result.list[j].reservationTime){
-        					li.classList.add("blockedDay");
+        					li.classList.add("blockedDay");  // blockedDay 예약 불가능한 날짜
         				}
         			}
         			

@@ -55,8 +55,23 @@ a {
   height:2.7em;
 }
 
+.blockedDay:hover {
+  background-color : #FF5A5A;
+}
+
+#timeTable li{
+	width: 100px;
+	height: 50px;
+	float: left;
+}
+
+.clicked {
+  background-color: blue;
+  color: #fff;
+}
+
 .blockedDay {
-  background-color : aqua;
+  background-color : #FF5A5A;
 }
 
 .dis-none {

@@ -184,7 +184,7 @@
 				/*str += "<li>"+data[i].medicalDept+"</li>"*/
 				str += "<li>"+data[i].doctor+"</li>"
 				/*str += "<li>"+data[i].specialty+"</li>"*/
-				str += "<li><a href='javascript:void(0)' class='doctor-submit' onclick='clickDoctorSubmit(event,this)' data-setting='"+data[i].doctor+"'><span>진료예약하기</span></a></li>"
+				str += "<li><a href='javascript:void(0)' class='doctor-submit' onclick='clickDoctorSubmit(event,this)' data-setting='"+data[i].doctor+"'><button>진료예약</button></a></li>"
 				
 			}
 			
