@@ -78,7 +78,7 @@ public class HomeController {
 		return "medicalhome";
 	}
 	
-	// medicalhome 으로 이동하기
+	// modal_reservation 으로 이동하기
 	@RequestMapping(value = "/modal_reservation", method = RequestMethod.GET)
 	public String modal_reservation() {
 		return "modal_reservation";

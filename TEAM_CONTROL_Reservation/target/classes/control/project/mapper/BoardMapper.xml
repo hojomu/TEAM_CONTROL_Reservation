@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="control.project.mapper.BoardMapper">
+
+	<!-- 예약 정보 불러오기 select 0419 -->		
+	<select id="list" resultType="control.project.model.ReservationVO">
+		select * from reservation 
+		    <choose>
+               <when test="doctor1 != '' and doctor1 != null"> <!-- doctor1:검색용 화면에서 설정한 의료진 -->
+                   where doctor = #{doctor1}and date(reservationTime) between #{date1} and #{date2}order by reservationTime
+               </when>
+               <when test="doctor1 = ''"> 
+                   order by reservationTime 
+               </when>
+               <when test="doctor1 = null"> 
+                   order by reservationTime 
+               </when>
+               <otherwise>
+                   order by reservationTime 
+               </otherwise>
+
+            </choose>
+	   <!--   	limit #{skip}, #{amount}		-->
+	</select>
+	
+	<!-- 예약 전체 건수 불러오기 select 0419 -->	
+	<select id="total" resultType="int">
+		select count(*) from reservation
+            <choose>
+               <when test="doctor1 != '' and doctor1 != null"> <!-- doctor1:검색용 화면에서 설정한 의료진 -->
+                   where doctor = #{doctor1}and date(reservationTime) between #{date1} and #{date2}order by reservationTime
+               </when>
+               <when test="doctor1 = ''"> 
+                   order by reservationTime 
+               </when>
+               <when test="doctor1 = null"> 
+                   order by reservationTime 
+               </when>
+               <otherwise>
+                   order by reservationTime 
+               </otherwise>
+
+            </choose>
+	</select>
+	
+	<!-- 예약 상세정보 불러오기 select 0424 -->
+    <select id="detail" resultType="control.project.model.ReservationVO">
+         select * from reservation
+         where rno = #{rno} 
+    </select>
+    
+    <!-- 예약 상세정보 수정(저장)하기 update 0424 -->
+    <update id="modify">
+    	update reservation
+    	set customerName=#{customerName}, personalNumber=#{personalNumber}, 
+    	email=#{email}, medicalDept=#{medicalDept}, doctor=#{doctor}, 
+    	reservationTime=#{reservationTime}, otherInfo=#{otherInfo}
+    	where rno = #{rno} 
+    </update>
+
+    <!-- 예약 상세정보 삭제하기 delete 0424 -->
+    <delete id="remove">
+    	delete from reservation
+    	where rno = #{rno} 
+    </delete>
+	
+</mapper>

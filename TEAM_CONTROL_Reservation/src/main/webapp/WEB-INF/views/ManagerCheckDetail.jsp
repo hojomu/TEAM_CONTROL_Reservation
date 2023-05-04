@@ -60,15 +60,15 @@
 			</tr>
 			<tr>
 				<td>특이사항</td>
-				<td class="content2"><textarea rows="" cols="" value="${detail.otherInfo}" name="otherInfo"></textarea> </td>
+				<td class="content2"><textarea rows="" cols="" name="otherInfo">${detail.otherInfo}</textarea> </td>
 			</tr>		
 		</table>
 	  </dev>
-	  <dev class="item2">
+	  <div class="item2">
 		<input type="submit" value="수 정" id="modifyOk" formaction="ManagerModify">
 		<input type="submit" value="삭 제" id="delOk" formaction="ManagerDelete">
 		<input type="submit" value="확 인" formaction="ManagerCheck">
-	  </dev>
+	  </div>
     </form>
   </dev>
 </dev>
