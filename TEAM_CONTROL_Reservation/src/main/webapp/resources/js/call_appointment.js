@@ -13,7 +13,7 @@
 
 	'use strict';
 
-	// 달력 삭제를 위해 전역 변수로 선언
+	// 달력 삭제를 위해 전역 변수로 선언1
 	const allCalendar = document.querySelector(".scriptCalendar");
 
 	// 탭 생성자

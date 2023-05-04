@@ -1,7 +1,7 @@
 /**
  * 
  */
-// 인풋 가져오기
+// 인풋 가져오기1
 const customerNameInput = document.getElementById("customerName");
 const personalNumberInput = document.getElementById("personalNumber");
 const emailInput = document.getElementById("email");

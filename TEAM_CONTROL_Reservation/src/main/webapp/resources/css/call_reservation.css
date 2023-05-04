@@ -40,7 +40,7 @@ select{
     transform: translate(-50%, -50%);
 }
 
-/* 환자 정보입력 한칸마다 margin값 */
+/* 환자 정보입력 한칸마다 margin값 1*/
 .call_insert{
 	margin: 5px;
 }

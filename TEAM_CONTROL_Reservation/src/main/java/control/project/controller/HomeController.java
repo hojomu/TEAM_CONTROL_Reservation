@@ -84,7 +84,7 @@ public class HomeController {
 		return "modal_reservation";
 	}
 	
-	// call_reservation 으로 이동하기
+	// call_reservation 으로 이동하기1
 	@RequestMapping(value = "/call_reservation", method = RequestMethod.GET)
 	public String call_reservation() {
 		return "call_reservation";

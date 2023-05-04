@@ -37,7 +37,7 @@ public class ReservationController {
 		return "UserCheck"; // 예약 확인 페이지로 이동할 것
 	}  
 	
-	// 전화 예약 정보 저장하기 insert
+	// 전화 예약 정보 저장하기 insert 1
 	@RequestMapping(value = "/call_reservation", method = RequestMethod.POST) 
 	public String call(Model model, ReservationVO data) {
 		rs.reserve(data);

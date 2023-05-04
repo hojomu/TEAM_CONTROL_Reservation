@@ -17,7 +17,7 @@
 </head>
 <body>
 
-<!-- call_reservation title -->
+<!-- call_reservation title --1>
 <h2>환자 예약 접수</h2>
 
 <!-- form -->
