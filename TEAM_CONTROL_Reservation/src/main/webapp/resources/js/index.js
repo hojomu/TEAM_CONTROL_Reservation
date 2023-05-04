@@ -30,7 +30,7 @@ spanOption.forEach(function (span) {
 })
 
 
-// 주민등록번호 onblur로 합치기
+// 주민등록번호 onblur로 합치기 -> userSelfCheck 변경하면서 바꿔야함
 let personalNo1 = document.getElementById("personalNo1");
 let personalNo2 = document.getElementById("personalNo2");
 let personalNumber = document.getElementById("personalNumber");

@@ -17,47 +17,6 @@
 		insert into reservation(rno, customerName, personalNumber, email, medicalDept, doctor, reservationTime, otherInfo)
 		values(#{rno}, #{customerName}, #{personalNumber}, #{email}, #{medicalDept}, #{doctor}, #{reservationTime}, #{otherInfo})
 	</insert>	
-
-	<!-- 예약 정보 불러오기 select 0419 -->		
-	<select id="list" resultType="control.project.model.ReservationVO">
-		select * from reservation 
-		    <choose>
-               <when test="doctor1 != '' and doctor1 != null"> <!-- doctor1:검색용 화면에서 설정한 의료진 -->
-                   where doctor = #{doctor1}and date(reservationTime) between #{date1} and #{date2}order by reservationTime
-               </when>
-               <when test="doctor1 = ''"> 
-                   order by reservationTime 
-               </when>
-               <when test="doctor1 = null"> 
-                   order by reservationTime 
-               </when>
-               <otherwise>
-                   order by reservationTime 
-               </otherwise>
-
-            </choose>
-	   <!--   	limit #{skip}, #{amount}		-->
-	</select>
-	
-	<!-- 예약 전체 건수 불러오기 select 0419 -->	
-	<select id="total" resultType="int">
-		select count(*) from reservation
-            <choose>
-               <when test="doctor1 != '' and doctor1 != null"> <!-- doctor1:검색용 화면에서 설정한 의료진 -->
-                   where doctor = #{doctor1}and date(reservationTime) between #{date1} and #{date2}order by reservationTime
-               </when>
-               <when test="doctor1 = ''"> 
-                   order by reservationTime 
-               </when>
-               <when test="doctor1 = null"> 
-                   order by reservationTime 
-               </when>
-               <otherwise>
-                   order by reservationTime 
-               </otherwise>
-
-            </choose>
-	</select>
 	 
 	<!-- 예약 불가능 시간 불러오기 -->
 	<select id="getDate" resultType="control.project.model.ReservationVO">
@@ -66,49 +25,13 @@
 		WHERE reservationTime LIKE CONCAT(#{settedYearMonth}, '%')
 	</select>
 	
-	<!-- 예약 상세정보 불러오기 select 0424 -->
-    <select id="detail" resultType="control.project.model.ReservationVO">
-         select * from reservation
-         where rno = #{rno} 
-    </select>
-
-    <!-- 예약 상세정보 수정(저장)하기 update 0424 -->
-    <update id="modify">
-    	update reservation
-    	set customerName=#{customerName}, personalNumber=#{personalNumber}, 
-    	email=#{email}, medicalDept=#{medicalDept}, doctor=#{doctor}, 
-    	reservationTime=#{reservationTime}, otherInfo=#{otherInfo}
-    	where rno = #{rno} 
-    </update>
-
-    <!-- 예약 상세정보 삭제하기 delete 0424 -->
-    <delete id="remove">
-    	delete from reservation
-    	where rno = #{rno} 
-    </delete>
-	
-	<!-- 관리자 로그인 기능 0427 -->
-	<select id="login" resultType="control.project.model.AdminLoginVO">
-		select *
-		from admin
-		where adminId=#{adminId} and adminPass=#{adminPass}
-	</select>
-	
 	<!-- 예약 완료 후 확인페이지 정보 불러오기 0501 -->		
 	<select id="userCheck" resultType="control.project.model.ReservationVO">
 		select * from reservation
 		where personalNumber = #{personalNumber} and rno = #{rno}
 	</select>
 	
-	<!-- 예약 완료 후 정보 삭제 -->
-	<delete id="delete">
-		delete from reservation
-		where rno = #{rno}
-	</delete>
 	
-	<!-- 회원정보 입력 후 예약 정보 불러오기 0503 -->		
-	<select id="selfCheckList" resultType="control.project.model.ReservationVO">
-		select * from reservation where personalNumber = #{personalNumber}
-	</select>
+	
 	
 </mapper>
