@@ -35,6 +35,14 @@ public class ReservationController {
 		// 유저 정보 불러오기
 		model.addAttribute("reserveData",rs.userCheck(data));
 		return "UserCheck"; // 예약 확인 페이지로 이동할 것
+	}  
+	
+	// 전화 예약 정보 저장하기 insert
+	@RequestMapping(value = "/call_reservation", method = RequestMethod.POST) 
+	public String call(Model model, ReservationVO data) {
+		rs.reserve(data);
+		System.out.println(data);
+		return "redirect:/ManagerCheck"; // 관리자 게시판으로 이동
 	}
 	
 	// 예약 불가능 시간 불러오기 0426
