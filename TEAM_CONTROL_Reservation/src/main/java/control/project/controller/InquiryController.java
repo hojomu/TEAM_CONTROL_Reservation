@@ -20,6 +20,13 @@ public class InquiryController {
 		@Autowired
 		InquiryService is;	
 		
+		// 주민등록번호로 예약 정보가 있는지 확인
+		@RequestMapping(value="/inquiryCheck", method = RequestMethod.POST)
+		public ResponseEntity<SettedYearMonthVO> inquiryCheck(@RequestBody ReservationVO personalNumber ){
+			System.out.println(personalNumber);
+			return new ResponseEntity<>(is.inquiryCheck(personalNumber),HttpStatus.OK);
+		}
+		
 		// 비회원 진료 예약 조회 페이지로 이동 0426 -  주민등록번호 확인 기능 추가 할 것
 		@RequestMapping(value="/userSelfCheck", method = RequestMethod.POST)
 		public String gouserSelfCheck(Model model, ReservationVO data) {

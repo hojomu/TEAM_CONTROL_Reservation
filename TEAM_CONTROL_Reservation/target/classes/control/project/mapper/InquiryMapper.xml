@@ -7,12 +7,23 @@
   
 <mapper namespace="control.project.mapper.InquiryMapper">
 
+	<!-- 주민등록번호로 예약 정보가 있는지 확인 -->
+	<select id="inquiryCheck" resultType="control.project.model.ReservationVO">
+		select * from reservation
+		where personalNumber = #{personalNumber}
+		and reservationTime > NOW();
+	</select>
+
 	<!-- 회원정보 입력 후 예약 정보 불러오기 0503 -->		
 	<select id="selfCheckList" resultType="control.project.model.ReservationVO">
 		select * from reservation where personalNumber = #{personalNumber}
 	</select>
 	
 	<!-- 비회원 진료 예약 조회 페이지에서 예약 정보 삭제 0426 -->
+	<delete id="removeReservation">
+		delete from reservation
+		where rno = #{rno}
+	</delete>
 	<!-- delete id = removeReservation 제작할 것. -->
 	
 	<!-- 예약 완료 후 정보 삭제 -->
