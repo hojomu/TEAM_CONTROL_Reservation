@@ -41,21 +41,31 @@
 
 	<!-- 의료진 검색 -->
 	<div class="Manager_keyword">
-		<select name="dept1">
-		<option value="${paging.cri.dept1}">${paging.cri.dept1}</option>
-		<option value="가정의학과">가정의학과</option>
-		<option value="내과">내과</option>
-		<option value="외과">외과</option>
-		<option value="성형외과">성형외과</option>
+		<select name="mecicalDept" id="medicalDept">
+		<option value="" selected disabled>진료과</option>
+		<option value="a">가정의학과</option>
+		<option value="b">내과</option>
+		<option value="c">산부인과</option>
+		<option value="d">신경과</option>
+		<option value="e">안과</option>
+		<option value="f">이비인후과</option>
+		<option value="g">치과</option>
+		<option >피부과</option>
 		</select>
-		<select name="doctor1">
-		<option value="${paging.cri.doctor1}">${paging.cri.doctor1}</option>
+		<select name="doctor1" id="doctor">
+		<option value="" selected disabled>의료진</option>
+		<option value="강동화">강동화</option>
+		<option value="김종관">김종관</option>
+		<option value="고현정">고현정</option>
+		<option value="김수민">김수민</option>
+		<option value="권대희">권대희</option>
 		<option value="박선영">박선영</option>
-		<option value="나수영">나수영</option>
-		<option value="우시라">우시라</option>
-		<option value="라시찬">라시찬</option>
-		<option value="오도리">오도리</option>
-		<option value="홍미라">홍미라</option>
+		<option value="선우성">선우성</option>
+		<option value="안중호">안중호</option>
+		<option value="이미영">이미영</option>
+		<option value="이미우">이미우</option>
+		<option value="정호석">정호석</option>
+		<option value="홍종무">홍종무</option>
 		</select>
 
 		<input type="date" id="now_date1" name="date1" value="${paging.cri.date1}">
@@ -66,7 +76,7 @@
 	<!-- 검색 -->
 	<div class="Manager_search">
 	<input type="text">
-	<input type="submit" value=" 검 색 " id="quiry" formaction="ManagerCheck">
+	<input type="submit" value=" 검 색 " id="quiry" >
 	</div>
 	
 </form>
@@ -136,5 +146,7 @@
 	    </script>
 	</div>
 	
+		<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+		<script src="/resources/js/managercheck.js" type="text/javascript"></script>	
 </body>
 </html>
