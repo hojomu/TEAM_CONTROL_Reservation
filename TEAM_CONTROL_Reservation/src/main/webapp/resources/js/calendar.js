@@ -3,7 +3,7 @@
  */
 
 	// timeTable을 위한 배열 선언
-	const WorkTime = [];
+	const WorkTime = ['10:00','11:00','14:00','15:00','16:30'];
 	var timeTable = document.querySelector("#timeTable"); // ul 불러오기
 	
 	
@@ -162,7 +162,7 @@
         }
     }
     
-    function setWorkTime(){
+    /*function setWorkTime(){
 		// 시작 시간 설정 (10:00 AM)
 		var startWorkTime = new Date();
 		startWorkTime.setHours(10);
@@ -178,7 +178,7 @@
 			WorkTime.push(startWorkTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false }));
 		  startWorkTime.setMinutes(startWorkTime.getMinutes() + 30);
 		}
-	}
+	}*/
  
 
 
@@ -220,24 +220,31 @@
         $.ajax({
         	type: "get",
         	url: "/appointment1/"+settedYearMonth+"/"+medicalDept+"/"+doctor+".json", // GET 방식이라서 parameter에 담아서 보냈다
-        	//data: JSON.stringify(settedYearMonth), 만일, POST 방식을 사용할 경우 data를 직접 담아서 보내야한다. 이때, settedYearMonth처럼 String 타입을 보내면 return 값(result)이 xml 형태로 돌아온다.
-        								// return을 json 타입으로 받고싶다면, data를 보낼때도 json 형태로 보내야한다. ex) {board_no:reply.board_no,page:reply.page}
-        	contentType:"application/json; charset=utf-8",
+        	contentType:"application/json; charset=utf-8", // return 받을 데이터의 형식을 지정
         	success:function(result){
         		console.log(result);
         		console.log(WorkTime);
         		for(var i = 0; i < WorkTime.length; i++){
+        			// 반복문에서 li와 a 태그 생성
         			var li = document.createElement("li");
         			var a = document.createElement("a");
         			a.innerText = WorkTime[i];
         			a.href = "#";
-        			a.onclick = function(event){ ChoiceTime(event,this); }
         			
+        			// 해당 시간이 예약 가능한지 확인
         			for(var j = 0; j < result.list.length; j++){
         				if(WorkTime[i] == result.list[j].reservationTime){
-        					li.classList.add("blockedDay");  // blockedDay 예약 불가능한 날짜
+        					li.classList.add("blockedDay");  // blockedDay 예약 불가능한 날짜 마킹
+        					a.disabled = true; // a태그 비활성화 ( 클릭, 마우스 이벤트가 동작하지 않음 )
+        					break; // 예약 불가능함을 확인했으면 반복문을 멈춘다
         				}
         			}
+        			
+        			// 예약 가능하다면, click event 부여
+        			if (!li.classList.contains("blockedDay")){
+        				a.onclick = function(event){ ChoiceTime(event,this); }
+        			}
+        			
         			
         			li.appendChild(a);
         			timeTable.appendChild(li);
@@ -247,12 +254,6 @@
         })
     }
 
-    /**
-     * @brief   숫자 두자릿수( 00 ) 변경
-     * @details 자릿수가 한자리인 ( 1, 2, 3등 )의 값을 10, 11, 12등과 같은 두자리수 형식으로 맞추기위해 0을 붙인다.
-     * @param   num     앞에 0을 붙일 숫자 값
-     * @param   digit   글자의 자릿수를 지정 ( 2자릿수인 경우 00, 3자릿수인 경우 000 … )
-     */
     function autoLeftPad(num, digit) {
         if(String(num).length < digit) {
             num = new Array(digit - String(num).length + 1).join("0") + num;
@@ -260,10 +261,29 @@
         return num;
     }
     
+    
+// 예약 시간 클릭 이벤트
+    // 이전 선택 li 정보 저장 변수
+    var prevSelectedLi = null;
+    console.log(prevSelectedLi);
+    
+    // 예약 시간 클릭 이벤트 함수
     function ChoiceTime(event,aTag){
     	event.preventDefault();
     	console.log(aTag);
     	console.log(reservationTimeInputValue);
     	var rTimeFinal = reservationTimeInputValue+" "+aTag.innerText+":00";
     	reservationTimeInput.value = rTimeFinal;
+    	
+    	if(prevSelectedLi != null){
+    		prevSelectedLi.style.backgroundColor = "transparent";
+    	}
+    	
+    	var liTag = aTag.parentNode;
+    	liTag.style.backgroundColor = "#FFC0CB"; // 이 부분을 변경해서 li를 꾸밀 것
+    
+    	prevSelectedLi = liTag;
     };
+    
+    
+    

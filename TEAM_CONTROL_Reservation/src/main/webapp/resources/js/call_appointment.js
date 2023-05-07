@@ -202,7 +202,7 @@
 		  for (var i = 0; i < tablists.length; i++) {
 		    new TabsAutomatic(tablists[i]);
 		  }
-		  setWorkTime();
+		  //setWorkTime(); // 예약시간 설정 함수
 	});
 
 

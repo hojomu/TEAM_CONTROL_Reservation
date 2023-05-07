@@ -186,7 +186,7 @@ function list(param){// list함수 선언 시작
 		var str=""; 
 		
 		for(var i=0; i<data.length; i++){
-			str += "<li><img src='"+data[i].doctorImg+"'></li>"
+			str += "<li><img style='width:200px; height:200px;' src='"+data[i].doctorImg+"'></li>"
 			str += "<li>"+data[i].medicalDept+"</li>"
 			str += "<li>"+data[i].doctor+"</li>"
 			str += "<li>"+data[i].specialty+"</li>"
@@ -206,7 +206,7 @@ window.addEventListener('load', function () {
 	  for (var i = 0; i < tablists.length; i++) {
 	    new TabsAutomatic(tablists[i]);
 	  }
-	  setWorkTime();
+	  //setWorkTime(); // 예약 시간 설정 함수
 });
 
 
