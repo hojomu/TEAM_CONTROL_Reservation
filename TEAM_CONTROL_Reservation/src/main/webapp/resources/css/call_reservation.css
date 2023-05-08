@@ -22,6 +22,7 @@ input{
 	height: 25px;
 	border-radius: 5px;
 	border: 2px;
+	background-color: #e6e6e6;
 }
 
 select{
@@ -32,15 +33,19 @@ select{
 
 .call_reservation{
 	width: 1200px;
-	height: 850px;
-	background-color: blue;
+	height: 800px;
+	/* background-color: blue; */
 	position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
-/* 환자 정보입력 한칸마다 margin값 1*/
+.call_titlebox h4{
+	color: #fff;
+	padding: 4px;
+}
+/* 환자 정보입력 한칸마다 margin값*/
 .call_insert{
 	margin: 5px;
 }
@@ -48,54 +53,146 @@ select{
 /* 환자 정보입력  */
 .call_user{
 	width: 450px;
-	height: 800px;
 	float: left;
-	background-color: #e6e6e6;
+	/* background-color: #e6e6e6; */
 }
 
-.call_user_box{
+/* .call_user_box{
 	padding-top: 10px;
 	margin: 10px;
+} */
+
+.call_user_box_left{
+	width: 450px;
+	height: 25px;
+	background-color: #356dff;
+}
+
+.call_user_box_left h5{
+	color: #fff;
+	padding: 3px;
+}
+
+.call_user_box_right{
+	width: 750px;
+	height: 25px;
+	background-color: #356dff;
+}
+
+.call_user_box_right h5{
+	color: #fff;
+	padding: 3px;
+}
+
+.call_user_1{
+	width: 450px;
+	height: 130px;
+	border: solid 1px #e6e6e6;
+}
+
+.call_user_2{
+	width: 450px;
+	height: 280px;
+	border: solid 1px #e6e6e6;
+}
+
+.call_user_3{
+	width: 450px;
+	height: 300px;
+	border: solid 1px #e6e6e6;
+}
+
+.call_user_4{
+	width: 750px;
+	height: 575px;
+	border: solid 1px #e6e6e6;
+}
+
+.call_user_5{
+	width: 750px;
+	height: 135px;
+	border: solid 1px #e6e6e6;
+}
+
+/* 특이사항 */
+.call_write{
+	width: 440px;
+	height: 265px;
+}
+
+#doctorinfor{
+	margin-top: 10px;
 }
 
 .call_day{
 	margin: 0;	
 	width: 750px;
-	height: 800px;
 	float: right;
 }
 
 /* 달력 insert */
 .call_calendar{
 	width: 750px;
-	height: 600px;
-	background-color: #e4e4e4;
+	height: 550px;
+	/* background-color: #e4e4e4; */
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
 
+
 /* 시간 insert */
 .call_hour{
 	width: 750px;
-	height: 200px;
-	background-color: #e2e2e2;
-}
-
-/* 특이사항 */
-.call_write{
-	width: 400px;
-	height: 300px;
-	margin-top: 5px;
+	/* background-color: #e2e2e2; */
 }
 
 .call_button{
 	width: 1200px;
 	height: 50px;
-	background-color: #e4e4e4;
+	/* background-color: #e4e4e4; */
 	clear: both;
 }
 
 .call_button_right{
 	float: right;
+	margin: 10px;
+}
+.doctor-name{
+	width: 400px;
+	height: 20px;
+}
+.doctor-btn{
+	margin-left: 5px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 1px;
+    padding: 5px 5px;
+    border-radius: 4px;
+    transition: 0.5s;
+    line-height: 1;
+    color: #fff;
+    background: #4492ff;
+    border: none;
+}
+.doctor-btn:hover {
+    background: #356dff;
+}
+.btn-get-started {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 1px;
+    padding: 10px 20px;
+    border-radius: 4px;
+    transition: 0.5s;
+    line-height: 1;
+    color: #fff;
+    background: #4492ff;
+    border: none;
+    margin-left: 5px;
+}
+.btn-get-started:hover {
+    background: #356dff;
 }

@@ -8,7 +8,7 @@
   box-sizing: border-box;
   color: #000000;
 }
-.item1 {
+.detail_table {
 	width: 100%; 
 	max-width: 1024px; 
 	margin:  40px auto;
@@ -51,11 +51,33 @@ table tr td {
 	width:225px;
 	height:100px;	
 }
-.item2 input {
-	padding: 1px 7px;
-	margin: 15px 7px;
-	left: 160px;
+.detail_button{
 	position: relative;
-	border: 1px solid lightgray;
-	border-radius:4px 4px 4px 4px;
+}
+.detail_button_item{
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    display:flex;
+    justify-content:center;
+        
+}
+.btn-get-started {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 1px;
+    padding: 10px 20px;
+    border-radius: 4px;
+    transition: 0.5s;
+    line-height: 1;
+    color: #fff;
+    background: #4492ff;
+    border: none;
+    margin: 5px;
+}
+.btn-get-started:hover {
+    background: #356dff;
 }

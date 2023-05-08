@@ -13,11 +13,11 @@
 
 </head>
 <body>
-<dev class="container">
-  <dev class="item">
+<div class="container">
+  <div class="item">
 	<form>    
-  	  <dev class="item1"> 	
-  	    <h2 class="ManaDetail_title">예약자 상세 정보</h2>
+  	  <div class="detail_table"> 	
+  	    <h2 class="ManaDetail_title">${detail.customerName} 님의 진료 정보</h2>
 		<table>			
 		    <colgroup>
 		        <col width="20%" />
@@ -63,15 +63,17 @@
 				<td class="content2"><textarea rows="" cols="" name="otherInfo">${detail.otherInfo}</textarea> </td>
 			</tr>		
 		</table>
-	  </dev>
-	  <div class="item2">
-		<input type="submit" value="수 정" id="modifyOk" formaction="ManagerModify">
-		<input type="submit" value="삭 제" id="delOk" formaction="ManagerDelete">
-		<input type="submit" value="확 인" formaction="ManagerCheck">
+	  </div>
+	  <div class="detail_button">
+		  <div class="detail_button_item">
+				<input type="submit" value="수 정" id="modifyOk" class="btn-get-started" formaction="ManagerModify">
+				<input type="submit" value="삭 제" id="delOk" class="btn-get-started" formaction="ManagerDelete">
+				<input type="submit" value="확 인" class="btn-get-started" formaction="ManagerCheck">
+		  </div>
 	  </div>
     </form>
-  </dev>
-</dev>
+  </div>
+</div>
 
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script type="text/javascript" src="/resources/js/managercheckdetail.js"></script> 

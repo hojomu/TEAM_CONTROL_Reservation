@@ -14,7 +14,7 @@
 <body>
 <form>
 
-	<h2 class="Manager_title">진료예약 EMR</h2>
+	<h2 class="Manager_title">진료예약 명단</h2>
 	
 	<!-- 카운트 -->
 	<div class="Manager_count">
@@ -42,44 +42,49 @@
 	<!-- 의료진 검색 -->
 	<div class="Manager_keyword">
 		<select name="mecicalDept" id="medicalDept">
-		<option value="" selected disabled>진료과</option>
-		<option value="a">가정의학과</option>
-		<option value="b">내과</option>
-		<option value="c">산부인과</option>
-		<option value="d">신경과</option>
-		<option value="e">안과</option>
-		<option value="f">이비인후과</option>
-		<option value="g">치과</option>
-		<option >피부과</option>
+			<option value="" selected disabled>진료과</option>
+			<option value="a">가정의학과</option>
+			<option value="b">내과</option>
+			<option value="c">산부인과</option>
+			<option value="d">신경과</option>
+			<option value="e">안과</option>
+			<option value="f">이비인후과</option>
+			<option value="g">치과</option>
+			<option >피부과</option>
 		</select>
+		
 		<select name="doctor1" id="doctor">
-		<option value="" selected disabled>의료진</option>
-		<option value="강동화">강동화</option>
-		<option value="김종관">김종관</option>
-		<option value="고현정">고현정</option>
-		<option value="김수민">김수민</option>
-		<option value="권대희">권대희</option>
-		<option value="박선영">박선영</option>
-		<option value="선우성">선우성</option>
-		<option value="안중호">안중호</option>
-		<option value="이미영">이미영</option>
-		<option value="이미우">이미우</option>
-		<option value="정호석">정호석</option>
-		<option value="홍종무">홍종무</option>
+			<option value="" selected disabled>의료진</option>
+			<option value="강동화">강동화</option>
+			<option value="김종관">김종관</option>
+			<option value="고현정">고현정</option>
+			<option value="김수민">김수민</option>
+			<option value="권대희">권대희</option>
+			<option value="박선영">박선영</option>
+			<option value="선우성">선우성</option>
+			<option value="안중호">안중호</option>
+			<option value="이미영">이미영</option>
+			<option value="이미우">이미우</option>
+			<option value="정호석">정호석</option>
+			<option value="홍종무">홍종무</option>
 		</select>
 
-		<input type="date" id="now_date1" name="date1" value="${paging.cri.date1}">
-		-
-		<input type="date" id="now_date2" name="date2" value="${paging.cri.date2}">
+		<input type="date" id="now_date1" name="date1" class="date" value="${paging.cri.date1}">
+		<span class="date_-">-</span>
+		<input type="date" id="now_date2" name="date2" class="date" value="${paging.cri.date2}">
+		
+		<input type="submit" value=" 검 색 " id="quiry" class="btn-get-started" >
+		
 	</div>	
 	
-	<!-- 검색 -->
-	<div class="Manager_search">
-	<input type="text">
-	<input type="submit" value=" 검 색 " id="quiry" >
-	<a href="/medicalhome">홈페이지 이동</a>
-	<a href="/call_reservation">전화예약 접수</a>
+	<!-- 아이콘 -->
+	<div class="Manager_icon">
+	<div class="Manager_icon_item">
+		<a href="/medicalhome"><img alt="홈페이지 이동" src="/resources/icon/medical_home.png" width="36" height="auto"></a>
+		<a href="/call_reservation"><img alt="전화예약 접수" src="/resources/icon/medical_add.png" width="36" height="auto"></a>
 	</div>
+	</div>
+	
 	
 </form>
 
@@ -96,7 +101,8 @@
 			        <col width="10%" />
 			        <%-- <col width="auto" /> --%>
 		        </colgroup>
-		
+				
+				<thead>
 				<tr>
 					<th class="col1">시간</th> 
 					<th class="col2">환자번호</th> 
@@ -105,7 +111,9 @@
 					<th class="col4">진료과</th> 
 					<th class="col4">의료진</th>
 				</tr>
-			
+				</thead>
+				
+				<tbody>
 				<!-- for문 시작 -->
 				<c:forEach items="${list}" var="manager_checklist">
 					<tr>
@@ -122,6 +130,7 @@
 					</tr>
 				</c:forEach>
 				<!-- for문 끝 -->
+				</tbody>
 			
 		</table>
 	</div>
