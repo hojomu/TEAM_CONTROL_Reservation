@@ -186,12 +186,12 @@ function list(param){// list함수 선언 시작
 		var str=""; 
 		
 		for(var i=0; i<data.length; i++){
-			str += "<li><img style='width:200px; height:200px;' src='"+data[i].doctorImg+"'></li>"
-			str += "<li>"+data[i].medicalDept+"</li>"
-			str += "<li>"+data[i].doctor+"</li>"
-			str += "<li>"+data[i].specialty+"</li>"
-			str += "<li><a href='javascript:void(0)' class='doctor-submit' onclick='clickDoctorSubmit(event,this)' data-setting='"+data[i].doctor+"'><span>진료예약하기</span></a></li>"
-			
+			str += "<li><div class='doctor-info-img'><img style='width:180px; height:225px;' src='/resources/img"+data[i].doctorImg+"'></div>"
+			str += "<div class='doctor-info-box'><p class='info-box-name'>"+data[i].doctor+"</p>" 
+			str += "<p>"+"진료과 : "+data[i].medicalDept+"</p>"
+			str += "<p class='info-box-special'>"+"전문분야 : "+data[i].specialty+"</p>"
+			str += "<a href='javascript:void(0)' class='doctor-submit' onclick='clickDoctorSubmit(event,this)' data-setting='"+data[i].doctor+"'><p class='info-box-button'>진료예약하기</p></a></div>" 
+			str += "<br>"+"</li>"
 		}
 		
 		$("#doctorInfo").html(str);		

@@ -31,7 +31,7 @@
 		#tab-1:checked ~ .medical_tab label:nth-child(1),
 		#tab-2:checked ~ .medical_tab label:nth-child(2),
 		#tab-3:checked ~ .medical_tab label:nth-child(3) {
-		  background-color: rgba(0, 0, 0, 0.2);
+		  background-color: #4492ff;
 		  box-shadow: none;
 		}
 		.medical_content > div {
@@ -43,7 +43,7 @@
 		  display: block;
 		}
 		.medical_section {
-		  margin: 0 auto;
+		  margin: 10px auto;
 		  main-width:90%;
 		  max-width: 90%;
 		}
@@ -64,11 +64,12 @@
 		    -webkit-user-select: none;
 		}
 		.medical_content {
-		  background-color: rgba(0, 0, 0, 0.2);
+		  background-color: #F6F6F6;
 		  min-height: 250px;
 		}
 		.medical_content > div{
 		   padding: 30px;
+		   padding-top:15px;
 		   line-height: 1.5;
 		   font-size: 17px;
 		}
@@ -105,8 +106,8 @@
 			      </h1>
 			    </header>
 			    
-			    <a> 진료예약을 위해 예약하시는 분의 휴대전화 인증과 진료받으실 분의 성명과 주민등록번호 병원등록번호가 필요합니다.
-					아래 사항을 정확하게 입력하여 주시기 바랍니다.</a>
+			    <p> 진료예약을 위해 예약하시는 분의 휴대전화 인증과 진료받으실 분의 성명과 주민등록번호 병원등록번호가 필요합니다.<br>
+				 아래 사항을 정확하게 입력하여 주시기 바랍니다.</p>
 			  	  <!-- 개인정보 이용 동의  -->
 			      <div class="agree_area">
 			      	<p>[고유식별번호 처리에 대한 안내]<p>
@@ -118,11 +119,11 @@
 					</ul>
 			      </div>
 			      
-			      <label>
-			      <input type="radio" name="terms-agree1" value="agree" required>동의합니다.
+			      <label class="reser_la">
+			      <input type="radio" name="terms-agree1" class="la" value="agree" required>동의합니다.
 			      </label>
-			      <label>
-			      <input type="radio" name="terms-agree1" value="disagree">동의하지않습니다.
+			      <label class="reser_la">
+			      <input type="radio" name="terms-agree1" class="la" value="disagree">동의하지않습니다.
 			      </label>
 			      
 			      <div class="agree_area">
@@ -135,15 +136,15 @@
 					</ul>
 			      </div>
 			      
-			      <label>
-			      <input type="radio" name="terms-agree2" value="agree" required>동의합니다.
+			      <label class="reser_la">
+			      <input type="radio" name="terms-agree2" class="la" value="agree" required>동의합니다.
 			      </label>
-			      <label>
-			      <input type="radio" name="terms-agree2" value="disagree">동의하지않습니다.
+			      <label class="reser_la">
+			      <input type="radio" name="terms-agree2" class="la" value="disagree">동의하지않습니다.
 			      </label>
 			     	
 			     	<!-- EmailContoller 로 POST 방식 -->    
-				    <form name="form" action="/reservation" method="post">
+				    <form name="form" action="/reservation" class="reser_form" method="post">
 				    	<p>예약하시는 분 이메일 인증하기</p>
 						<div class="email_auth">
 						<input type="text" id="first_email" placeholder="이메일">
@@ -163,16 +164,17 @@
 					</form>
 			
 					
-			 	    <div>  
-						<p>진료받으실 분의 주민등록번호(외국인등록번호)정보를 입력해주세요</p>
-							<div class="insert_information">
-								<p>주민등록번호(외국인등록번호)로 예약하기</p>
-								성명: <input type="text" id="customerNameset"><br>
-								주민등록번호(외국인 등록번호):
+			 	    <div >  
+			 	   		 <div class="insert_information">
+								<p class="notice1">진료받으실 분의 주민등록번호(외국인등록번호)정보를 입력해주세요</p>
+							
+								<!-- <p>주민등록번호(외국인등록번호)로 예약하기</p> -->
+								<a> 성명 : </a> <input type="text" id="customerNameset" >
+								<a> 주민등록번호(외국인 등록번호) : </a>
 								 <input type="text" id="personal_num1" maxlength="6" size="8" required >
 								- <input type="password" id="personal_num2" maxlength="7" size="8" required>
 							
-							<P> *보건부 고시에 의서 '진료일에 본인 외 대리 진료가 제한'됨을 알려드립니다.</P>
+							<P class="notice2"> * 보건부 고시에 의거 '진료일에 본인 외 대리 진료가 제한' 됨을 알려드립니다.</P>
 							</div>
 							    
 					    <div class="modal-container-footer">
@@ -189,13 +191,6 @@
 		    <div class="content-dis">
 	
 				<!-- 진료과 의료진 선택 구간 -->
-					    
-				<!-- 환자 정보 확인 -->
-				<div class="impormation">
-				<h3 id="tablist-1"> 환자 정보 확인 </h3>
-				 성명: ${reserveData.customerName }
-				 예약번호: ${reserveData.personalNumber }
-				</div>
 					     
 				  <div role="tablist"
 				       aria-labelledby="tablist-1"
@@ -322,15 +317,15 @@
 				<ul id="timeTable">
 				</ul>
 				
-				<form name="form" action="UserCheck" method="post">
+				<form name="form" action="UserCheck" method="post" class="last-form">
 					<input type="hidden" id="customerName" name="customerName">
 					<input type="hidden" id="personalNumber" name="personalNumber">
 					<input type="hidden" id="email" name="email">
 					<input type="hidden" id="medicalDept" name="medicalDept">
 					<input type="hidden" id="doctor" name="doctor">
 					<input type="hidden" id="reservationTime" name="reservationTime">
-					<textarea  id="otherInfo" name="otherInfo" placeholder="추가 사항을 적어주세요."></textarea>
-					<button type="submit">Submit</button>
+					<textarea id="otherInfo" name="otherInfo" placeholder="특이사항이 있으시면 입력해주세요."></textarea>
+					<button type="submit" class="last_button" > 예약하기 </button>
 				</form>
 				
 		    </div><!-- 예약 날짜 시간 선택구간 끝 -->

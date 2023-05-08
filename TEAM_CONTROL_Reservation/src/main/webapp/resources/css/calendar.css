@@ -7,16 +7,12 @@
   box-sizing: border-box;
   font-family: Lato, sans-serif;
 }
-a {
-  color:#000000;
-  text-decoration:none;
-}
 
 .scriptCalendar { 
   text-align:center;
   width: 100%;
   padding: 0.75em;
-  margin: auto;
+  margin: 25px auto;
   font-size: 4vw;
   background-color: #fff;
   border-radius: 1.5em;
@@ -62,7 +58,23 @@ a {
 #timeTable li{
 	width: 100px;
 	height: 50px;
+	line-height: 50px; 
 	float: left;
+	list-style: none;
+	border: 1px solid black;
+	margin-right: 7px;
+	text-align: center;
+}
+
+#timeTable li:first-child{
+	margin-left: 250px;
+
+}
+
+#timeTable a {
+  color:#000000;
+  text-decoration:none;
+  
 }
 
 .clicked {
@@ -75,6 +87,26 @@ a {
 }
 
 .dis-none {
-	display:none;
+  display:none;
 }
+ 
+ #otherInfo{
+  width:530px;
+  height: 100px;
+  margin: 50px 100px 0 250px;
+  font-size: 15px;
+  padding: 5px;
+ }
 
+  .last_button {
+  background-color: #4492ff;
+  border: 0;
+  color:white;
+  cursor: pointer;
+  font-size: 17px;
+  padding:5px 10px ;
+  
+  }
+   .last_button:hover{
+ background-color:#007aff; 
+ }
