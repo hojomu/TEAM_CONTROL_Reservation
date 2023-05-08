@@ -137,7 +137,6 @@
                     if(Math.sign(day) == 1 && day <= lastDate.getDate() && column.dataset.setting != 'sunday') {
                         column.style.backgroundColor = "#FFFFFF";
                         column.style.cursor = "pointer";
-                        alert("cccc")
                         column.onclick = function(){ calendarChoiceDay(this); }
                     }
                 }

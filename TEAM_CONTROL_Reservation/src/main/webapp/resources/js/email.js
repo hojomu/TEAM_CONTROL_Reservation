@@ -15,7 +15,6 @@
 				// 이메일 인증이 끝나면, 
 				var email = $('#first_email').val() + "@" + $('#second_email').val();
 				$("input[name='email']").val(email); // jquery의 value 넣는 방법
-				console.log(email);
 			}
 			fn_join();
 		}

@@ -58,7 +58,7 @@ function list(param){
 			str+="<div class='info-detail-card'><div class='info-detail'>"
 			str+="<span>"+data.list[i].medicalDept+"</span>"
 			str+="<span>"+data.list[i].doctor+"</span>"
-			str+="<span>"+data.list[i].otherInfo+"</span>"
+			str+="<span>특이사항 : "+data.list[i].otherInfo+"</span>"
 			str+="</div>"
 			str+="<div class='removeBtnWrap'><a href='#' class='removeReservation button button_left btnFloat btnLightBlue' title='Button border lightblue' data-rno="+data.list[i].rno+">예약취소</a></div>"
 			str+="</div>"

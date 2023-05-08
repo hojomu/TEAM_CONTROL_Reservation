@@ -36,12 +36,12 @@ public class InquiryController {
 			
 		// 비회원 진료 예약 조회 0426
 		@RequestMapping(value="/selfcheck/{personalNumber}", method = RequestMethod.GET)
-		public ResponseEntity <SettedYearMonthVO> selfCheckList(@PathVariable("personalNumber") String personalNumber){
+		public ResponseEntity <SettedYearMonthVO> inquiryCheck(@PathVariable("personalNumber") String personalNumber){
 			System.out.println(personalNumber);
 			ReservationVO data = new ReservationVO();
 			data.setPersonalNumber(personalNumber);
 			System.out.println(data);
-			return new ResponseEntity<>(is.selfCheckList(data),HttpStatus.OK);
+			return new ResponseEntity<>(is.inquiryCheck(data),HttpStatus.OK);
 		}
 		
 		// 비회원 진료 예약 조회 페이지에서 예약 정보 삭제 0426

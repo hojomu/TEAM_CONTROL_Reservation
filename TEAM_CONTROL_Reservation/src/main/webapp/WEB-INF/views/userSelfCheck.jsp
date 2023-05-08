@@ -101,7 +101,7 @@
   <div id="section-wrap">
     <div id="section-title-wrap">
 	  <h1 id="welcome">님 예약 정보</h1>
-	  <a href='/' title='Button border lightblue' class='button button_right btnFloat btnLightBlue'>홈 페이지로 돌아가기</a>
+	  <button type="button" class="goBackBtn" onclick="location.href='http://localhost:8080'">돌아가기</button>
 	</div>
 	<ul id="infomation-wrap">
 	

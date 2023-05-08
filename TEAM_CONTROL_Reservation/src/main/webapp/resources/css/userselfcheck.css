@@ -13,8 +13,6 @@ ul, ol {
     margin: 0;
 }
 
-
-
 a {
   color: #4492ff;
   text-decoration: none;
@@ -262,6 +260,24 @@ input:focus{
 /*--------------------------------------------------------------
 # Section
 --------------------------------------------------------------*/
+.goBackBtn{
+	color:#fff;
+	background-color:#adb5bd;
+	box-shadow: inset 0 1px 0 rgba(255,255,255,0.15), 0 1px 1px rgba(0,0,0,0.075);
+	border: 1px solid;
+	border-radius: 15px;
+	border-color:#ecf0f2;
+	padding: 10px 20px; 
+}
+.goBackBtn:hover{
+	color:#fff;
+	background-color:#939aa1;
+	box-shadow: inset 0 1px 0 rgba(255,255,255,0.15), 0 1px 1px rgba(0,0,0,0.075);
+	border: 1px solid;
+	border-radius: 15px;
+	border-color:#ecf0f2;
+	padding: 10px 20px;
+}
 
 #section-wrap{
 	display: flex;
@@ -273,22 +289,28 @@ input:focus{
 
 #section-title-wrap{
 	margin-top: 20px;
+	margin-bottom:40px;
+	text-align:center;
 }
 
 #infomation-wrap{
-	
+	width:700px;
 }
 
 .information-item{
-	
+	border: 1px solid;
+	border-radius: 15px;
+	border-color:#ecf0f2;
+	margin-bottom:40px;
+	box-shadow:0 2px 6px 0 rgba(0,0,0,0.5);
 }
 
 .info-card-body{
-	
 }
 
 .info-time-card{
-	
+	margin: 0 24px;
+	padding: 19px 0 16px;
 }
 
 .info-time-area{ /* 내부에 span 있음 */
@@ -296,15 +318,21 @@ input:focus{
 }
 
 .info-detail-card{
-	
+	border-top: 1px dashed;
+	border-top-color: #ecf0f2;
+	margin: 0 24px;
+	padding: 19px 0;
 }
 
 .info-detail{ /* flex 넣을것 */
-	
+	display: flex;
+    flex-direction: column;
 }
-
-.removeBtnWrap{
-	
+.info-detail span{
+	padding: 3px 0;
+}
+.removeBtnWrap {
+	text-align: right;
 }
 
 

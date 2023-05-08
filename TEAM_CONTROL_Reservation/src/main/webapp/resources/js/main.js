@@ -314,4 +314,4 @@ window.onclick = function(event) {
    */
   new PureCounter();
 
-})()
+})

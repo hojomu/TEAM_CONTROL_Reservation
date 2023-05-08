@@ -14,7 +14,7 @@
 		and reservationTime > NOW();
 	</select>
 
-	<!-- 회원정보 입력 후 예약 정보 불러오기 0503 -->		
+	<!-- 회원정보 insert 후 예약 정보 불러오기 0503 -->		
 	<select id="selfCheckList" resultType="control.project.model.ReservationVO">
 		select * from reservation where personalNumber = #{personalNumber}
 	</select>
