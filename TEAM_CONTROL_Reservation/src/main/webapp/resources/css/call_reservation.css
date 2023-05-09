@@ -196,3 +196,20 @@ select{
 .btn-get-started:hover {
     background: #356dff;
 }
+
+#timeTable{
+	display:flex;
+	justify-content: center;
+	margin-top: 30px;
+}
+
+#timeTable li{
+	width: 100px;
+	height: 50px;
+	line-height: 50px; 
+	list-style: none;
+	border: 1px solid black;
+	margin-right: 7px;
+	text-align: center;
+	
+}
