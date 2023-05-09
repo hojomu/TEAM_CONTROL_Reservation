@@ -7,6 +7,13 @@
   
 <mapper namespace="control.project.mapper.BoardMapper">
 
+	<!-- 현재 시간 기준 예약정보 불러오기 0509 -->
+	<select id="recentList" resultType="control.project.model.ReservationVO">
+		select * from reservation
+		where reservationTime > NOW()
+		order by reservationTime
+	</select>
+
 	<!-- 예약 정보 불러오기 select 0419 -->		
 	<select id="list" resultType="control.project.model.ReservationVO">
 		select * from reservation 

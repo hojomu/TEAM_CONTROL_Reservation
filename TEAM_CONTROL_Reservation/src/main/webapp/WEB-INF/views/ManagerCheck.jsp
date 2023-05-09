@@ -55,18 +55,6 @@
 		
 		<select name="doctor1" id="doctor">
 			<option value="" selected disabled>의료진</option>
-			<option value="강동화">강동화</option>
-			<option value="김종관">김종관</option>
-			<option value="고현정">고현정</option>
-			<option value="김수민">김수민</option>
-			<option value="권대희">권대희</option>
-			<option value="박선영">박선영</option>
-			<option value="선우성">선우성</option>
-			<option value="안중호">안중호</option>
-			<option value="이미영">이미영</option>
-			<option value="이미우">이미우</option>
-			<option value="정호석">정호석</option>
-			<option value="홍종무">홍종무</option>
 		</select>
 
 		<input type="date" id="now_date1" name="date1" class="date" value="${paging.cri.date1}">
@@ -151,10 +139,7 @@
 		<c:if test="${paging.next}">
 			<a href="/ManagerCheck?type=${paging.cri.type}&keyword=${paging.cri.keyword}&pageNum=${paging.endPage+1}&amount=${paging.cri.amount}">다음</a>
 		</c:if> -->
-		<script>
-		<!--		document.getElementById('now_date1').valueAsDate = new Date();
-			document.getElementById('now_date2').valueAsDate = new Date(); -->
-	    </script>
+
 	</div>
 	
 		<script src="https://code.jquery.com/jquery-3.4.1.js"></script>

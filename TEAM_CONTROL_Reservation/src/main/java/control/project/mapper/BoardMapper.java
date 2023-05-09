@@ -6,6 +6,9 @@ import control.project.model.CriteriaVO;
 import control.project.model.ReservationVO;
 
 public interface BoardMapper {
+	
+    // 예약 정보 불러오기 select 0419
+	public ArrayList<ReservationVO> recentList(CriteriaVO cri);
 
     // 예약 정보 불러오기 select 0419
 	public ArrayList<ReservationVO> list(CriteriaVO cri);

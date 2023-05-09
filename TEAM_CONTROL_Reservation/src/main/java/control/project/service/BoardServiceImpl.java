@@ -15,6 +15,12 @@ public class BoardServiceImpl implements BoardService{
 	@Autowired
 	BoardMapper bm;
 	
+		// 현재 시간 기준 예약정보 불러오기 0509
+		public ArrayList<ReservationVO> recentList(CriteriaVO cri){
+			System.out.println("여길보세요");
+			return bm.recentList(cri);
+		}
+	
 		// 예약 정보 불러오기 select 0419
 		public ArrayList<ReservationVO> list(CriteriaVO cri){
 			System.out.println(cri);

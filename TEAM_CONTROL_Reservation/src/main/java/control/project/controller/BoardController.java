@@ -25,15 +25,15 @@ public class BoardController {
 		// 예약정보 불러오기 Select ( 로그인 할 때 )
 		@RequestMapping(value="/ManagerCheck", method = RequestMethod.POST)
 		public String getList(Model model, CriteriaVO cri , AdminLoginVO login , HttpSession session, HttpServletRequest request) {
-			
+			System.out.println("post");
 			// 로그인이 되어있지 않다면
 			if(session.getAttribute("login") == null) {
 				return "Security";
 				
 			} else {	// 로그인이 되어있다면
 				// 예약 정보 리스트 불러오기
-				System.out.println(cri);
-				model.addAttribute("list", bs.list(cri));		
+				System.out.println("여기보세요");
+				model.addAttribute("list", bs.recentList(cri));		
 				// 페이지 총 수 불러오기
 				int total = bs.total(cri);
 				System.out.println(cri);
@@ -49,7 +49,7 @@ public class BoardController {
 		// 예약정보 불러오기 Select 검색 기능을 이용할 때
 		@RequestMapping(value="/ManagerCheck", method = RequestMethod.GET)
 		public String listSet(Model model, CriteriaVO cri, HttpServletRequest request, HttpSession session) {
-			
+			System.out.println("get");
 			// 로그인이 되어있지 않다면
 			if(session.getAttribute("login") == null) {
 				return "Security";
