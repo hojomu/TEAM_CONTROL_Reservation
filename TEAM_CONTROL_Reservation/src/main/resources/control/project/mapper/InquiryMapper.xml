@@ -16,7 +16,9 @@
 
 	<!-- 회원정보 insert 후 예약 정보 불러오기 0503 -->		
 	<select id="selfCheckList" resultType="control.project.model.ReservationVO">
-		select * from reservation where personalNumber = #{personalNumber}
+		select * from reservation 
+		where personalNumber = #{personalNumber}
+		order by reservationTime
 	</select>
 	
 	<!-- 비회원 진료 예약 조회 페이지에서 예약 정보 삭제 0426 -->
