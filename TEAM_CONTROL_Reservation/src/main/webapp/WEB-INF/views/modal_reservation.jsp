@@ -22,17 +22,21 @@
 		.medical_tab label {
 		  cursor: pointer;
 		}
-		.medical_tab label:hover {
+	/* 	.medical_tab label:hover {
 		  background-color: rgba(0, 0, 0, 0.1);
-		}
+		} */
 		.medical_tab label:focus {
 		  outline: none;
+		  
 		}
 		#tab-1:checked ~ .medical_tab label:nth-child(1),
 		#tab-2:checked ~ .medical_tab label:nth-child(2),
 		#tab-3:checked ~ .medical_tab label:nth-child(3) {
 		  background-color: #4492ff;
 		  box-shadow: none;
+		  color: white;
+		  border-top-left-radius: 8px;
+		  border-top-right-radius: 8px;
 		}
 		.medical_content > div {
 		  display: none;
@@ -74,6 +78,7 @@
 		   font-size: 17px;
 		}
 		
+
 	</style>
 
 </head>

@@ -88,6 +88,7 @@
     display: inline-flex;
 	line-height: 2.5;
     flex-direction: column;
+    
 }
 
  .doctor-info-img {
@@ -114,6 +115,7 @@
   font-size: 15px;
   padding-left:10px;
   margin-top: 10px;
+  border-radius: 4px;
  }
 
  .info-box-button:hover {

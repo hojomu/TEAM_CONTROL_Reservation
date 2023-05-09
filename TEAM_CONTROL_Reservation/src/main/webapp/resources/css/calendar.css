@@ -55,21 +55,22 @@
   background-color : #FF5A5A;
 }
 
+#timeTable{
+	display:flex;
+	justify-content: center;
+}
+
 #timeTable li{
 	width: 100px;
 	height: 50px;
 	line-height: 50px; 
-	float: left;
 	list-style: none;
 	border: 1px solid black;
 	margin-right: 7px;
 	text-align: center;
+	
 }
 
-#timeTable li:first-child{
-	margin-left: 250px;
-
-}
 
 #timeTable a {
   color:#000000;
@@ -89,13 +90,22 @@
 .dis-none {
   display:none;
 }
- 
+
+.last-form{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  Flex-direction: column;
+   padding-top: 50px;
+
+}
+
  #otherInfo{
   width:530px;
   height: 100px;
-  margin: 50px 100px 0 250px;
   font-size: 15px;
   padding: 5px;
+ 
  }
 
   .last_button {
@@ -105,8 +115,10 @@
   cursor: pointer;
   font-size: 17px;
   padding:5px 10px ;
-  
+  margin-top:30px;
+ border-radius: 4px;
   }
+  
    .last_button:hover{
  background-color:#007aff; 
  }

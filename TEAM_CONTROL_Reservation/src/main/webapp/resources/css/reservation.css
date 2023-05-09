@@ -9,6 +9,9 @@
 
 /* Some basic CSS overrides */
 
+
+	
+
 .modal_body{
   margin:-8px;
   line-height: 1.5;
@@ -74,20 +77,22 @@ input
 
 /* 모달창 header*/
 .modal-container-header {
-  padding: 10px 15px 15px;
+  padding: 10px 15px 20px;
   border-bottom: 1px solid #ddd;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  
 }
 
 /* h1 title (진료 예약하기, 아이콘 포함) */
 .modal-container-title {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   line-height: 1;
-  font-weight: 700;
+  font-weight: 600;
+  font-size: 28px;
   svg {
     width: 32px;
     height: 32px;
@@ -129,12 +134,12 @@ input
   }
 
   .content-dis >p {
-  margin: 10px;
+  margin: 15px 10px;
  }  
  
  .agree_area {
   background-color: lightgray;
-  padding: 5px;
+  padding: 7px;
   margin:10px 0 5px 0;
  } 
  
@@ -162,18 +167,37 @@ input
  }
  
   .reser_form > p {
-  margin: 10px 0px 5px;
+  margin: 10px 0px 15px;
   font-weight: bold;
  } 
  
  .email_auth {
   margin-bottom: 5px;
+  display: inline-flex;
+ }
+ 
+ #first_email {
+  width: 142px;
+  height: 30px;
+  font-size: 15px;
+  padding: 0px 5px;
+  margin-right: 5px;
  }
  
  #second_email  {
-  width: 150px;
+  width: 140px;
   height: 30px;
   font-size: 15px;
+  padding: 0px 5px;
+  margin-right: 7px;
+ }
+ 
+ #email_auth_key{
+  width: 142px;
+  height: 30px;
+  font-size: 15px;
+  padding: 0px 5px;
+  margin-left: 55px;
  }
  
  .email_auth_btn {
@@ -182,7 +206,8 @@ input
   border: none;
   font-size: 15px;
   padding: 3px 5px;
-   cursor: pointer;
+  cursor: pointer;
+  border-radius: 4px;
  }
  
   .email_auth_btn:hover {
@@ -195,7 +220,9 @@ input
   border: none;
   font-size: 15px;
   padding: 3px 5px;
-   cursor: pointer;
+  cursor: pointer;
+  border-radius: 4px;
+  height: 30px;
  }
  
  #join:hover{
@@ -206,17 +233,28 @@ input
   padding: 10px;
  }
  
+ #customerNameset {
+  width: 142px;
+  height: 30px;
+  font-size: 15px;
+  padding: 0px 5px;
+  margin-right: 50px;
+  
+ } 
+ 
+ #personal_num1, #personal_num2 {
+  padding: 0px 5px;
+  font-size: 15px;
+  height: 30px;
+ }
  .notice1 {
   margin: 10px 0px 15px;
   font-weight: bold;
  }
  
- .insert_information > a {
-  margin-left: 5px;
- }
- 
   .notice2 {
     padding: 30px 0 20px;
+    font-size: 15px;
   }
   
   
