@@ -11,7 +11,8 @@
 	<select id="inquiryCheck" resultType="control.project.model.ReservationVO">
 		select * from reservation
 		where personalNumber = #{personalNumber}
-		and reservationTime > NOW();
+		and reservationTime > NOW()
+		order by reservationTime
 	</select>
 
 	<!-- 회원정보 insert 후 예약 정보 불러오기 0503 -->		
