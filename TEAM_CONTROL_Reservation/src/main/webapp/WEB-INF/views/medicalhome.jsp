@@ -120,7 +120,7 @@
 
 			<div class="manager_login">
 				<div class="manager_loginId">
-				<span>아이디</span>
+				<span> 아이디</span>
 				<input type="text" id="adminId" name="adminId">
 				</div>
 				<div class="manager_loginPw">

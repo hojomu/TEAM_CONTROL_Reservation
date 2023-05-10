@@ -2,10 +2,14 @@
  * 
  */
 
-  document.getElementById('now_date1').value = new Date().toISOString().substring(0, 10);
-  document.getElementById('now_date2').value = new Date().toISOString().substring(0, 10);
-  
-  
+ $(document).ready(function(){
+	 
+ document.getElementById('now_date1').value = new Date().toISOString().substring(0, 10);
+ document.getElementById('now_date2').value = new Date().toISOString().substring(0, 10);
+ 
+ })
+
+
  $(document).ready(function(){
 	
 	 $("#medicalDept").on("change",function(){

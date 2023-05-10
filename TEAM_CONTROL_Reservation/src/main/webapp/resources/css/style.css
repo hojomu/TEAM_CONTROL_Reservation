@@ -96,9 +96,9 @@ input:focus{
   font-size: 20px;
 }
 
-.manager_login{
+ .manager_login{
 	text-align: center;
-}
+} 
 
 .manager_loginId{
 	margin: 5px;
@@ -106,6 +106,10 @@ input:focus{
 
 .manager_loginPw{
 	margin: 5px;
+}
+
+#adminId{
+    margin-left: 15px;
 }
 
 /* 모달창 내부 닫기 버튼 스타일 */
