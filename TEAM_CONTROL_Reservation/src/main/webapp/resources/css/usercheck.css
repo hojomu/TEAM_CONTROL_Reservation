@@ -99,7 +99,7 @@ p {
 a,
 a:visited {
   text-decoration: none;
-  color: #00AE68;
+  /* color: #00AE68; */
 }
 .clear {
   clear: both;
@@ -129,67 +129,23 @@ a:visited {
   margin: 20px auto;
 }
 .container {
-    /* padding-top: 1em; */
-    /* margin-top: 1em; */
+     padding-top: 1em; 
+     margin-top: 1em;
 }
-a.button {
-  display: block;
-  position: relative;
-  float: left;
-  width: 120px;
-  padding: 0;
- /*  margin: 10px 20px 10px 0; */
-  margin:10px;
-  font-weight: 600;
-  text-align: center;
-  line-height: 50px;
-  color: #FFF;
-  border-radius: 5px;
-  transition: all 0.2s ;
+.btn-get-started {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 1px;
+    padding: 10px 20px;
+    border-radius: 4px;
+    transition: 0.5s;
+    line-height: 1;
+    color: #fff;
+    background: #4492ff;
+    border: none;
+    margin-left: 5px;
 }
-.btnLightBlue {
-  background: #5DC8CD;
-}
-.btnFloat {
-  background: none;
-  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.5);
-}
-.button_left:before {
-  content: '예약취소';
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 120px;
-  height: 50px;
-  border-radius: 5px;
-  transition: all 0.2s ;
-}
-.button_right:before {
-  content: '확인';
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 120px;
-  height: 50px;
-  border-radius: 5px;
-  transition: all 0.2s ;
-}
-.btnLightBlue.btnFloat:before {
-  background: #5DC8CD;
-}
-.btnFloat:before {
-  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.4);
-}
-.btnFloat:hover:before {
-  
-}
-.btnFloat:hover:before {
-  margin-top: -2px;
-  margin-left: 0px;
-  transform: scale(1.1,1.1);
-  -ms-transform: scale(1.1,1.1);
-  -webkit-transform: scale(1.1,1.1);
-  box-shadow: 0px 5px 5px -2px rgba(0, 0, 0, 0.25);
+.btn-get-started:hover {
+    background: #356dff;
 }

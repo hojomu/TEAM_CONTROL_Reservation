@@ -50,8 +50,8 @@
 </form>
 
    <div class="container">
-    <a href="#" onclick="return chk_form()" title="Button border lightblue" class="button button_left btnFloat btnLightBlue">예약취소</a>
-    <a href="#" onclick="return reservationEnd()" title="Button border lightblue" class="button button_right btnFloat btnLightBlue">확인</a>
+	<a href="#" onclick="return chk_form()" class="btn-get-started">예약취소</a>
+    <a href="#" onclick="return reservationEnd()" class="btn-get-started">예약확인</a>
     <div class="clear"></div>
   </div>
   
