@@ -128,8 +128,9 @@
 				<input type="password" id="adminPass" name="adminPass">
 				</div>
 			</div>
-			
+			<div class="manager_login_btn">
 	   		<button id="adminLoginBtn" type="button"  class="custom-btn btn-1">관리자 계정 로그인</button>
+	   		</div>
 	   		<div id="loginFailMessage"></div>
 	   		
 	       </form>

@@ -291,6 +291,11 @@ input:focus{
   margin: 15px;
 } */
 
+.manager_login_btn{
+	display: flex;
+	justify-content: center;
+}
+
 .custom-btn {
   width: 200px;
   height: 40px;
@@ -308,7 +313,8 @@ input:focus{
    7px 7px 20px 0px rgba(0,0,0,.1),
    4px 4px 5px 0px rgba(0,0,0,.1);
   outline: none;
-  margin: 15px;
+  margin-top: 15px;
+  margin-bottom: 10px;
   font-size: 0.8em;
 }
 .btn-1 {

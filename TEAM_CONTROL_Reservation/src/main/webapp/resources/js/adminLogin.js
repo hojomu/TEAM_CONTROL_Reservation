@@ -33,6 +33,7 @@ function adminLoginCheck(){
             if(responseData == ""){
             	console.log("로그인 실패")
             	loginFailMessageBox.innerText = "아이디 또는 비밀번호를 확인해주세요";
+            	loginFailMessageBox.style.color = "red";
             } else {
             	$("#manager-form").submit();
             }
