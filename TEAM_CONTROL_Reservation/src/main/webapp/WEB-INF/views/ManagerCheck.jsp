@@ -61,9 +61,12 @@
 		<span class="date_-">-</span>
 		<input type="date" id="now_date2" name="date2" class="date" value="${paging.cri.date2}">
 		
-		<input type="submit" value=" 검 색 " id="quiry" class="btn-get-started" >
-		
 	</div>	
+	
+	<div class="Manager_keyword">
+	<input type="text" name="keyword" class="keyword" value="${paging.cri.keyword}">
+	<input type="submit" value="검 색 " id="quiry" class="btn-get-started" >
+	</div>
 	
 	<!-- 아이콘 -->
 	<div class="Manager_icon">

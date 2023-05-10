@@ -16,43 +16,71 @@
 
 	<!-- 예약 정보 불러오기 select 0419 -->		
 	<select id="list" resultType="control.project.model.ReservationVO">
-		select * from reservation 
-		    <choose>
-               <when test="doctor1 != '' and doctor1 != null"> <!-- doctor1:검색용 화면에서 설정한 의료진 -->
-                   where doctor = #{doctor1}and date(reservationTime) between #{date1} and #{date2}order by reservationTime
-               </when>
-               <when test="doctor1 = ''"> 
-                   order by reservationTime 
-               </when>
-               <when test="doctor1 = null"> 
-                   order by reservationTime 
-               </when>
-               <otherwise>
-                   order by reservationTime 
-               </otherwise>
-
-            </choose>
-	   <!--   	limit #{skip}, #{amount}		-->
+	  <!-- 기본 쿼리 -->
+	  select *
+	  from reservation
+	  <choose>
+	    <when test="doctor1 != '' and doctor1 != null">
+	      <!-- 의료진 선택 시 -->
+	      where doctor = #{doctor1}
+	        and date(reservationTime) between #{date1} and #{date2}
+	      <if test="keyword != null">
+	        <choose>
+	          <when test="type=='T'.toString()"> <!-- type 조건이 있을 경우 -->
+	            and rno like concat('%',#{keyword},'%')
+	          </when>
+	          <otherwise>
+	            and (rno like concat('%',#{keyword},'%')
+	              or doctor like concat('%',#{keyword},'%')
+	              or medicalDept like concat('%',#{keyword},'%'))
+	          </otherwise>
+	        </choose>
+	      </if>
+	      order by reservationTime
+	    </when>
+	    <otherwise>
+	      <!-- 의료진 선택하지 않았을 경우 -->
+	      <if test="keyword != null">
+	        <choose>
+	          <when test="type=='T'.toString()"> <!-- type 조건이 있을 경우 -->
+	            where rno like concat('%',#{keyword},'%')
+	          </when>
+	          <otherwise>
+	            where rno like concat('%',#{keyword},'%')
+	              or doctor like concat('%',#{keyword},'%')
+	              or medicalDept like concat('%',#{keyword},'%')
+	              or personalNumber like concat('%',#{keyword},'%')
+	              or customerName like concat('%',#{keyword},'%')
+	          </otherwise>
+	        </choose>
+	      </if>
+	      order by rno desc
+	    </otherwise>
+	  </choose>
 	</select>
 	
 	<!-- 예약 전체 건수 불러오기 select 0419 -->	
 	<select id="total" resultType="int">
-		select count(*) from reservation
-            <choose>
-               <when test="doctor1 != '' and doctor1 != null"> <!-- doctor1:검색용 화면에서 설정한 의료진 -->
-                   where doctor = #{doctor1}and date(reservationTime) between #{date1} and #{date2}order by reservationTime
-               </when>
-               <when test="doctor1 = ''"> 
-                   order by reservationTime 
-               </when>
-               <when test="doctor1 = null"> 
-                   order by reservationTime 
-               </when>
-               <otherwise>
-                   order by reservationTime 
-               </otherwise>
-
-            </choose>
+	    select count(*) from reservation
+	    <choose>
+	        <when test="doctor1 != '' and doctor1 != null"> 
+	            where doctor = #{doctor1} and date(reservationTime) between #{date1} and #{date2}
+	        </when>
+	        <otherwise> 
+	            order by reservationTime 
+	        </otherwise>
+	    </choose>
+	    
+	    <if test="keyword != null">
+	        <choose>
+	            <when test="type=='T'.toString()">
+	                and rno like concat('%',#{keyword},'%')
+	            </when>
+	            <otherwise>
+	                and rno like concat('%',#{keyword},'%')
+	            </otherwise>
+	        </choose>
+	    </if> 
 	</select>
 	
 	<!-- 예약 상세정보 불러오기 select 0424 -->

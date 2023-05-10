@@ -82,6 +82,13 @@ select{
 	margin: 3px;
 }
 
+.keyword{
+	width: 300px;
+	height: 35px;
+	border-radius: 4px;
+	border: solid 1px #000;
+}
+
 .Manager_title{
 	text-align: center;
 	margin: 30px;
