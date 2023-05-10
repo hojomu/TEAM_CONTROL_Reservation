@@ -25,36 +25,29 @@
 	      where doctor = #{doctor1}
 	        and date(reservationTime) between #{date1} and #{date2}
 	      <if test="keyword != null">
-	        <choose>
-	          <when test="type=='T'.toString()"> <!-- type 조건이 있을 경우 -->
-	            and rno like concat('%',#{keyword},'%')
-	          </when>
-	          <otherwise>
-	            and (rno like concat('%',#{keyword},'%')
+	            and (
+	            rno like concat('%',#{keyword},'%')
 	              or doctor like concat('%',#{keyword},'%')
-	              or medicalDept like concat('%',#{keyword},'%'))
-	          </otherwise>
-	        </choose>
+	              or medicalDept like concat('%',#{keyword},'%')
+	              or personalNumber like concat('%',#{keyword},'%')
+	              or customerName like concat('%',#{keyword},'%')
+	              )
 	      </if>
 	      order by reservationTime
 	    </when>
 	    <otherwise>
 	      <!-- 의료진 선택하지 않았을 경우 -->
+	      where date(reservationTime) between #{date1} and #{date2}
 	      <if test="keyword != null">
-	        <choose>
-	          <when test="type=='T'.toString()"> <!-- type 조건이 있을 경우 -->
-	            where rno like concat('%',#{keyword},'%')
-	          </when>
-	          <otherwise>
-	            where rno like concat('%',#{keyword},'%')
+	            and (
+	            rno like concat('%',#{keyword},'%')
 	              or doctor like concat('%',#{keyword},'%')
 	              or medicalDept like concat('%',#{keyword},'%')
 	              or personalNumber like concat('%',#{keyword},'%')
 	              or customerName like concat('%',#{keyword},'%')
-	          </otherwise>
-	        </choose>
+	              )
 	      </if>
-	      order by rno desc
+	      order by reservationTime
 	    </otherwise>
 	  </choose>
 	</select>
